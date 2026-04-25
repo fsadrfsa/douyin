@@ -1,0 +1,196 @@
+{
+  "generated_at": "2026-04-23T20:21:12.257Z",
+  "root_causes": [
+    {
+      "id": "RC1",
+      "name": "Content-Cleaner 输出空 main_content",
+      "severity": "critical",
+      "matched_issues": 20,
+      "fix_type": "code-fix",
+      "auto_fixable": true,
+      "source_script": "content-cleaner (AI Skill) + distribute-cleaned.js",
+      "root_cause": "AI 输出 main_content 为空字符串 → validate-cleaned.js 不存在(无拦截) → distribute-cleaned.js 无防御性校验 → 空数据持久化",
+      "code_fixes": [
+        "P0: 创建 validate-cleaned.js，校验 main_content >= 300 字符",
+        "P0: distribute-cleaned.js:119 增加防御性校验 if(!result.main_content || result.main_content.length < 100)",
+        "P1: SKILL.md 强化 main_content 生成约束",
+        "P2: 修复已损坏数据：重置空 main_content 视频状态为 transcribed"
+      ]
+    },
+    {
+      "id": "RC2",
+      "name": "Stage1 时间戳字段遗漏",
+      "severity": "medium",
+      "matched_issues": 5,
+      "fix_type": "code-fix",
+      "auto_fixable": true,
+      "source_script": "stage1-blogger-discover.js + keyword-optimizer Skill",
+      "root_cause": "代码遗漏：stage1 更新 found_bloggers 时未赋值 last_found_at；外部 Skill 修改 search_count 时未同步 last_search_at",
+      "code_fixes": [
+        "P0: stage1-blogger-discover.js:962 增加 if(addResult.added>0) last_found_at = now()",
+        "P1: keyword-optimizer Skill 修改 search_count 时同步更新 last_search_at",
+        "P2: 数据修复：补全历史关键词的时间戳"
+      ]
+    },
+    {
+      "id": "RC3",
+      "name": "发现关键词无去重/无处理流程",
+      "severity": "medium",
+      "matched_issues": 2,
+      "fix_type": "code-fix",
+      "auto_fixable": true,
+      "source_script": "distribute-cleaned.js (写入 discovered-keywords.json)",
+      "root_cause": "写入 discovered-keywords.json 时无去重逻辑；797 个关键词全部 pending，缺少 review/promote 流程",
+      "code_fixes": [
+        "P0: distribute-cleaned.js 写入前检查关键词是否已存在",
+        "P1: 创建 discovered-keywords review 流程（自动/半自动提升）",
+        "P2: 清理重复条目"
+      ]
+    },
+    {
+      "id": "RC4",
+      "name": "抖音 API 不返回 play_count",
+      "severity": "low",
+      "matched_issues": 14,
+      "fix_type": "known-limitation",
+      "auto_fixable": false,
+      "source_script": "stage2-video-collect.js (三级降级策略)",
+      "root_cause": "抖音 Web API (/aweme/v1/web/aweme/post/) 不返回 play_count 字段，三级降级策略全部失败：API列表→0，详情API→0，DOM解析→不可靠",
+      "code_fixes": [
+        "INFO: 平台限制，非代码 Bug",
+        "P2: 考虑使用 digg_count (点赞数) 作为活跃度替代指标",
+        "P2: 优化 DOM 解析正则，提高提取准确率"
+      ]
+    },
+    {
+      "id": "RC5",
+      "name": "statistics.json 未同步更新",
+      "severity": "low",
+      "matched_issues": 1,
+      "fix_type": "auto-fix",
+      "auto_fixable": true,
+      "source_script": "更新 statistics.json 的脚本",
+      "root_cause": "博主增删后未重新计算 statistics.json",
+      "code_fixes": [
+        "P1: 博主增删操作后自动触发 statistics.json 更新",
+        "P2: 健康检查自动修复"
+      ]
+    },
+    {
+      "id": "RC6",
+      "name": "失败日志堆积",
+      "severity": "low",
+      "matched_issues": 1,
+      "fix_type": "manual",
+      "auto_fixable": false,
+      "source_script": "各阶段失败时写入 data/logs/failed-*.json",
+      "root_cause": "失败日志无自动清理/归档机制，长期堆积",
+      "code_fixes": [
+        "P1: 添加失败日志归档/清理机制（保留最近 N 天）",
+        "P2: 手动审查失败原因"
+      ]
+    }
+  ],
+  "fix_log": [
+    {
+      "rc": "RC1",
+      "action": "reset_empty_content",
+      "affected": 0,
+      "dry_run": true,
+      "detail": "重置 0 个空 main_content 视频状态为 transcribed"
+    },
+    {
+      "rc": "RC2",
+      "action": "fix_keyword_timestamps",
+      "affected": 11,
+      "dry_run": true,
+      "detail": "修复 11 个关键词时间戳"
+    },
+    {
+      "rc": "RC3",
+      "action": "dedup_discovered_keywords",
+      "affected": 1,
+      "dry_run": true,
+      "detail": "移除 1 个重复关键词"
+    },
+    {
+      "rc": "RC5",
+      "action": "sync_statistics",
+      "affected": 1,
+      "dry_run": true,
+      "detail": "total_bloggers: 37 → 33"
+    }
+  ],
+  "priority_summary": {
+    "P0": [
+      {
+        "rc": "RC1",
+        "fix": "P0: 创建 validate-cleaned.js，校验 main_content >= 300 字符"
+      },
+      {
+        "rc": "RC1",
+        "fix": "P0: distribute-cleaned.js:119 增加防御性校验 if(!result.main_content || result.main_content.length < 100)"
+      },
+      {
+        "rc": "RC2",
+        "fix": "P0: stage1-blogger-discover.js:962 增加 if(addResult.added>0) last_found_at = now()"
+      },
+      {
+        "rc": "RC3",
+        "fix": "P0: distribute-cleaned.js 写入前检查关键词是否已存在"
+      }
+    ],
+    "P1": [
+      {
+        "rc": "RC1",
+        "fix": "P1: SKILL.md 强化 main_content 生成约束"
+      },
+      {
+        "rc": "RC2",
+        "fix": "P1: keyword-optimizer Skill 修改 search_count 时同步更新 last_search_at"
+      },
+      {
+        "rc": "RC3",
+        "fix": "P1: 创建 discovered-keywords review 流程（自动/半自动提升）"
+      },
+      {
+        "rc": "RC5",
+        "fix": "P1: 博主增删操作后自动触发 statistics.json 更新"
+      },
+      {
+        "rc": "RC6",
+        "fix": "P1: 添加失败日志归档/清理机制（保留最近 N 天）"
+      }
+    ],
+    "P2": [
+      {
+        "rc": "RC1",
+        "fix": "P2: 修复已损坏数据：重置空 main_content 视频状态为 transcribed"
+      },
+      {
+        "rc": "RC2",
+        "fix": "P2: 数据修复：补全历史关键词的时间戳"
+      },
+      {
+        "rc": "RC3",
+        "fix": "P2: 清理重复条目"
+      },
+      {
+        "rc": "RC4",
+        "fix": "P2: 考虑使用 digg_count (点赞数) 作为活跃度替代指标"
+      },
+      {
+        "rc": "RC4",
+        "fix": "P2: 优化 DOM 解析正则，提高提取准确率"
+      },
+      {
+        "rc": "RC5",
+        "fix": "P2: 健康检查自动修复"
+      },
+      {
+        "rc": "RC6",
+        "fix": "P2: 手动审查失败原因"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1037 @@
+import { cli, Strategy } from '@jackwener/opencli/registry';
+import * as fs from 'fs';
+import * as path from 'path';
+import { PipelineStateManager } from './_shared/pipeline-state.js';
+import { StatisticsManager } from './_shared/statistics-manager.js';
+import { DEFAULT_DATA_DIR, PROJECT_ROOT, CAPTCHA_WAIT_TIME, validateArg, sanitizeFileName, getBloggerDirName, getBloggerMetadataPath, findBloggerSecUid } from './_shared/config.js';
+import {
+  DOUBAO_CHAT_URL,
+  getDoubaoTranscriptLines,
+  getDoubaoVisibleTurns,
+  sendDoubaoMessage,
+  waitForDoubaoResponse,
+  checkDoubaoCaptcha,
+} from '../doubao/utils.js';
+
+const DEFAULT_TIMEOUT = 300000;
+const statsManager = new StatisticsManager(DEFAULT_DATA_DIR);
+
+let currentBloggerId = null;
+let chatReuseCount = 0;
+const MAX_CHAT_REUSE = 10;
+
+function randomDelay(min = 2000, max = 5000) {
+  const delay = min + Math.random() * (max - min);
+  console.log(`等待 ${(delay / 1000).toFixed(1)} 秒...`);
+  return new Promise(resolve => setTimeout(resolve, delay));
+}
+
+async function startKeepAlive(page) {
+  await page.evaluate(`
+    if (window.__keepAliveInterval) {
+      clearInterval(window.__keepAliveInterval);
+      window.__keepAliveInterval = null;
+    }
+    
+    window.__triggerKeepAlive = function() {
+      Object.defineProperty(document, 'visibilityState', { get: () => 'visible', configurable: true });
+      Object.defineProperty(document, 'hidden', { get: () => false, configurable: true });
+      
+      document.dispatchEvent(new Event('visibilitychange'));
+      document.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: Math.random() * 1000, clientY: Math.random() * 800 }));
+      document.dispatchEvent(new MouseEvent('scroll', { bubbles: true }));
+      document.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'Shift' }));
+      document.dispatchEvent(new PointerEvent('pointermove', { bubbles: true, isPrimary: true }));
+      window.dispatchEvent(new Event('focus'));
+      window.dispatchEvent(new Event('scroll'));
+      window.dispatchEvent(new Event('resize'));
+      
+      var input = document.querySelector('textarea[data-testid="chat_input_input"], textarea[placeholder], [contenteditable="true"][placeholder]');
+      if (input) {
+        input.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+        input.dispatchEvent(new FocusEvent('focus', { bubbles: true }));
+        input.dispatchEvent(new MouseEvent('mouseover', { bubbles: true }));
+      }
+      
+      var messages = document.querySelectorAll('[class*="message"], [class*="response"], [data-testid*="message"], [class*="chat"]');
+      for (var i = 0; i < messages.length; i++) {
+        messages[i].dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+        messages[i].dispatchEvent(new MouseEvent('mouseover', { bubbles: true }));
+      }
+      
+      var scrollContainer = document.querySelector('[class*="scroll"]') || document.body;
+      scrollContainer.scrollTop += 1;
+      scrollContainer.scrollTop -= 1;
+    };
+    
+    window.__triggerKeepAlive();
+    window.__keepAliveInterval = setInterval(window.__triggerKeepAlive, 100);
+  `);
+}
+
+async function stopKeepAlive(page) {
+  await page.evaluate(`
+    if (window.__keepAliveInterval) {
+      clearInterval(window.__keepAliveInterval);
+      window.__keepAliveInterval = null;
+    }
+  `);
+}
+
+function readVideos() {
+  const filePath = path.join(DEFAULT_DATA_DIR, 'videos.json');
+  if (!fs.existsSync(filePath)) {
+    return { version: '1.0', updated_at: new Date().toISOString(), videos: [] };
+  }
+  try {
+    const content = fs.readFileSync(filePath, 'utf-8');
+    const data = JSON.parse(content);
+    if (!data.videos) {
+      data.videos = [];
+    }
+    return data;
+  } catch (error) {
+    console.error('读取视频列表失败:', error.message);
+    return { version: '1.0', updated_at: new Date().toISOString(), videos: [] };
+  }
+}
+
+function loadBloggerWhitelist() {
+  const whitelist = new Set();
+  const filePath = path.join(DEFAULT_DATA_DIR, 'bloggers.json');
+
+  if (!fs.existsSync(filePath)) {
+    console.log('⚠️  bloggers.json 不存在，跳过白名单过滤');
+    return whitelist;
+  }
+
+  try {
+    const content = fs.readFileSync(filePath, 'utf-8');
+    const bloggers = JSON.parse(content);
+
+    if (Array.isArray(bloggers)) {
+      for (const blogger of bloggers) {
+        if (blogger.name) whitelist.add(blogger.name);
+        if (blogger.author_id) whitelist.add(String(blogger.author_id));
+      }
+      console.log(`📝 已加载博主白名单：${whitelist.size} 个博主`);
+    }
+  } catch (error) {
+    console.error('读取博主列表失败:', error.message);
+  }
+
+  return whitelist;
+}
+
+function saveVideos(data) {
+  const filePath = path.join(DEFAULT_DATA_DIR, 'videos.json');
+  data.updated_at = new Date().toISOString();
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+}
+
+function updateVideoStatus(awemeId, status, extraData = {}) {
+  const data = readVideos();
+  const video = data.videos.find(v => v.aweme_id === awemeId);
+  if (video) {
+    video.status = status;
+    video.processed_at = new Date().toISOString();
+    Object.assign(video, extraData);
+    saveVideos(data);
+  }
+}
+
+function getInaccessibleVideoIds() {
+  const data = readVideos();
+  return new Set(data.videos.filter(v => v.status === 'inaccessible').map(v => v.aweme_id));
+}
+
+async function getVideoTitleFromBloggerFile(video) {
+  if (video.title) return video.title;
+
+  const secUid = await findBloggerSecUid(video.author, DEFAULT_DATA_DIR);
+  const metadataPath = getBloggerMetadataPath(video.author, secUid, DEFAULT_DATA_DIR);
+  
+  if (!fs.existsSync(metadataPath)) return `视频 ${video.aweme_id}`;
+  
+  try {
+    const content = fs.readFileSync(metadataPath, 'utf-8');
+    const metadata = JSON.parse(content);
+    const videoData = metadata.videos?.find(v => v.aweme_id === video.aweme_id);
+    if (videoData && videoData.title) return videoData.title;
+  } catch (error) {
+    console.error('读取博主元数据失败:', error.message);
+  }
+  
+  return `视频 ${video.aweme_id}`;
+}
+
+function getAnalyzedVideoIds() {
+  const analyzedIds = new Set();
+  const resultsDir = path.join(PROJECT_ROOT, 'results');
+  
+  if (!fs.existsSync(resultsDir)) {
+    return analyzedIds;
+  }
+  
+  const bloggerDirs = fs.readdirSync(resultsDir, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => dirent.name);
+  
+  for (const bloggerDir of bloggerDirs) {
+    const videosDir = path.join(resultsDir, bloggerDir, 'videos');
+    if (!fs.existsSync(videosDir)) {
+      continue;
+    }
+    
+    const files = fs.readdirSync(videosDir)
+      .filter(file => file.endsWith('.json'));
+    
+    for (const file of files) {
+      const awemeId = file.replace('.json', '');
+      analyzedIds.add(awemeId);
+    }
+  }
+  
+  return analyzedIds;
+}
+
+async function updateVideoStatusInBloggerFile(video, status) {
+  const secUid = await findBloggerSecUid(video.author, DEFAULT_DATA_DIR);
+  const metadataPath = getBloggerMetadataPath(video.author, secUid, DEFAULT_DATA_DIR);
+  
+  if (!fs.existsSync(metadataPath)) {
+    return;
+  }
+  
+  try {
+    const content = fs.readFileSync(metadataPath, 'utf-8');
+    const metadata = JSON.parse(content);
+    
+    if (!metadata.videos) {
+      metadata.videos = [];
+    }
+    
+    const videoData = metadata.videos.find(v => v.aweme_id === video.aweme_id);
+    if (videoData) {
+      videoData.status = status === '不可访问' ? 'inaccessible' : status;
+      videoData.processed_at = new Date().toISOString();
+    }
+    
+    metadata.updated_at = new Date().toISOString();
+    fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2), 'utf-8');
+  } catch (error) {
+    console.error('更新博主元数据失败:', error.message);
+  }
+}
+
+async function recordFailedAnalysis(video, errorMessage) {
+  const logDir = path.join(DEFAULT_DATA_DIR, 'logs');
+  if (!fs.existsSync(logDir)) {
+    fs.mkdirSync(logDir, { recursive: true });
+  }
+
+  const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+  const logFileName = `failed-analysis-${timestamp}.json`;
+  const logFilePath = path.join(logDir, logFileName);
+
+  const logEntry = {
+    timestamp: new Date().toISOString(),
+    video_id: video.aweme_id,
+    url: video.url,
+    author: video.author,
+    error: errorMessage,
+    stage: 'stage3',
+    retry_recommendation: '可尝试阶段四降级处理或手动检查视频链接'
+  };
+
+  try {
+    fs.writeFileSync(logFilePath, JSON.stringify(logEntry, null, 2), 'utf-8');
+    console.log(`  ✅ 失败日志已保存: ${logFileName}`);
+  } catch (error) {
+    console.error('  ⚠️ 保存失败日志失败:', error.message);
+  }
+}
+
+const PROMPT_FILE = path.join(path.dirname(import.meta.url.replace('file:///', '').replace('file://', '')), '_shared', 'prompts', 'video-analysis.txt');
+
+function getAnalysisFramework() {
+  try {
+    if (fs.existsSync(PROMPT_FILE)) {
+      const content = fs.readFileSync(PROMPT_FILE, 'utf-8').trim();
+      if (content) {
+        return content;
+      }
+    }
+    console.log('⚠️  提示词文件不存在或为空，使用内置 fallback');
+  } catch (error) {
+    console.log('⚠️  读取提示词文件失败，使用内置 fallback:', error.message);
+  }
+
+  return `你是一位视频文案处理专家。请按以下两阶段分析视频：
+
+**第一阶段：状态准入**
+判断视频是否可访问。不可访问时仅输出：
+{"quality": "inaccessible", "reason": "具体原因"}
+
+**第二阶段：文案整理**（仅可访问时执行）
+整理视频内容，输出：
+{"quality": "accessible", "topic": "核心主题", "main_content": "整理后文本", "category": "所属领域", "keywords": ["关键词1", "关键词2", "关键词3", "关键词4", "关键词5"], "summary": "博主风格与人设定位"}
+
+仅输出纯JSON，禁止包含Markdown标记或解释文字。`;
+}
+
+async function checkDoubaoBrowser(page) {
+  const debugMode = process.env.DOUBAO_DEBUG === 'true';
+  
+  if (debugMode) {
+    return {
+      available: true,
+      message: '调试模式已启用，跳过浏览器检查',
+      debugMode: true,
+    };
+  }
+  
+  try {
+    console.log('正在检查豆包登录态...');
+    await page.goto(DOUBAO_CHAT_URL, { waitUntil: 'load', settleMs: 2000 });
+    await startKeepAlive(page);
+    
+    const state = await page.evaluate(`
+      (() => {
+        const routerData = window._ROUTER_DATA?.loaderData?.chat_layout;
+        const placeholderNode = document.querySelector(
+          'textarea[data-testid="chat_input_input"], textarea[placeholder], [contenteditable="true"][placeholder], [aria-label*="发消息"], [aria-label*="Message"]'
+        );
+        return {
+          url: window.location.href,
+          title: document.title || '',
+          isLogin: typeof routerData?.userSetting?.data?.is_login === 'boolean'
+            ? routerData.userSetting.data.is_login
+            : null,
+          accountDescription: routerData?.accountInfo?.data?.description || '',
+          placeholder: placeholderNode?.getAttribute('placeholder')
+            || placeholderNode?.getAttribute('aria-label')
+            || '',
+        };
+      })()
+    `);
+    
+    if (state.isLogin === false) {
+      return {
+        available: false,
+        message: '豆包未登录，请先在浏览器中登录豆包',
+        debugMode: false,
+      };
+    }
+    
+    if (!state.placeholder) {
+      return {
+        available: false,
+        message: '未找到豆包输入框，请确保页面加载完成',
+        debugMode: false,
+      };
+    }
+    
+    return {
+      available: true,
+      message: '浏览器和豆包登录态检查通过',
+      debugMode: false,
+    };
+  } catch (error) {
+    return {
+      available: false,
+      message: `无法检查豆包登录态: ${error.message}`,
+      debugMode: false,
+    };
+  }
+}
+
+async function createNewChat(page) {
+  console.log('  创建新对话...');
+  await page.goto(DOUBAO_CHAT_URL, { waitUntil: 'load', settleMs: 2000 });
+  await startKeepAlive(page);
+  chatReuseCount = 1;
+  await randomDelay(500, 1000);
+}
+
+async function ensureChatForBlogger(page, bloggerId) {
+  if (currentBloggerId === bloggerId && chatReuseCount < MAX_CHAT_REUSE) {
+    chatReuseCount++;
+    console.log(`  复用当前对话 (${chatReuseCount}/${MAX_CHAT_REUSE})`);
+    return;
+  }
+
+  await createNewChat(page);
+  currentBloggerId = bloggerId;
+}
+
+async function analyzeVideo(page, videoUrl, awemeId, bloggerId, timeout) {
+  await ensureChatForBlogger(page, bloggerId);
+  await startKeepAlive(page);
+  
+  const captchaCheck = await checkDoubaoCaptcha(page);
+  if (captchaCheck.hasCaptcha) {
+    console.log('⚠️  检测到验证码，请手动完成验证...');
+    console.log('   验证码类型:', captchaCheck.hasCaptchaText ? '文本提示' : '页面元素');
+    console.log('   当前URL:', captchaCheck.url);
+    
+    const maxWaitTime = CAPTCHA_WAIT_TIME;
+    const startTime = Date.now();
+    
+    while (Date.now() - startTime < maxWaitTime) {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      const recheck = await checkDoubaoCaptcha(page);
+      if (!recheck.hasCaptcha) {
+        console.log('✅ 验证码已完成，继续执行...');
+        break;
+      }
+    }
+    
+    const finalCheck = await checkDoubaoCaptcha(page);
+    if (finalCheck.hasCaptcha) {
+      throw new Error('验证码未在规定时间内完成，请重试');
+    }
+  }
+  
+  let prompt;
+  const framework = getAnalysisFramework();
+  prompt = `${framework}\n\n请按照以上分析框架，分析这个视频：${videoUrl}`;
+  console.log(`  提示词长度: ${prompt.length} 字符 (包含分析框架)`);
+  
+  const beforeTurns = await getDoubaoVisibleTurns(page);
+  const beforeLines = await getDoubaoTranscriptLines(page);
+  
+  await sendDoubaoMessage(page, prompt);
+  
+  const timeoutSeconds = Math.floor(timeout / 1000);
+  const result = await waitForDoubaoResponse(page, beforeLines, beforeTurns, prompt, timeoutSeconds);
+  
+  if (!result) {
+    const captchaAfterSend = await checkDoubaoCaptcha(page);
+    if (captchaAfterSend.hasCaptcha) {
+      throw new Error('发送消息后出现验证码，请重试');
+    }
+    throw new Error(`分析超时 (${timeout}ms)`);
+  }
+  
+  console.log('  等待豆包完全就绪...');
+  await randomDelay(1500, 2500);
+
+  let readyCount = 0;
+  let maxReadyChecks = 10;
+  while (readyCount < 2 && maxReadyChecks > 0) {
+    try {
+      const { isDoubaoResponseComplete } = await import('../doubao/utils.js');
+      const isReady = await isDoubaoResponseComplete(page);
+      if (isReady) {
+        readyCount++;
+        console.log(`  就绪确认 (${readyCount}/2)`);
+        await page.wait(1);
+      } else {
+        readyCount = 0;
+        console.log('  等待豆包处理完成...');
+        await page.wait(2);
+      }
+      maxReadyChecks--;
+    } catch (error) {
+      console.log(`  就绪检测跳过: ${error.message}`);
+      break;
+    }
+  }
+
+  if (maxReadyChecks === 0 && readyCount < 2) {
+    console.log('  ⚠️  就绪确认超时，继续执行（内容可能不完整）');
+  }
+
+  return result;
+}
+
+function validateAndFixJson(jsonString) {
+  try {
+    JSON.parse(jsonString);
+    return jsonString;
+  } catch (e) {
+    console.log('  ⚠️  JSON格式错误，尝试修复...');
+    
+    let fixed = jsonString;
+    
+    fixed = fixed.replace(/([{,]\s*)(\w+)(\s*:)/g, '$1"$2"$3');
+    
+    fixed = fixed.replace(/:\s*'([^']*)'/g, ': "$1"');
+    
+    fixed = fixed.replace(/,\s*}/g, '}');
+    fixed = fixed.replace(/,\s*]/g, ']');
+    
+    fixed = fixed.replace(/[\u0000-\u001F]+/g, '');
+    
+    fixed = fixed.replace(/"\s*\n\s*"/g, '');
+    
+    try {
+      JSON.parse(fixed);
+      console.log('  ✅ JSON修复成功');
+      return fixed;
+    } catch (e2) {
+      console.log('  ❌ JSON修复失败:', e2.message);
+      return null;
+    }
+  }
+}
+
+function routeResponse(jsonData) {
+  if (jsonData.quality === 'inaccessible' || jsonData.quality === 'insufficient') {
+    return { stage: 1, action: 'markInaccessible' };
+  }
+  if (jsonData.topic !== undefined) {
+    return { stage: 2, action: 'processContent' };
+  }
+  return { stage: 'unknown', action: 'handleError' };
+}
+
+function parseAnalysisResult(result) {
+  const jsonCandidates = [];
+  const regex = /\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}/g;
+  let match;
+  while ((match = regex.exec(result)) !== null) {
+    jsonCandidates.push(match[0]);
+  }
+  
+  for (let i = jsonCandidates.length - 1; i >= 0; i--) {
+    const validatedJson = validateAndFixJson(jsonCandidates[i]);
+    if (validatedJson) {
+      try {
+        const parsed = JSON.parse(validatedJson);
+        if (parsed.quality !== undefined) {
+          return parsed;
+        }
+      } catch (e) {}
+    }
+  }
+
+  const jsonMatch = result.match(/\{[\s\S]*\}/);
+  if (jsonMatch) {
+    const validatedJson = validateAndFixJson(jsonMatch[0]);
+    if (validatedJson) {
+      try {
+        return JSON.parse(validatedJson);
+      } catch (e) {
+        console.log('  JSON解析失败:', e.message);
+      }
+    }
+  }
+
+  return null;
+}
+
+function readDiscoveredKeywords() {
+  const filePath = path.join(DEFAULT_DATA_DIR, 'discovered-keywords.json');
+  if (!fs.existsSync(filePath)) {
+    return { keywords: [] };
+  }
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  } catch (e) {
+    return { keywords: [] };
+  }
+}
+
+function saveDiscoveredKeywords(data) {
+  const filePath = path.join(DEFAULT_DATA_DIR, 'discovered-keywords.json');
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+}
+
+function addKeywordsToDiscovered(newKeywords) {
+  if (!newKeywords || newKeywords.length === 0) return;
+  const data = readDiscoveredKeywords();
+  const existing = data.keywords.map(k => k.keyword);
+  for (const keyword of newKeywords) {
+    if (!existing.includes(keyword)) {
+      data.keywords.push({
+        keyword,
+        source: 'video_analysis',
+        discovered_at: new Date().toISOString(),
+        status: 'pending',
+      });
+    }
+  }
+  saveDiscoveredKeywords(data);
+}
+
+async function analyzeVideoWithRetry(page, videoUrl, awemeId, bloggerId, timeout, maxRetries = 3) {
+  let lastError;
+  
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      console.log(`  尝试 ${attempt}/${maxRetries}...`);
+      const result = await analyzeVideo(page, videoUrl, awemeId, bloggerId, timeout);
+      
+      const jsonData = parseAnalysisResult(result);
+      if (!jsonData) {
+        console.log(`  ⚠️  尝试 ${attempt} JSON解析失败`);
+        lastError = new Error('JSON解析失败');
+        continue;
+      }
+
+      const route = routeResponse(jsonData);
+      
+      if (route.action === 'markInaccessible') {
+        console.log(`  ⚠️  视频不可访问/内容不充分: ${jsonData.reason || '未知原因'}`);
+        return {
+          type: 'inaccessible',
+          reason: jsonData.reason || '未知原因',
+          quality: jsonData.quality,
+          rawResult: result,
+        };
+      }
+      
+      if (route.action === 'processContent') {
+        return {
+          type: 'success',
+          jsonData,
+          rawResult: result,
+        };
+      }
+      
+      console.log(`  ⚠️  尝试 ${attempt} 分析结果无法路由`);
+      lastError = new Error('分析结果无法路由');
+    } catch (error) {
+      console.log(`  ❌ 尝试 ${attempt} 失败: ${error.message}`);
+      lastError = error;
+    }
+    
+    if (attempt < maxRetries) {
+      console.log(`  等待 5-10 秒后重试...`);
+      await randomDelay(5000, 10000);
+    }
+  }
+  
+  throw lastError;
+}
+
+async function saveAnalysisResult(video, jsonData, rawResult) {
+  const resultsDir = path.join(PROJECT_ROOT, 'results');
+  if (!fs.existsSync(resultsDir)) {
+    fs.mkdirSync(resultsDir, { recursive: true });
+  }
+
+  const secUid = await findBloggerSecUid(video.author, DEFAULT_DATA_DIR);
+  const bloggerDirName = getBloggerDirName(video.author, secUid);
+  const bloggerDir = path.join(resultsDir, bloggerDirName);
+  const videosDir = path.join(bloggerDir, 'videos');
+  
+  if (!fs.existsSync(bloggerDir)) {
+    fs.mkdirSync(bloggerDir, { recursive: true });
+  }
+  if (!fs.existsSync(videosDir)) {
+    fs.mkdirSync(videosDir, { recursive: true });
+  }
+  
+  const isInaccessible = jsonData.quality === 'inaccessible' || jsonData.quality === 'insufficient';
+  
+  const videoData = {
+    video_id: video.aweme_id,
+    url: video.url,
+    author: video.author,
+    author_id: video.author_id,
+    title: await getVideoTitleFromBloggerFile(video),
+    analyzed_at: new Date().toISOString(),
+    quality: jsonData.quality,
+  };
+
+  if (!isInaccessible) {
+    videoData.topic = jsonData.topic || null;
+    videoData.main_content = jsonData.main_content || null;
+  } else {
+    videoData.reason = jsonData.reason || null;
+  }
+  
+  const jsonFileName = `${video.aweme_id}.json`;
+  const jsonFilePath = path.join(videosDir, jsonFileName);
+  fs.writeFileSync(jsonFilePath, JSON.stringify(videoData, null, 2), 'utf-8');
+  
+  if (!isInaccessible) {
+    if (jsonData.keywords && Array.isArray(jsonData.keywords) && jsonData.keywords.length > 0) {
+      const validKeywords = jsonData.keywords.filter(k => k && k !== '未提及');
+      if (validKeywords.length > 0) {
+        addKeywordsToDiscovered(validKeywords);
+      }
+    }
+  }
+  
+  const fieldMapping = isInaccessible ? {} : {
+    category: (jsonData.category && jsonData.category !== '未提及') ? jsonData.category : null,
+    summary: (jsonData.summary && jsonData.summary !== '未提及') ? jsonData.summary : null,
+  };
+  await updateBloggerMetadata(video.author, secUid, videoData, fieldMapping);
+  
+  return jsonFilePath;
+}
+
+async function updateBloggerMetadata(author, secUid, newVideoData, fieldMapping = {}) {
+  const metadataPath = getBloggerMetadataPath(author, secUid, DEFAULT_DATA_DIR);
+  
+  let metadata = {
+    blogger_name: author,
+    blogger_id: null,
+    sec_uid: secUid,
+    blogger_url: secUid ? `https://www.douyin.com/user/${secUid}` : null,
+    follower_count: 0,
+    video_count: 0,
+    score: null,
+    source_keyword: null,
+    discovered_at: null,
+    last_fetch_time: null,
+    total_videos: 0,
+    accessible_count: 0,
+    inaccessible_count: 0,
+    last_analyzed_at: null,
+    videos: [],
+  };
+  
+  if (fs.existsSync(metadataPath)) {
+    try {
+      metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
+    } catch (e) {
+      console.log('  读取 metadata.json 失败，将重新创建');
+    }
+  }
+  
+  const bloggersPath = path.join(DEFAULT_DATA_DIR, 'bloggers.json');
+  let bloggers = [];
+  let bloggerIndex = -1;
+  if (fs.existsSync(bloggersPath)) {
+    try {
+      bloggers = JSON.parse(fs.readFileSync(bloggersPath, 'utf-8'));
+      if (!metadata.blogger_id) {
+        const blogger = bloggers.find(b => b.name === author);
+        if (blogger) {
+          metadata.blogger_id = blogger.author_id;
+          metadata.blogger_url = blogger.url || metadata.blogger_url;
+          metadata.follower_count = blogger.follower_count || 0;
+          metadata.video_count = blogger.video_count || 0;
+          metadata.score = blogger.score || null;
+          metadata.source_keyword = blogger.source_keyword || null;
+          metadata.discovered_at = blogger.discovered_at || null;
+          metadata.last_fetch_time = blogger.last_fetch_time || null;
+        }
+      }
+      bloggerIndex = bloggers.findIndex(b => b.name === author || b.author_id === metadata.blogger_id);
+    } catch (e) {}
+  }
+  
+  const existingIndex = metadata.videos.findIndex(v => v.video_id === newVideoData.video_id);
+  const videoSummary = {
+    video_id: newVideoData.video_id,
+    quality: newVideoData.quality,
+    analyzed_at: newVideoData.analyzed_at,
+    topic: newVideoData.topic || null,
+  };
+
+  if (existingIndex !== -1) {
+    const oldVideo = metadata.videos[existingIndex];
+    if (oldVideo.quality === 'accessible') metadata.accessible_count--;
+    if (oldVideo.quality === 'inaccessible' || oldVideo.quality === 'insufficient') metadata.inaccessible_count--;
+    metadata.videos[existingIndex] = videoSummary;
+  } else {
+    metadata.videos.push(videoSummary);
+  }
+  
+  if (newVideoData.quality === 'accessible') metadata.accessible_count++;
+  if (newVideoData.quality === 'inaccessible' || newVideoData.quality === 'insufficient') metadata.inaccessible_count++;
+  
+  metadata.total_videos = metadata.videos.length;
+  metadata.last_analyzed_at = newVideoData.analyzed_at;
+  
+  fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2), 'utf-8');
+
+  if (bloggerIndex !== -1 && (fieldMapping.category || fieldMapping.summary)) {
+    const blogger = bloggers[bloggerIndex];
+    let updated = false;
+    
+    if (fieldMapping.category) {
+      if (!blogger.categories_history) blogger.categories_history = [];
+      if (!blogger.categories_history.includes(fieldMapping.category)) {
+        blogger.categories_history.push(fieldMapping.category);
+        updated = true;
+      }
+    }
+    
+    if (fieldMapping.summary) {
+      if (!blogger.summaries) blogger.summaries = [];
+      if (!blogger.summaries.includes(fieldMapping.summary)) {
+        blogger.summaries.push(fieldMapping.summary);
+        updated = true;
+      }
+      blogger.summary = blogger.summaries.join('、');
+    }
+    
+    if (updated) {
+      fs.writeFileSync(bloggersPath, JSON.stringify(bloggers, null, 2), 'utf-8');
+    }
+  }
+}
+
+function groupVideosByBlogger(videos) {
+  const groups = new Map();
+  
+  for (const video of videos) {
+    const bloggerId = video.author_id || video.author;
+    if (!groups.has(bloggerId)) {
+      groups.set(bloggerId, []);
+    }
+    groups.get(bloggerId).push(video);
+  }
+  
+  return groups;
+}
+
+cli({
+  site: 'douyin-videos',
+  name: 'stage3',
+  description: '阶段三：内容分析 - 使用浏览器自动化分析视频内容',
+  domain: 'www.doubao.com',
+  strategy: Strategy.COOKIE,
+  timeoutSeconds: (kwargs) => {
+    const timeout = kwargs.timeout ?? 600;
+    const maxVideos = kwargs.max_videos ?? 15;
+    const baseTime = 60;
+    const perVideoTime = Math.min(timeout, 300);
+    const total = baseTime + (maxVideos * perVideoTime);
+    return Math.min(total, 7200);
+  },
+  args: [
+    { name: 'timeout', type: 'int', default: 600, help: '每个视频分析超时时间(秒)' },
+    { name: 'max_videos', type: 'int', default: 15, help: '最大处理视频数（建议不超过15）' },
+    { name: 'dry_run', type: 'boolean', default: false, help: '试运行，不保存结果' },
+  ],
+  columns: ['video_id', 'status', 'keywords', 'category'],
+  func: async (page, kwargs) => {
+    const timeout = validateArg('timeout', kwargs.timeout) * 1000;
+    const maxVideos = kwargs.max_videos ?? 15;
+    const dryRun = kwargs.dry_run;
+
+    const pipelineState = new PipelineStateManager(DEFAULT_DATA_DIR);
+    const errors = [];
+    const results = [];
+    const inaccessibleVideosList = [];
+
+    console.log('=== 阶段三：内容分析 ===\n');
+
+    const clientCheck = await checkDoubaoBrowser(page);
+    if (!clientCheck.available) {
+      const stageError = {
+        stage: 'stage3',
+        code: 'DOUBAO_NOT_LOGGED_IN',
+        message: clientCheck.message,
+        suggestion: '请在浏览器中登录豆包 (https://www.doubao.com)',
+        timestamp: new Date().toISOString(),
+      };
+      errors.push(stageError);
+      pipelineState.failStage('stage3', stageError);
+      console.log(`❌ ${clientCheck.message}`);
+      console.log('请在浏览器中登录豆包: https://www.doubao.com');
+      return [{ video_id: '-', status: 'error', keywords: '-', category: '-' }];
+    }
+
+    console.log(`✅ ${clientCheck.message}\n`);
+
+    if (!dryRun) {
+      pipelineState.startStage('stage3');
+    }
+
+    const videoData = readVideos();
+    let videos = videoData.videos || [];
+
+    if (videos.length === 0) {
+      const stageError = {
+        stage: 'stage3',
+        code: 'VIDEOS_EMPTY',
+        message: 'videos.json 为空，请先执行 stage2 采集视频',
+        suggestion: '运行 opencli douyin-videos stage2 来采集视频',
+        timestamp: new Date().toISOString(),
+      };
+      errors.push(stageError);
+      if (!dryRun) pipelineState.failStage('stage3', stageError);
+      return [{ video_id: '-', status: 'error', keywords: '-', category: '-' }];
+    }
+
+    const pendingVideos = videos.filter(v => v.status === 'pending');
+    console.log(`找到 ${videos.length} 个视频，其中 ${pendingVideos.length} 个待分析 (status: pending)\n`);
+    
+    videos = pendingVideos;
+
+    const bloggerWhitelist = loadBloggerWhitelist();
+    const originalCount = videos.length;
+    videos = videos.filter(video => {
+      const isInList = bloggerWhitelist.has(video.author) || bloggerWhitelist.has(video.author_id);
+      return isInList;
+    });
+    const filteredCount = originalCount - videos.length;
+
+    if (filteredCount > 0) {
+      console.log(`📋 博主白名单过滤：排除 ${filteredCount} 个不在博主列表中的视频`);
+      console.log(`   剩余 ${videos.length} 个待分析视频（来自已认证博主）\n`);
+    } else {
+      console.log(`✅ 全部 ${videos.length} 个视频均在博主列表中\n`);
+    }
+
+    if (videos.length === 0) {
+      console.log('⚠️  过滤后无待分析视频');
+      console.log('   提示：所有视频均不在当前博主列表中');
+      return [{ video_id: '-', status: 'no_videos', keywords: '-', category: '-' }];
+    }
+
+    const bloggerGroups = groupVideosByBlogger(videos);
+
+    let videosProcessed = 0;
+    let videosAnalyzed = 0;
+    let videosFailed = 0;
+    let videosInaccessible = 0;
+
+    for (const [bloggerId, bloggerVideos] of bloggerGroups) {
+      console.log(`\n========== 博主: ${bloggerVideos[0].author} (${bloggerVideos.length} 个视频) ==========`);
+
+      for (let i = 0; i < bloggerVideos.length; i++) {
+        if (videosProcessed >= maxVideos) {
+          console.log(`\n已达到最大处理数量 (${maxVideos})，停止处理`);
+          break;
+        }
+        const video = bloggerVideos[i];
+
+        console.log(`\n[${i + 1}/${bloggerVideos.length}] 分析视频: ${video.aweme_id}`);
+        const videoTitle = await getVideoTitleFromBloggerFile(video);
+        console.log(`标题: ${videoTitle.substring(0, 50)}${videoTitle.length > 50 ? '...' : ''}`);
+
+        videosProcessed++;
+
+        try {
+          const analysisResponse = await analyzeVideoWithRetry(
+            page,
+            video.url,
+            video.aweme_id,
+            bloggerId,
+            timeout,
+            3
+          );
+
+          if (analysisResponse.type === 'inaccessible') {
+            console.log(`⚠️  不可访问/内容不充分: ${analysisResponse.reason}`);
+
+            if (!dryRun) {
+              updateVideoStatus(video.aweme_id, 'inaccessible', {
+                fail_reason: analysisResponse.reason,
+                stage4_status: 'skipped_inaccessible',
+              });
+              await updateVideoStatusInBloggerFile(video, '不可访问');
+              console.log(`  ✅ 已更新 videos.json (状态: inaccessible)`);
+            }
+
+            results.push({
+              video_id: video.aweme_id,
+              status: 'inaccessible',
+              quality: analysisResponse.quality,
+              reason: analysisResponse.reason,
+            });
+
+            videosInaccessible++;
+            continue;
+          }
+
+          console.log('✅ 分析成功');
+
+          const jsonData = analysisResponse.jsonData;
+
+          if (!dryRun) {
+            await saveAnalysisResult(video, jsonData, analysisResponse.rawResult);
+            
+            updateVideoStatus(video.aweme_id, 'processed', {
+              quality: 'accessible',
+            });
+            await updateVideoStatusInBloggerFile(video, 'processed');
+            console.log(`  ✅ 已写入 results JSON (topic: ${jsonData.topic || '-'})`);
+            console.log(`  ✅ 已更新 videos.json (状态: processed, quality: accessible)`);
+
+            if (jsonData.category && jsonData.category !== '未提及') {
+              console.log(`  ✅ 已写入 bloggers.json (category: ${jsonData.category})`);
+            }
+            if (jsonData.summary && jsonData.summary !== '未提及') {
+              console.log(`  ✅ 已写入 bloggers.json (summary: ${jsonData.summary.substring(0, 30)}...)`);
+            }
+            if (jsonData.keywords && jsonData.keywords.length > 0) {
+              const validKw = jsonData.keywords.filter(k => k && k !== '未提及');
+              if (validKw.length > 0) {
+                console.log(`  ✅ 已写入 discovered-keywords.json (${validKw.length} 个关键词)`);
+              }
+            }
+
+            statsManager.incrementAnalyzedVideos();
+            if (jsonData.keywords) {
+              statsManager.addKeywords(jsonData.keywords.filter(k => k && k !== '未提及'));
+            }
+            if (jsonData.category && jsonData.category !== '未提及') {
+              statsManager.addCategory(jsonData.category);
+            }
+
+            results.push({
+              video_id: video.aweme_id,
+              status: 'success',
+              quality: 'accessible',
+              keywords: (jsonData.keywords || []).filter(k => k && k !== '未提及').join(', '),
+              category: jsonData.category !== '未提及' ? jsonData.category : '-',
+              topic: jsonData.topic || '-',
+            });
+          }
+
+          videosAnalyzed++;
+        } catch (error) {
+          console.log(`❌ 分析失败: ${error.message}`);
+
+          if (!dryRun) {
+            updateVideoStatus(video.aweme_id, 'inaccessible', {
+              fail_reason: error.message,
+              stage4_status: 'failed_analysis',
+            });
+            console.log(`  ✅ 已更新 videos.json (状态: inaccessible)`);
+
+            await recordFailedAnalysis(video, error.message);
+            statsManager.incrementFailedVideos();
+          }
+
+          videosFailed++;
+        }
+
+        if (i < bloggerVideos.length - 1) {
+          await randomDelay(1000, 2000);
+        } else {
+          await randomDelay(2000, 4000);
+        }
+      }
+      
+      if (videosProcessed >= maxVideos) {
+        break;
+      }
+    }
+
+    if (!dryRun) {
+      const videosData = readVideos();
+      const inaccessibleCount = videosData.videos.filter(v => v.status === 'inaccessible').length;
+      pipelineState.completeStage('stage3', {
+        videosProcessed,
+        videosAnalyzed,
+        videosInaccessible,
+        videosFailed,
+      });
+    }
+
+    await stopKeepAlive(page);
+
+    console.log('\n=== 阶段三完成 ===');
+    console.log(`处理视频: ${videosProcessed}`);
+    console.log(`分析成功: ${videosAnalyzed}`);
+    console.log(`不可访问/不充分: ${videosInaccessible}`);
+    console.log(`分析失败: ${videosFailed}`);
+
+    return results.length > 0
+      ? results
+      : [{ video_id: '-', status: 'no_videos', keywords: '-', category: '-' }];
+  },
+});

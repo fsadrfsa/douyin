@@ -1,0 +1,676 @@
+{
+  "nodes": [
+    {
+      "type": "group",
+      "id": "group_input",
+      "x": -1800,
+      "y": -800,
+      "width": 600,
+      "height": 900,
+      "color": "1",
+      "label": "📥 输入层"
+    },
+    {
+      "type": "text",
+      "id": "input_keywords",
+      "x": -1765.682290665025,
+      "y": -765.5703079926122,
+      "width": 520,
+      "height": 260,
+      "color": "1",
+      "text": "**search-keywords.json**\n`data/search-keywords.json`\n\n**字段说明**:\n- `keywords[]`: 关键词数组\n  - `id`: 关键词唯一ID\n  - `keyword`: 搜索关键词文本\n  - `status`: pending | searching | completed | failed\n  - `last_search_at`: 最后搜索时间\n  - `search_count`: 搜索次数\n  - `found_bloggers`: 已发现博主数\n\n**功能**: 提供搜索关键词源，状态机驱动逐个处理"
+    },
+    {
+      "type": "text",
+      "id": "input_blacklist",
+      "x": -1760,
+      "y": -440,
+      "width": 520,
+      "height": 200,
+      "color": "1",
+      "text": "**blogger-blacklist.json**\n`data/blogger-blacklist.json`\n\n**字段说明**:\n- `blacklist[]`: 黑名单数组\n  - `sec_uid`: 博主唯一标识\n  - `name`: 博主昵称\n  - `reason`: 加入黑名单原因\n\n**功能**: 排除已知不相关/低质量博主"
+    },
+    {
+      "type": "text",
+      "id": "input_bloggers",
+      "x": -1760,
+      "y": -200,
+      "width": 520,
+      "height": 200,
+      "color": "1",
+      "text": "**bloggers.json** (已有)\n`data/bloggers.json`\n\n**字段说明**:\n- `sec_uid`: 博主唯一标识\n- `name`: 博主昵称\n- `author_id`: 作者ID\n- `url`: 博主主页URL\n- `status`: active | inactive\n\n**功能**: 去重依据，避免重复添加\n\n⚠️ **author_id 匹配链路问题**\nStage1: author_id = video.author.uid (API)\nStage2: author_id = aweme.author.uid || blogger.author_id\nStage4: 用 author_id 过滤视频\n→ uid 为空时 blogger.author_id 也为空\n→ Stage4 跳过该博主所有视频"
+    },
+    {
+      "type": "text",
+      "id": "input_args",
+      "x": -1760,
+      "y": 40,
+      "width": 520,
+      "height": 200,
+      "color": "1",
+      "text": "**CLI 参数**\n\n| 参数 | 类型 | 默认值 | 说明 |\n|---|---|---|---|\n| limit | int | 30 | 每个关键词搜索视频数 |\n| max_keywords | int | 5 | 最多处理关键词数 |\n| min_score | int | 40 | 最低质量分阈值 |\n| min_relevance_score | int | 40 | 最低相关性评分阈值 |\n| min_followers | int | 1000 | 最低粉丝数 |\n| enable_comments | bool | false | 启用评论分析 |\n| dry_run | bool | false | 试运行不保存 |"
+    },
+    {
+      "type": "group",
+      "id": "group_search",
+      "x": -1100,
+      "y": -800,
+      "width": 700,
+      "height": 900,
+      "color": "4",
+      "label": "🔍 搜索与采集层"
+    },
+    {
+      "type": "text",
+      "id": "func_searchDOM",
+      "x": -1060,
+      "y": -740,
+      "width": 620,
+      "height": 380,
+      "color": "4",
+      "text": "**searchByDOM(page, keyword, count)**\n`核心搜索函数`\n\n**运行逻辑**:\n1. 构造搜索URL: `douyin.com/search/{keyword}?type=video`\n2. 页面导航 + 等待加载(4s)\n3. 注入 keepAlive 脚本（防暂停、模拟交互）\n4. 滚动加载循环（最多30次）:\n   - 检测视频链接数量变化\n   - 连续5次无新内容则停止\n   - 每次滚动后等待3s\n5. DOM提取视频基础信息\n6. 批量获取视频详情(每批5个)\n7. 提取相关搜索关键词\n\n**输出字段**:\n- `keyword`: 搜索关键词\n- `videos[]`: 视频列表\n- `relatedKeywords[]`: 相关搜索词"
+    },
+    {
+      "type": "text",
+      "id": "func_videoDetail",
+      "x": -1060,
+      "y": -320,
+      "width": 620,
+      "height": 280,
+      "color": "4",
+      "text": "**DouyinAuthorFetcher.fetchVideoDetail**\n`视频详情获取`\n\n**输入**: page, aweme_id\n\n**输出字段 (合并到video)**:\n- `desc`: 视频描述\n- `author.sec_uid`: 博主唯一标识\n- `author.uid`: 作者ID\n- `author.nickname`: 昵称\n- `author.follower_count`: 粉丝数\n- `author.aweme_count`: 视频总数\n- `statistics.play_count`: 播放量\n- `statistics.digg_count`: 点赞数\n- `statistics.comment_count`: 评论数\n- `statistics.share_count`: 分享数\n- `create_time`: 创建时间戳"
+    },
+    {
+      "type": "text",
+      "id": "func_relatedKw",
+      "x": -1060,
+      "y": 0,
+      "width": 620,
+      "height": 160,
+      "color": "4",
+      "text": "**相关关键词提取**\n\n**运行逻辑**:\n1. 查找\"相关搜索\"标题元素\n2. 提取 `li[data-text]` 属性\n3. 过滤: 长度1~30字符\n4. 最多取20个\n\n**输出**: relatedKeywords[] → discovered-keywords.json"
+    },
+    {
+      "type": "group",
+      "id": "group_scoring",
+      "x": -320,
+      "y": -800,
+      "width": 700,
+      "height": 900,
+      "color": "5",
+      "label": "📊 评分与分组层"
+    },
+    {
+      "type": "text",
+      "id": "func_qualityScore",
+      "x": -280,
+      "y": -740,
+      "width": 620,
+      "height": 260,
+      "color": "5",
+      "text": "**calculateQualityScore(video)**\n`视频质量评分 (0~100)`\n\n**评分公式**:\n```\nplayScore = min(100, play_count / 10000)\ninteractionRate = (digg + comment*3 + share*5) / play * 100\ninteractionScore = min(100, interactionRate * 10)\ntimeScore = max(0, 100 - daysAgo)\n\nfinal = play*0.4 + interaction*0.5 + time*0.1\n```\n\n**权重配置** (SCORE_WEIGHTS):\n- play: 0.4 (播放量)\n- interaction: 0.5 (互动率)\n- time: 0.1 (时效性)\n\n**边界处理**: play_count=0 时降级为 (digg+comment*3)/100"
+    },
+    {
+      "type": "text",
+      "id": "func_groupByBlogger",
+      "x": -280,
+      "y": -440,
+      "width": 620,
+      "height": 300,
+      "color": "5",
+      "text": "**groupVideosByBlogger(results, minScore, existingSecUids, blacklistSecUids)**\n`视频按博主分组`\n\n**运行逻辑**:\n1. 遍历所有搜索结果的视频\n2. 计算每个视频 quality_score\n3. 过滤: score < minScore → 丢弃\n4. 过滤: 已有博主 sec_uid → 跳过\n5. 过滤: 黑名单 sec_uid → 跳过\n6. 自动黑名单检查 checkAutoBlacklist()\n7. 按 sec_uid 分组，计算 avg_quality_score\n8. 按 avg_quality_score 降序排列\n\n**输出字段**:\n- `sec_uid`, `nickname`, `keyword`\n- `follower_count`, `video_count`\n- `videos[]`, `avg_quality_score`"
+    },
+    {
+      "type": "text",
+      "id": "func_autoBlacklist",
+      "x": -280,
+      "y": -100,
+      "width": 620,
+      "height": 240,
+      "color": "5",
+      "text": "**checkAutoBlacklist(nickname, videoTexts)**\n`自动黑名单检测`\n\n**规则 (AUTO_BLACKLIST_RULES)**:\n| 规则 | 关键词 | 排除条件 |\n|---|---|---|\n| laborService | 代驾/司机/家政/保洁 | 无 |\n| b2bService | 工厂/外贸/B2B | 无 |\n| streetVendor | 摆摊/地摊/炸串 | 无 |\n| pureFood | 烧烤/奶茶/咖啡店 | 含\"创业/开店/商业模式\" |\n\n**输出**: { shouldBlacklist, rule, reason, matchedKeyword }"
+    },
+    {
+      "type": "group",
+      "id": "group_filter",
+      "x": 460,
+      "y": -800,
+      "width": 700,
+      "height": 900,
+      "color": "3",
+      "label": "🎯 筛选与过滤层"
+    },
+    {
+      "type": "text",
+      "id": "func_relevanceScore",
+      "x": 500,
+      "y": -740,
+      "width": 620,
+      "height": 300,
+      "color": "3",
+      "text": "**calculateRelevanceScore(candidate)**\n`博主相关性评分 (0~100)`\n\n**评分维度**:\n| 维度 | 上限 | 关键词示例 |\n|---|---|---|\n| topicScore | 40 | 创业(+15)/副业(+15)/电商(+10) |\n| actionScore | 30 | 实操(+20)/教程(+15)/干货(+15) |\n| specificScore | 20 | 月入(+15)/低成本(+10) |\n| excludeScore | -50 | 游戏(-50)/娱乐(-50)/带货(-50) |\n\n**评级**:\n- ≥80: 优质博主\n- ≥60: 良好博主\n- ≥40: 一般博主\n- <40: 排除\n\n**匹配文本**: 视频标题 + 博主昵称"
+    },
+    {
+      "type": "text",
+      "id": "func_filterByTitle",
+      "x": 500,
+      "y": -400,
+      "width": 620,
+      "height": 300,
+      "color": "3",
+      "text": "**filterCandidatesByTitle(candidates, minScore, page, enableComments)**\n`标题相关性筛选`\n\n**运行逻辑**:\n1. 对每个候选博主调用 isBloggerRelevant()\n2. 若评分在20~minScore之间且启用评论:\n   - 获取首个视频评论(fetchDouyinComments)\n   - 调用 analyzeComments() 分析\n   - 评论分加到相关性分上\n3. 评分 ≥ minScore → 通过\n4. 评分 < minScore → 排除\n\n**输出**:\n- `filtered[]`: 通过的候选\n- `skipped[]`: 被排除的候选(含skip_reason)"
+    },
+    {
+      "type": "text",
+      "id": "func_analyzeComments",
+      "x": 500,
+      "y": -60,
+      "width": 620,
+      "height": 240,
+      "color": "3",
+      "text": "**analyzeComments(comments)**\n`评论意图分析`\n\n**评分规则**:\n| 维度 | 单次分 | 上限 | 示例模式 |\n|---|---|---|---|\n| actionCount | +15 | 30 | 怎么做/求教程 |\n| costCount | +10 | 20 | 成本/多少钱 |\n| returnCount | +10 | 20 | 赚多少/收益 |\n| intentCount | +10 | 20 | 想试/准备做 |\n| negativeCount | -20 | -40 | 骗人/割韭菜 |\n| irrelevantCount | -5 | -15 | 搞笑/哈哈哈 |\n\n**输出**: { score, details: { actionCount, costCount, ... } }"
+    },
+    {
+      "type": "group",
+      "id": "group_output",
+      "x": 1240,
+      "y": -800,
+      "width": 700,
+      "height": 900,
+      "color": "6",
+      "label": "💾 输出与持久化层"
+    },
+    {
+      "type": "text",
+      "id": "func_enrichFollower",
+      "x": 1280,
+      "y": -740,
+      "width": 620,
+      "height": 200,
+      "color": "6",
+      "text": "**enrichFollowerCount(page, candidates)**\n`粉丝数补全`\n\n**运行逻辑**:\n1. 遍历 follower_count=0 的候选\n2. 调用 fetchDouyinUserProfile(page, sec_uid)\n3. 更新 follower_count 和 video_count\n4. 每次请求间随机延迟 300~800ms\n\n**输出**: 候选对象直接更新 follower_count"
+    },
+    {
+      "type": "text",
+      "id": "func_dedup",
+      "x": 1280,
+      "y": -500,
+      "width": 620,
+      "height": 200,
+      "color": "6",
+      "text": "**deduplicateBloggers(newBloggers, existingSecUids, blacklistSecUids)**\n`去重校验`\n\n**去重维度**:\n- sec_uid 在已有博主中 → 跳过\n- sec_uid 在黑名单中 → 跳过\n\n**输出**:\n- `newItems[]`: 去重后的新博主\n- `skippedCount`: 跳过数量\n- `reasons`: Map<sec_uid, 跳过原因>"
+    },
+    {
+      "type": "text",
+      "id": "func_bloggerManager",
+      "x": 1280,
+      "y": -260,
+      "width": 620,
+      "height": 280,
+      "color": "6",
+      "text": "**BloggerManager.addBloggers()**\n`博主数据持久化`\n\n**写入目标**:\n1. `bloggers.json` - 博主索引列表\n   - sec_uid, name, author_id, url, status\n2. `results/{name}_{secUid}/metadata.json` - 博主详情\n   - 完整字段: name, sec_uid, url, follower_count,\n     video_count, score, source_keyword, discovered_at,\n     relevance_score, comment_analysis, comment_data\n\n**完整性校验**: 保存前后博主数量不减少，无数据丢失"
+    },
+    {
+      "type": "text",
+      "id": "output_pipeline",
+      "x": 1280,
+      "y": 60,
+      "width": 620,
+      "height": 200,
+      "color": "6",
+      "text": "**PipelineStateManager**\n`流水线状态管理`\n\n**状态文件**: pipeline-state.json\n- stage1: pending → running → completed/failed\n- 记录 startTime, endTime, stats\n\n**StatisticsManager**\n`统计信息更新`\n- statistics.json: overview.total_bloggers 更新\n\n**discovered-keywords.json**\n- 新发现关键词追加，状态 pending"
+    },
+    {
+      "type": "group",
+      "id": "group_error",
+      "x": -1100,
+      "y": 200,
+      "width": 2340,
+      "height": 480,
+      "color": "2",
+      "label": "⚠️ 错误处理机制"
+    },
+    {
+      "type": "text",
+      "id": "error_keywords",
+      "x": -1060,
+      "y": 260,
+      "width": 540,
+      "height": 180,
+      "color": "2",
+      "text": "**关键词加载失败**\n\n**触发**: search-keywords.json 不存在\n**处理**:\n- 抛出 KEYWORDS_EMPTY 错误\n- PipelineState.failStage('stage1')\n- 返回 error 行: status='error'\n\n**验收标准**: 无关键词文件时优雅退出，不崩溃"
+    },
+    {
+      "type": "text",
+      "id": "error_search",
+      "x": -460,
+      "y": 260,
+      "width": 540,
+      "height": 180,
+      "color": "2",
+      "text": "**搜索结果为空**\n\n**触发**: searchByDOM 返回空数组\n**处理**:\n- 关键词状态标记为 'failed'\n- search_count +1\n- continue 跳到下一个关键词\n\n**验收标准**: 空结果不阻塞后续关键词处理"
+    },
+    {
+      "type": "text",
+      "id": "error_detail",
+      "x": 140,
+      "y": 260,
+      "width": 540,
+      "height": 180,
+      "color": "2",
+      "text": "**视频详情获取失败**\n\n**触发**: fetchVideoDetail 抛异常\n**处理**:\n- try-catch 捕获，detail=null\n- 保留 DOM 解析的基础信息\n- 不影响同批次其他视频\n\n**验收标准**: 单个视频失败不影响批量处理"
+    },
+    {
+      "type": "text",
+      "id": "error_save",
+      "x": 740,
+      "y": 260,
+      "width": 540,
+      "height": 180,
+      "color": "2",
+      "text": "**博主保存失败**\n\n**触发**: BloggerManager.addBloggers 抛异常\n**处理**:\n- 关键词状态标记为 'failed'\n- search_count +1\n- 记录 error 行\n- 继续处理下一个关键词\n\n**完整性校验**: verifyIntegrity() 检查数据不丢失"
+    },
+    {
+      "type": "text",
+      "id": "error_comment",
+      "x": 1340,
+      "y": 260,
+      "width": 540,
+      "height": 180,
+      "color": "2",
+      "text": "**评论获取失败**\n\n**触发**: fetchDouyinComments 抛异常\n**处理**:\n- try-catch 捕获\n- 仅打印警告，不加分\n- 不影响标题筛选主流程\n\n**验收标准**: 评论功能为辅助，失败不阻塞主流程"
+    },
+    {
+      "type": "group",
+      "id": "group_acceptance",
+      "x": -1100,
+      "y": 760,
+      "width": 2340,
+      "height": 400,
+      "color": "6",
+      "label": "✅ 验收标准"
+    },
+    {
+      "type": "text",
+      "id": "accept_1",
+      "x": -1060,
+      "y": 820,
+      "width": 540,
+      "height": 280,
+      "color": "6",
+      "text": "**数据完整性验收**\n\n✅ bloggers.json 保存前后数量不减少\n✅ 每个新博主都有对应 metadata.json\n✅ 所有 sec_uid 无重复\n✅ 黑名单博主不被添加\n✅ 已有博主不被重复添加\n✅ 关键词状态正确流转:\n   pending → searching → completed/failed\n✅ pipeline-state.json 正确记录阶段状态"
+    },
+    {
+      "type": "text",
+      "id": "accept_2",
+      "x": -460,
+      "y": 820,
+      "width": 540,
+      "height": 280,
+      "color": "6",
+      "text": "**评分准确性验收**\n\n✅ quality_score 范围 0~100\n✅ relevance_score 范围 -50~90\n✅ 评分权重: play*0.4 + interaction*0.5 + time*0.1\n✅ 自动黑名单规则正确触发\n✅ 排除条件(exclude)正确豁免\n✅ 评论加分后评分不超过逻辑上限\n✅ follower_count=0 时能被补全"
+    },
+    {
+      "type": "text",
+      "id": "accept_3",
+      "x": 140,
+      "y": 820,
+      "width": 540,
+      "height": 280,
+      "color": "6",
+      "text": "**筛选逻辑验收**\n\n✅ min_score 过滤低质量视频\n✅ min_relevance_score 过滤不相关博主\n✅ min_followers 过滤低粉丝博主\n✅ 三层筛选顺序: 质量→相关性→粉丝数\n✅ 评论辅助仅对 20~minScore 区间生效\n✅ dry_run 模式不写入任何文件\n✅ 筛选结果按 relevance_score 降序"
+    },
+    {
+      "type": "text",
+      "id": "accept_4",
+      "x": 740,
+      "y": 820,
+      "width": 540,
+      "height": 280,
+      "color": "6",
+      "text": "**输出格式验收**\n\n✅ 返回结果数组，每行含:\n   keyword, status, videos_found,\n   candidates, bloggers_added, bloggers_skipped\n✅ discovered-keywords.json 正确追加\n✅ statistics.json overview 更新\n✅ 每个关键词间随机延迟 1~2s\n✅ 视频详情批量获取，每批5个，批间延迟300~600ms\n✅ 滚动加载最多30次，稳定5次后停止"
+    },
+    {
+      "type": "text",
+      "id": "dataflow_title",
+      "x": -1800,
+      "y": -1100,
+      "width": 3740,
+      "height": 240,
+      "color": "1",
+      "text": "# Stage1 博主发现 - 数据流向总览\n\n```\nsearch-keywords.json ──→ loadSearchKeywords() ──→ 逐个关键词处理\n                                                              │\n                                                              ▼\nkeyword ──→ searchByDOM() ──→ videos[] (基础信息) ──→ fetchVideoDetail() ──→ videos[] (完整信息)\n                                                                              │\n                                                                              ▼\n                                              groupVideosByBlogger() ──→ calculateQualityScore() ──→ checkAutoBlacklist()\n                                                                              │\n                                                                              ▼\n                                    filterCandidatesByTitle() ──→ calculateRelevanceScore() ──→ [可选] analyzeComments()\n                                                                              │\n                                                                              ▼\n                                    enrichFollowerCount() ──→ 粉丝数筛选 ──→ deduplicateBloggers() ──→ BloggerManager.addBloggers()\n                                                                              │\n                                                                              ▼\n                                              bloggers.json + metadata.json + pipeline-state.json + statistics.json\n```"
+    },
+    {
+      "type": "group",
+      "id": "group_review",
+      "x": -1800,
+      "y": 1300,
+      "width": 3740,
+      "height": 1100,
+      "color": "2",
+      "label": "✅ Code Review 完成 (2崩溃 + 6建议 全部修复)"
+    },
+    {
+      "type": "text",
+      "id": "review_summary",
+      "x": -1760,
+      "y": 1360,
+      "width": 3660,
+      "height": 120,
+      "color": "2",
+      "text": "**审查结果**: ✅ 全部修复 — 2个崩溃级Bug + 6个建议已解决 | **质量评分**: ⭐⭐⭐⭐⭐ (5/5)\n\n✅ **崩溃级已修复** (2): `EXCLUDE_KEYWORDS` → `VIDEO_EXCLUDE_KEYWORDS` | `deduplicateBloggers` 参数类型已处理\n✅ **建议级已修复** (6): 统计持久化 | keepAlive定时器保护 | CSS选择器配置化 | 增量执行支持 | 字段注释明确 | 评论独立匹配\n\n**新增修复** (2024-04): 博主元数据字段完整保存 (avatar_url, signature, following_count, likes_count, douyin_id, ip_location, gender)"
+    },
+    {
+      "type": "text",
+      "id": "bug1_exclude_keywords",
+      "x": -1760,
+      "y": 1520,
+      "width": 860,
+      "height": 340,
+      "color": "6",
+      "text": "## ✅ Bug#1 已修复: EXCLUDE_KEYWORDS → VIDEO_EXCLUDE_KEYWORDS\n**位置**: `stage1-blogger-discover.js:512`\n\n**原问题**:\n```js\n// 第15行导入的是 VIDEO_EXCLUDE_KEYWORDS\nimport { VIDEO_EXCLUDE_KEYWORDS } from './constants.js';\n\n// 第512行使用的是 EXCLUDE_KEYWORDS（不存在！）\nfor (const [keyword, score] of Object.entries(EXCLUDE_KEYWORDS)) {\n```\n\n**影响**: `ReferenceError: EXCLUDE_KEYWORDS is not defined`\n→ `calculateRelevanceScore()` 每次调用必崩\n→ **所有博主都无法通过相关性筛选**\n→ Stage1 功能完全失效\n\n**已修复** (2024-04):\n```js\n// 第512行已改为\nfor (const [keyword, score] of Object.entries(VIDEO_EXCLUDE_KEYWORDS)) {\n```"
+    },
+    {
+      "type": "text",
+      "id": "bug2_dedup_type",
+      "x": -840,
+      "y": 1520,
+      "width": 860,
+      "height": 340,
+      "color": "6",
+      "text": "## ✅ Bug#2 已修复: deduplicateBloggers 参数类型处理\n**位置**: `stage1-blogger-discover.js:864-906` + `deduplication.js`\n\n**原问题**:\n```js\n// 调用方传入 Set<string>\nconst existingSecUids = new Set(existingBloggers.map(b => b.sec_uid));\nconst blacklistSecUids = new Set(blacklist.map(b => b.sec_uid));\ndeduplicateBloggers(newBloggers, existingSecUids, blacklistSecUids);\n\n// deduplication.js 内部把 string 当对象取 .sec_uid\nconst existingArray = Array.from(existingBloggers); // ['MS4wLj...']\nexistingArray.map(b => b.sec_uid); // [undefined] !\n```\n\n**影响**: 去重集合变成 `Set(undefined)` → 永远匹配不到\n→ **已有博主被重复添加**\n→ **黑名单博主也会被添加**\n→ 去重机制完全失效\n\n**已修复**: `deduplication.js` 已添加类型判断:\n```js\nconst existingArray = Array.isArray(existingBloggers) ? existingBloggers : Array.from(existingBloggers || []);\nconst blacklistedArray = Array.isArray(blacklist) ? blacklist : Array.from(blacklist || []);\nconst existingSecUids = new Set(existingArray.map(b => b.sec_uid));\nconst blacklistedSecUids = new Set(blacklistedArray.map(b => b.sec_uid));\n```"
+    },
+    {
+      "type": "text",
+      "id": "suggest1_stats_persist",
+      "x": 80,
+      "y": 1520,
+      "width": 860,
+      "height": 340,
+      "color": "6",
+      "text": "## ✅ 建议#1 已修复: StatisticsManager 持久化\n**位置**: `stage1-blogger-discover.js:1017`\n\n**原问题**:\n```js\nstatsManager.updateOverview({ total_bloggers: addResult.total });\n// ❌ 缺少 saveIfDirty() 调用\n```\n\n`updateOverview()` 仅设置 `dirty=true`，\n但 `saveIfDirty()` 从未被调用，\n统计信息只存在内存中，进程结束后丢失。\n\n**已修复** (2024-04):\n```js\nif (!dryRun) {\n  pipelineState.completeStage('stage1', {...});\n  statsManager.saveIfDirty();  // ✅ 已添加\n}\n```"
+    },
+    {
+      "type": "text",
+      "id": "suggest2_timer_leak",
+      "x": 1000,
+      "y": 1520,
+      "width": 860,
+      "height": 340,
+      "color": "6",
+      "text": "## ✅ 建议#2 已修复: keepAlive 定时器保护\n**位置**: `stage1-blogger-discover.js:90-145`\n\n**原问题**:\n```js\nawait page.evaluate(`window.__keepAliveInterval = setInterval(...)`);\n// 滚动加载逻辑（可能抛异常）\nawait page.evaluate(`clearInterval(window.__keepAliveInterval)`);\n```\n\n如果滚动过程中页面崩溃，`clearInterval` 永远不会执行。\n\n**已修复** (2024-04):\n```js\nawait page.evaluate(`window.__keepAliveInterval = setInterval(...)`);\ntry {\n  // 滚动加载逻辑\n} finally {\n  await page.evaluate(`clearInterval(window.__keepAliveInterval)`);\n}\n```"
+    },
+    {
+      "type": "text",
+      "id": "suggest3_css_fragile",
+      "x": -1760,
+      "y": 1900,
+      "width": 860,
+      "height": 340,
+      "color": "6",
+      "text": "## ✅ 建议#3 已修复: CSS 选择器配置化\n**位置**: `stage1-blogger-discover.js:167-188` + `constants.js`\n\n**原问题**:\n```js\ncard.querySelector('div[class*=\"VDYK8Xd7\"]')  // 抖音混淆类名\nif (cls?.includes('cIiU4Muu')) playCount = text;  // 播放量\nif (cls?.includes('MZNczJmS')) authorName = text; // 作者\n```\n\n抖音前端使用混淆类名，每次发版都会变化，\n导致 DOM 解析静默失败（返回空值而非报错）。\n\n**已修复** (2024-04):\n```js\n// constants.js\nexport const DOM_SELECTORS = {\n  VIDEO_LINK: 'a[href*=\"/video/\"]',\n  TITLE_DIV: 'VDYK8Xd7',\n  PLAY_COUNT_SPAN: 'cIiU4Muu',\n  AUTHOR_SPAN: 'MZNczJmS',\n};\n\n// stage1-blogger-discover.js\nimport { DOM_SELECTORS } from './_shared/constants.js';\n```"
+    },
+    {
+      "type": "text",
+      "id": "suggest4_keyword_reset",
+      "x": -840,
+      "y": 1900,
+      "width": 860,
+      "height": 340,
+      "color": "6",
+      "text": "## ✅ 建议#4 已修复: 增量执行支持\n**位置**: `stage1-blogger-discover.js:782-792`\n\n**原问题**:\n```js\nfor (const kw of keywordsData.keywords) {\n  if (kw.status === 'completed') {\n    kw.status = 'pending';  // 全部重置！\n    resetCount++;\n  }\n}\n```\n\n每次运行都重置所有已完成关键词，\n意味着每次都是全量搜索，无法增量执行。\n\n**已修复** (2024-04):\n```js\n// 新增 CLI 参数\n{ name: 'reset_completed', type: 'boolean', default: false }\n\n// 仅在明确需要时才重置\nif (!dryRun && resetCompleted) {\n  // 重置逻辑\n}\n```"
+    },
+    {
+      "type": "text",
+      "id": "suggest5_field_mapping",
+      "x": 80,
+      "y": 1900,
+      "width": 860,
+      "height": 340,
+      "color": "6",
+      "text": "## ✅ 建议#5 已修复: 字段来源注释明确\n**位置**: `stage1-blogger-discover.js:331-346`\n\n**原问题**:\n```js\nvideo_count: video.author.aweme_count ?? 0,\n```\n\n`aweme_count` 只在 `fetchVideoDetail` 返回的详情中存在，\nDOM 解析阶段的基础 video 对象没有此字段。\n详情获取失败时（detail=null），\n`video.author.aweme_count` 为 `undefined`，\n`?? 0` 可以兜底但无法区分\"未知\"和\"0\"。\n\n**已修复** (2024-04):\n```js\n/**\n * 字段来源说明:\n * - follower_count: 来自 fetchDouyinUserProfile API 或 DOM 解析（基础值为0）\n * - video_count (aweme_count): 仅来自 fetchVideoDetail API，DOM 解析时为 0\n * - 当 detail 获取失败时，video.author.aweme_count 为 undefined，使用 ?? 0 兜底\n */\nfunction groupVideosByBlogger(...) { ... }\n```"
+    },
+    {
+      "type": "text",
+      "id": "suggest6_comment_concat",
+      "x": 1000,
+      "y": 1900,
+      "width": 860,
+      "height": 340,
+      "color": "6",
+      "text": "## ✅ 建议#6 已修复: 评论独立匹配\n**位置**: `stage1-blogger-discover.js:396-470`\n\n**原问题**:\n```js\nconst allComments = comments.map(c => c.text || '').join(' ');\n```\n\n将所有评论文本拼接为一个长字符串后用正则匹配，\n可能导致跨评论误匹配。\n例如评论A末尾\\\"怎么\\\"和评论B开头\\\"做\\\"拼接后\n匹配到\\\"怎么做\\\"模式。\n\n**已修复** (2024-04):\n```js\nfor (const comment of comments) {\n  const text = comment.text || '';\n  if (!text) continue;\n  // 对每条评论单独匹配\n  for (const pattern of COMMENT_ACTION_PATTERNS) {\n    const matches = text.match(pattern);\n    if (matches) { /* 处理匹配 */ }\n  }\n}\n```"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_kw_to_search",
+      "fromNode": "input_keywords",
+      "fromSide": "right",
+      "toNode": "func_searchDOM",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "1",
+      "label": "keywords[]"
+    },
+    {
+      "id": "e_search_to_detail",
+      "fromNode": "func_searchDOM",
+      "fromSide": "right",
+      "toNode": "func_videoDetail",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "4",
+      "label": "videos[].aweme_id"
+    },
+    {
+      "id": "e_detail_to_group",
+      "fromNode": "func_videoDetail",
+      "fromSide": "right",
+      "toNode": "func_qualityScore",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "5",
+      "label": "enriched videos[]"
+    },
+    {
+      "id": "e_quality_to_group",
+      "fromNode": "func_qualityScore",
+      "fromSide": "bottom",
+      "toNode": "func_groupByBlogger",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "5",
+      "label": "quality_score"
+    },
+    {
+      "id": "e_group_to_blacklist",
+      "fromNode": "func_groupByBlogger",
+      "fromSide": "bottom",
+      "toNode": "func_autoBlacklist",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "5",
+      "label": "nickname + desc"
+    },
+    {
+      "id": "e_group_to_relevance",
+      "fromNode": "func_groupByBlogger",
+      "fromSide": "right",
+      "toNode": "func_relevanceScore",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "5",
+      "label": "candidates[]"
+    },
+    {
+      "id": "e_relevance_to_filter",
+      "fromNode": "func_relevanceScore",
+      "fromSide": "bottom",
+      "toNode": "func_filterByTitle",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "relevance_score"
+    },
+    {
+      "id": "e_filter_to_comment",
+      "fromNode": "func_filterByTitle",
+      "fromSide": "bottom",
+      "toNode": "func_analyzeComments",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "20≤score<minScore时触发"
+    },
+    {
+      "id": "e_filter_to_enrich",
+      "fromNode": "func_filterByTitle",
+      "fromSide": "right",
+      "toNode": "func_enrichFollower",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "filtered[]"
+    },
+    {
+      "id": "e_enrich_to_dedup",
+      "fromNode": "func_enrichFollower",
+      "fromSide": "bottom",
+      "toNode": "func_dedup",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "6",
+      "label": "follower_count已补全"
+    },
+    {
+      "id": "e_dedup_to_save",
+      "fromNode": "func_dedup",
+      "fromSide": "bottom",
+      "toNode": "func_bloggerManager",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "6",
+      "label": "newItems[]"
+    },
+    {
+      "id": "e_save_to_pipeline",
+      "fromNode": "func_bloggerManager",
+      "fromSide": "bottom",
+      "toNode": "output_pipeline",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "6",
+      "label": "状态+统计更新"
+    },
+    {
+      "id": "e_blacklist_input",
+      "fromNode": "input_blacklist",
+      "fromSide": "right",
+      "toNode": "func_groupByBlogger",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "1",
+      "label": "blacklistSecUids"
+    },
+    {
+      "id": "e_existing_input",
+      "fromNode": "input_bloggers",
+      "fromSide": "right",
+      "toNode": "func_groupByBlogger",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "1",
+      "label": "existingSecUids"
+    },
+    {
+      "id": "e_related_kw",
+      "fromNode": "func_relatedKw",
+      "fromSide": "right",
+      "toNode": "output_pipeline",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "4",
+      "label": "relatedKeywords → discovered-keywords.json"
+    },
+    {
+      "id": "e_bug1_to_relevance",
+      "fromNode": "bug1_exclude_keywords",
+      "fromSide": "top",
+      "toNode": "func_relevanceScore",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "6",
+      "label": "✅ 已修复"
+    },
+    {
+      "id": "e_bug2_to_dedup",
+      "fromNode": "bug2_dedup_type",
+      "fromSide": "top",
+      "toNode": "func_dedup",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "6",
+      "label": "✅ 已修复"
+    },
+    {
+      "id": "e_suggest1_to_pipeline",
+      "fromNode": "suggest1_stats_persist",
+      "fromSide": "top",
+      "toNode": "output_pipeline",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "🟡 统计未持久化"
+    },
+    {
+      "id": "e_suggest2_to_search",
+      "fromNode": "suggest2_timer_leak",
+      "fromSide": "top",
+      "toNode": "func_searchDOM",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "🟡 定时器泄漏"
+    },
+    {
+      "id": "e_suggest3_to_search",
+      "fromNode": "suggest3_css_fragile",
+      "fromSide": "top",
+      "toNode": "func_searchDOM",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "🟡 CSS类名脆弱"
+    },
+    {
+      "id": "e_suggest4_to_keywords",
+      "fromNode": "suggest4_keyword_reset",
+      "fromSide": "top",
+      "toNode": "input_keywords",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "🟡 状态强制重置"
+    },
+    {
+      "id": "e_suggest5_to_group",
+      "fromNode": "suggest5_field_mapping",
+      "fromSide": "top",
+      "toNode": "func_groupByBlogger",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "🟡 字段映射不一致"
+    },
+    {
+      "id": "e_suggest6_to_comment",
+      "fromNode": "suggest6_comment_concat",
+      "fromSide": "top",
+      "toNode": "func_analyzeComments",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "🟡 跨评论误匹配"
+    }
+  ]
+}

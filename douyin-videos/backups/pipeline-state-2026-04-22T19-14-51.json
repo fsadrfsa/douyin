@@ -1,0 +1,77 @@
+{
+  "version": "1.0",
+  "startTime": "2026-04-22T07:10:04.912Z",
+  "status": "running",
+  "currentStage": "stage4",
+  "stages": {
+    "stage1": {
+      "status": "completed",
+      "startTime": "2026-04-22T10:19:41.859Z",
+      "endTime": "2026-04-22T10:20:16.131Z",
+      "stats": {
+        "keywordsProcessed": 1,
+        "videosFound": 11,
+        "candidatesFiltered": 0,
+        "titleFiltered": 0,
+        "bloggersAdded": 0,
+        "bloggersSkipped": 0
+      }
+    },
+    "stage2": {
+      "status": "completed",
+      "startTime": "2026-04-22T18:34:24.070Z",
+      "endTime": "2026-04-22T18:35:10.205Z",
+      "stats": {
+        "bloggersProcessed": 2,
+        "videosFound": 10,
+        "videosNew": 1,
+        "videosSkipped": 10
+      }
+    },
+    "stage3": {
+      "status": "pending"
+    },
+    "stage4": {
+      "status": "running",
+      "startTime": "2026-04-22T19:06:02.221Z"
+    },
+    "pre_blogger_optimize": {
+      "status": "waiting_skill",
+      "startedAt": "2026-04-22T07:10:04.918Z"
+    },
+    "pre_keyword_optimize": {
+      "status": "skipped",
+      "reason": "条件不满足",
+      "skippedAt": "2026-04-22T07:12:10.716Z"
+    },
+    "consistency_check": {
+      "status": "completed",
+      "startTime": "2026-04-22T07:12:11.046Z",
+      "endTime": "2026-04-22T07:12:11.133Z",
+      "stats": {
+        "duration": "0.1s"
+      }
+    },
+    "stage4_download": {
+      "status": "completed",
+      "startTime": "2026-04-22T07:12:11.134Z",
+      "endTime": "2026-04-22T07:12:11.226Z",
+      "stats": {
+        "duration": "0.1s"
+      }
+    },
+    "stage4_transcribe": {
+      "status": "completed",
+      "startTime": "2026-04-22T07:12:11.228Z",
+      "endTime": "2026-04-22T07:15:24.014Z",
+      "stats": {
+        "duration": "192.8s"
+      }
+    },
+    "content_clean": {
+      "status": "waiting_skill",
+      "startedAt": "2026-04-22T07:15:24.018Z"
+    }
+  },
+  "errors": []
+}

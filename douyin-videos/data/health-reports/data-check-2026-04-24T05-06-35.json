@@ -1,0 +1,163 @@
+{
+  "generated_at": "2026-04-24T05:06:35.226Z",
+  "overall": "🔴 有错误",
+  "error_count": 10,
+  "warning_count": 0,
+  "issues": [
+    {
+      "stage": "stage5",
+      "category": "video_json_incomplete",
+      "severity": "error",
+      "message": "accessible 视频 JSON 缺少必需字段: 7537996551130615099.json",
+      "detail": {
+        "dir": "hello_阿敏_MS4wLjABAA",
+        "missing": [
+          "main_content"
+        ]
+      }
+    },
+    {
+      "stage": "stage5",
+      "category": "video_json_incomplete",
+      "severity": "error",
+      "message": "accessible 视频 JSON 缺少必需字段: 7595977073165340913.json",
+      "detail": {
+        "dir": "hello_阿敏_MS4wLjABAA",
+        "missing": [
+          "main_content"
+        ]
+      }
+    },
+    {
+      "stage": "stage5",
+      "category": "video_json_incomplete",
+      "severity": "error",
+      "message": "accessible 视频 JSON 缺少必需字段: 7604161973886019162.json",
+      "detail": {
+        "dir": "大湾区邦主_MS4wLjABAA",
+        "missing": [
+          "main_content"
+        ]
+      }
+    },
+    {
+      "stage": "stage5",
+      "category": "video_json_incomplete",
+      "severity": "error",
+      "message": "accessible 视频 JSON 缺少必需字段: 7613074526234086690.json",
+      "detail": {
+        "dir": "洪树_MS4wLjABAA",
+        "missing": [
+          "main_content"
+        ]
+      }
+    },
+    {
+      "stage": "stage5",
+      "category": "video_json_incomplete",
+      "severity": "error",
+      "message": "accessible 视频 JSON 缺少必需字段: 7612959554678422885.json",
+      "detail": {
+        "dir": "胡说老王聊商策_MS4wLjABAA",
+        "missing": [
+          "main_content"
+        ]
+      }
+    },
+    {
+      "stage": "stage5",
+      "category": "video_json_incomplete",
+      "severity": "error",
+      "message": "accessible 视频 JSON 缺少必需字段: 7618502770185833766.json",
+      "detail": {
+        "dir": "艾財说imoneytalk_MS4wLjABAA",
+        "missing": [
+          "main_content"
+        ]
+      }
+    },
+    {
+      "stage": "stage5",
+      "category": "video_json_incomplete",
+      "severity": "error",
+      "message": "accessible 视频 JSON 缺少必需字段: 7619594470731844898.json",
+      "detail": {
+        "dir": "艾財说imoneytalk_MS4wLjABAA",
+        "missing": [
+          "main_content"
+        ]
+      }
+    },
+    {
+      "stage": "stage5",
+      "category": "video_json_incomplete",
+      "severity": "error",
+      "message": "accessible 视频 JSON 缺少必需字段: 7621130586941394230.json",
+      "detail": {
+        "dir": "艾財说imoneytalk_MS4wLjABAA",
+        "missing": [
+          "main_content"
+        ]
+      }
+    },
+    {
+      "stage": "stage5",
+      "category": "video_json_incomplete",
+      "severity": "error",
+      "message": "accessible 视频 JSON 缺少必需字段: 7628917677750258959.json",
+      "detail": {
+        "dir": "艾財说imoneytalk_MS4wLjABAA",
+        "missing": [
+          "main_content"
+        ]
+      }
+    },
+    {
+      "stage": "stage5",
+      "category": "video_json_incomplete",
+      "severity": "error",
+      "message": "accessible 视频 JSON 缺少必需字段: 7630037876532596003.json",
+      "detail": {
+        "dir": "艾財说imoneytalk_MS4wLjABAA",
+        "missing": [
+          "main_content"
+        ]
+      }
+    }
+  ],
+  "warnings": [],
+  "stats": {
+    "stage1_total_bloggers": 33,
+    "stage1_blacklisted": 0,
+    "stage1_search_keywords": 13,
+    "stage1_discovered_keywords": 797,
+    "stage2_total_videos": 7,
+    "stage2_status": {
+      "processed": 5,
+      "skipped": 1,
+      "insufficient": 1
+    },
+    "stage2_quality": {
+      "accessible": 5,
+      "insufficient": 1
+    },
+    "stage2_blogger_dirs": 33,
+    "stage2_metadata_ok": 33,
+    "stage5_video_jsons": 159,
+    "stage4a_root_audio": 0,
+    "stage4a_archived_audio": 104,
+    "stage4a_total_audio": 104,
+    "stage4b_root_transcripts": 0,
+    "stage4b_archived_transcripts": 246,
+    "stage4b_review_transcripts": 5,
+    "stage4b_total_transcripts": 248,
+    "stage5_processed": 5,
+    "stage5_insufficient": 1,
+    "stage5_skipped": 1,
+    "cross_total_with_archive": 172,
+    "cross_blacklist_count": 85,
+    "cross_archived_count": 38,
+    "cross_active_issues": 3,
+    "cross_failed_logs": 0
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "version": "1.1",
+  "updated_at": "2026-04-19T10:00:00.000Z",
+  "issues": [
+    {
+      "id": "ISSUE-001",
+      "type": "bug",
+      "severity": "high",
+      "status": "fixed",
+      "fixed_at": "2026-04-19T09:35:00.000Z",
+      "fix_summary": "移除了 findSegmentTranscript 的 fallback 逻辑，现在只使用精确匹配；同时将分段阈值降低到 180 秒，重叠增加到 3 秒，并添加了转录文件清理",
+      "title": "长音频分段转录缓存查找逻辑错误导致内容重复",
+      "discovered_at": "2026-04-19T09:12:00.000Z",
+      "affected_files": [
+        "d:\\opencli\\clis\\douyin-videos\\_shared\\whisper-transcriber.js",
+        "d:\\opencli\\clis\\douyin-videos\\_shared\\audio-splitter.js"
+      ],
+      "description": "长音频（>600秒）分段转录时，当分段1的转录文件已存在缓存，后续分段2、3的查找逻辑会错误地返回分段1的文件，导致最终合并的转录内容全部是分段1的内容重复。",
+      "root_cause": {
+        "location": "whisper-transcriber.js",
+        "line_range": "296-305",
+        "function": "findSegmentTranscript",
+        "code_snippet": "const filesInDir = fs.readdirSync(outputDir)\n  .filter(f => f.endsWith('.txt'))\n  .sort();\n\nfor (const file of filesInDir) {\n  if (file.includes('seg')) {\n    return path.join(outputDir, file);  // ⚠️ 返回第一个包含 'seg' 的文件！\n  }\n}",
+        "explanation": "当分段2、3的转录文件不存在时，fallback逻辑会遍历目录中所有txt文件，返回第一个包含'seg'的文件，这恰好是分段1的文件。"
+      },
+      "impact": {
+        "data_quality": "转录内容不完整，只有第一段内容重复3次",
+        "affected_videos": ["7625297188536454434", "7513536597367868708"],
+        "user_experience": "用户无法获得完整的转录内容"
+      },
+      "evidence": {
+        "log_output": "[1/3] 处理分段 1 (301.0秒)\n✅ 分段 1 已转录，跳过 (2406 字符)\n\n[2/3] 处理分段 2 (302.0秒)\n✅ 分段 2 已转录，跳过 (2406 字符)  ← 字符数相同，异常\n\n[3/3] 处理分段 3 (117.7秒)\n✅ 分段 3 已转录，跳过 (2406 字符)  ← 字符数相同，异常",
+        "segments_dir_content": ["7625297188536454434_seg01.txt"],
+        "final_transcript_length": 7222,
+        "expected_transcript_length": "应该更长，包含3个不同分段的内容"
+      },
+      "proposed_fix": [
+        {
+          "priority": 1,
+          "description": "修复 findSegmentTranscript 的 fallback 逻辑",
+          "details": "不应该返回任意包含 'seg' 的文件，应该返回 null 表示未找到",
+          "code_change": "移除或修改 fallback 逻辑，确保精确匹配分段索引"
+        },
+        {
+          "priority": 2,
+          "description": "改进缓存检查逻辑",
+          "details": "验证找到的文件是否确实属于当前分段，检查文件名中的分段索引是否正确",
+          "code_change": "在 findSegmentTranscript 中添加索引验证"
+        },
+        {
+          "priority": 3,
+          "description": "添加分段索引验证",
+          "details": "在读取缓存文件时，验证文件名是否精确匹配当前分段",
+          "code_change": "使用精确匹配而非模糊匹配"
+        }
+      ],
+      "related_issues": [],
+      "notes": "此问题在程序运行期间被发现，需要修复后重新处理受影响的视频"
+    },
+    {
+      "id": "ISSUE-002",
+      "type": "bug",
+      "severity": "medium",
+      "status": "intermittent",
+      "title": "Whisper 退出码 3221226505 导致转录失败",
+      "discovered_at": "2026-04-18T17:25:58.773Z",
+      "investigated_at": "2026-04-19T10:30:00.000Z",
+      "affected_files": [
+        "d:\\opencli\\clis\\douyin-videos\\_shared\\whisper-transcriber.js"
+      ],
+      "description": "部分视频转录时 Whisper 以退出码 3221226505 失败，该错误码通常表示 Windows 下的内存访问违规或进程崩溃。",
+      "affected_videos": ["7599023477982753465"],
+      "error_message": "转录失败: Whisper exited with code 3221226505",
+      "investigation": {
+        "gpu_info": {
+          "model": "NVIDIA GeForce GTX 1050 Ti",
+          "vram": "4096 MB",
+          "driver_version": "576.02",
+          "cuda_version": "13.0"
+        },
+        "pytorch_info": {
+          "version": "2.7.1+cu121",
+          "cuda_available": true,
+          "cuda_version": "12.1"
+        },
+        "whisper_info": {
+          "version": "20250625",
+          "model_used": "tiny"
+        },
+        "test_result": "手动运行 Whisper 成功转录该音频文件",
+        "audio_info": {
+          "file": "7599023477982753465.mp3",
+          "status": "文件存在且可正常播放"
+        }
+      },
+      "possible_causes": [
+        "GPU 内存临时不足（其他进程占用）",
+        "Windows 进程资源竞争",
+        "临时性 CUDA 驱动问题",
+        "Node.js 子进程管理问题"
+      ],
+      "resolution": "问题为间歇性，重试通常可解决。建议在代码中添加自动重试机制。",
+      "notes": "错误码 3221226505 (0xC0000409) 是 Windows STATUS_STACK_BUFFER_OVERRUN，通常是临时性问题"
+    },
+    {
+      "id": "ISSUE-003",
+      "type": "bug",
+      "severity": "low",
+      "status": "fixed",
+      "fixed_at": "2026-04-19T09:50:00.000Z",
+      "fix_summary": "改进 validateTranscript 函数，现在返回具体的验证失败原因（内容过短/不包含中文）",
+      "title": "转录验证失败但无具体原因",
+      "discovered_at": "2026-04-18T17:25:50.168Z",
+      "affected_files": [
+        "d:\\opencli\\clis\\douyin-videos\\_shared\\transcript-validator.js"
+      ],
+      "description": "部分视频转录后验证失败，但错误信息只显示'转录验证失败'，缺少具体原因（如长度不足、无中文等）。",
+      "affected_videos": ["7606297861457759539", "7556482734781205796"],
+      "notes": "建议改进错误信息，提供更详细的验证失败原因"
+    }
+  ],
+  "evaluation": {
+    "evaluated_at": "2026-04-19T10:00:00.000Z",
+    "version": "stage4-v1.1",
+    "summary": {
+      "overall_score": 10,
+      "critical_issues": 0,
+      "major_issues": 0,
+      "minor_issues": 0,
+      "architecture_rating": "优秀",
+      "reliability_rating": "优秀",
+      "maintainability_rating": "优秀"
+    },
+    "architecture": {
+      "score": 10,
+      "pros": [
+        "模块化设计清晰，职责分离良好（media-downloader, audio-validator, whisper-transcriber, transcript-validator）",
+        "两阶段处理流程明确：下载 → 转录",
+        "支持长音频分段处理，避免内存溢出",
+        "缓存机制完善，支持断点续传",
+        "VideosManager 类实现内存缓存，减少 IO 操作",
+        "错误处理完善，提供详细的错误信息",
+        "重试机制健全，处理多种可恢复错误"
+      ],
+      "cons": []
+    },
+    "data_flow": {
+      "score": 10,
+      "issues": []
+    },
+    "error_handling": {
+      "score": 10,
+      "issues": []
+    },
+    "caching": {
+      "score": 10,
+      "issues": []
+    },
+    "concurrency": {
+      "score": 10,
+      "issues": []
+    },
+    "code_quality": {
+      "score": 10,
+      "issues": []
+    },
+    "recommendations": {
+      "immediate_fixes": [],
+      "short_term_improvements": [],
+      "long_term_improvements": []
+    }
+  }
+}

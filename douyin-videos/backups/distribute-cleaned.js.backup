@@ -1,0 +1,338 @@
+import * as fs from "fs";
+import * as path from "path";
+
+const PROJECT_ROOT = "d:\\opencli\\douyin-videos";
+const CLEANED_DIR = path.join(PROJECT_ROOT, "data", "cleaned-results");
+const RESULTS_DIR = path.join(PROJECT_ROOT, "results");
+const DATA_DIR = path.join(PROJECT_ROOT, "data");
+
+function ensureDir(dir) {
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+}
+
+function getBloggerDirName(author, secUid) {
+  const sanitizedName = author
+    .replace(/[\/\\?%*:|"<>（）()【】\[\]{}]/g, '_')
+    .replace(/\s+/g, '_')
+    .replace(/_{2,}/g, '_')
+    .replace(/^_|_$/g, '');
+  
+  const secUidPrefix = secUid ? secUid.substring(0, 10) : 'unknown';
+  return `${sanitizedName}_${secUidPrefix}`;
+}
+
+function findBloggerDir(author, secUid) {
+  const bloggerDirName = getBloggerDirName(author, secUid);
+  const fullPath = path.join(RESULTS_DIR, bloggerDirName);
+  
+  if (fs.existsSync(fullPath)) {
+    return bloggerDirName;
+  }
+  
+  const dirs = fs.readdirSync(RESULTS_DIR, { withFileTypes: true });
+  const bloggerDirs = dirs.filter(d => d.isDirectory());
+  
+  for (const dir of bloggerDirs) {
+    if (secUid) {
+      for (const prefixLen of [10, 9, 8]) {
+        const prefix = secUid.substring(0, prefixLen);
+        if (dir.name.includes(`_${prefix}`)) {
+          return dir.name;
+        }
+      }
+    }
+    const sanitizedName = author
+      .replace(/[\/\\?%*:|"<>（）()【】\[\]{}]/g, '_')
+      .replace(/\s+/g, '_')
+      .replace(/_{2,}/g, '_')
+      .replace(/^_|_$/g, '');
+    if (dir.name.startsWith(sanitizedName + "_")) {
+      return dir.name;
+    }
+  }
+  
+  return bloggerDirName;
+}
+
+function getVideoMetaFromVideosJson(videoId) {
+  const videosPath = path.join(DATA_DIR, "videos.json");
+  
+  if (!fs.existsSync(videosPath)) {
+    return null;
+  }
+  
+  try {
+    const videosData = JSON.parse(fs.readFileSync(videosPath, "utf-8"));
+    const video = videosData.videos?.find(v => v.aweme_id === videoId);
+    
+    if (video) {
+      return {
+        video_id: video.aweme_id,
+        url: video.url,
+        author: video.author,
+        author_id: video.author_id,
+        sec_uid: video.sec_uid
+      };
+    }
+    return null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function getOriginalVideoMeta(videoId, bloggerDir) {
+  const metadataPath = path.join(RESULTS_DIR, bloggerDir, "metadata.json");
+  
+  if (!fs.existsSync(metadataPath)) {
+    return { title: null, author_id: null };
+  }
+  
+  try {
+    const metadata = JSON.parse(fs.readFileSync(metadataPath, "utf-8"));
+    const video = metadata.videos?.find(v => v.aweme_id === videoId);
+    return {
+      title: video?.title || null,
+      author_id: video?.author_id || metadata.blogger_id || null
+    };
+  } catch (e) {
+    return { title: null, author_id: null };
+  }
+}
+
+function createVideoJson(result, bloggerDir, videoMeta) {
+  const videosDir = path.join(RESULTS_DIR, bloggerDir, "videos");
+  ensureDir(videosDir);
+  
+  const originalMeta = getOriginalVideoMeta(result.video_id, bloggerDir);
+  
+  const videoJson = {
+    video_id: videoMeta.video_id || result.video_id,
+    url: videoMeta.url || result.url,
+    author: videoMeta.author || result.author,
+    author_id: originalMeta.author_id || videoMeta.author_id || result.author_id,
+    title: originalMeta.title || result.title,
+    analyzed_at: result.analyzed_at,
+    quality: result.quality,
+    topic: result.topic,
+    main_content: result.main_content,
+  };
+  
+  if (originalMeta.title) {
+    console.log(`  📝 使用原始标题: ${originalMeta.title.substring(0, 30)}...`);
+  } else {
+    console.log(`  ⚠️ 未找到原始标题，使用 AI 标题`);
+  }
+  
+  if (videoMeta.author_id && result.author_id && videoMeta.author_id !== result.author_id) {
+    console.log(`  📝 修正 author_id: ${result.author_id} → ${videoMeta.author_id}`);
+  }
+  
+  const videoPath = path.join(videosDir, `${videoJson.video_id}.json`);
+  fs.writeFileSync(videoPath, JSON.stringify(videoJson, null, 2), "utf-8");
+  console.log(`  ✅ 创建视频 JSON: ${videoJson.video_id}.json`);
+}
+
+function updateMetadata(result, bloggerDir) {
+  const metadataPath = path.join(RESULTS_DIR, bloggerDir, "metadata.json");
+  
+  if (!fs.existsSync(metadataPath)) {
+    console.log(`  ⚠️ metadata.json 不存在，跳过`);
+    return;
+  }
+  
+  const metadata = JSON.parse(fs.readFileSync(metadataPath, "utf-8"));
+  let updated = false;
+  
+  // 更新博主整体风格定位（顶层 summary）- 去重追加
+  if (result.summary && result.summary !== "未提及") {
+    const newSummary = result.summary.trim();
+    if (!metadata.summary) {
+      metadata.summary = newSummary;
+      updated = true;
+      console.log(`  + 设置博主风格: ${newSummary.substring(0, 30)}...`);
+    } else {
+      const existingSummaries = metadata.summary.split(/[,、，]/).map(s => s.trim()).filter(s => s);
+      if (!existingSummaries.includes(newSummary)) {
+        existingSummaries.push(newSummary);
+        metadata.summary = existingSummaries.join("、");
+        updated = true;
+        console.log(`  + 追加博主风格: ${newSummary.substring(0, 30)}...`);
+      } else {
+        console.log(`  ⏭️ 博主风格已存在，跳过: ${newSummary.substring(0, 30)}...`);
+      }
+    }
+  }
+  
+  if (result.video_id && metadata.videos) {
+    const videoIdx = metadata.videos.findIndex(v => v.aweme_id === result.video_id);
+    if (videoIdx >= 0) {
+      const metaVideo = metadata.videos[videoIdx];
+      if (metaVideo.status === "pending") {
+        metaVideo.status = "processed";
+        updated = true;
+        console.log(`  ↻ 同步视频状态: ${result.video_id} pending → processed`);
+      }
+    }
+  }
+
+  if (updated) {
+    metadata.last_analyzed_at = result.analyzed_at;
+    
+    // 重新组织字段顺序：博主信息 → summary → videos
+    const orderedMetadata = {};
+    const headerFields = [
+      'blogger_name', 'blogger_id', 'sec_uid', 'blogger_url', 'avatar_url',
+      'follower_count', 'following_count', 'likes_count', 'video_count', 'douyin_id',
+      'ip_location', 'gender', 'signature', 'score', 'source_keyword',
+      'discovered_at', 'last_fetch_time', 'collected_video_count',
+      'summary',
+      'total_videos', 'high_quality_count', 'low_quality_count', 'inaccessible_count',
+      'high_quality_ratio', 'low_quality_ratio', 'project_related_count', 'project_names',
+      'last_analyzed_at', 'relevance_score', 'comment_analysis', 'comment_data'
+    ];
+    
+    // 先添加头部字段
+    for (const field of headerFields) {
+      if (metadata[field] !== undefined) {
+        orderedMetadata[field] = metadata[field];
+      }
+    }
+    // 最后添加 videos
+    if (metadata.videos) {
+      orderedMetadata.videos = metadata.videos;
+    }
+    // 添加其他未列出的字段
+    for (const key of Object.keys(metadata)) {
+      if (!orderedMetadata.hasOwnProperty(key)) {
+        orderedMetadata[key] = metadata[key];
+      }
+    }
+    
+    fs.writeFileSync(metadataPath, JSON.stringify(orderedMetadata, null, 2), "utf-8");
+    console.log(`  ✅ 更新 metadata.json`);
+  }
+}
+
+function updateDiscoveredKeywords(result) {
+  const keywordsPath = path.join(DATA_DIR, "discovered-keywords.json");
+  
+  if (!result.keywords || result.keywords.length === 0) return;
+  
+  let keywordsData = { version: "1.0", updated_at: new Date().toISOString(), keywords: [] };
+  
+  if (fs.existsSync(keywordsPath)) {
+    keywordsData = JSON.parse(fs.readFileSync(keywordsPath, "utf-8"));
+  }
+  
+  const existingKeywords = new Set(keywordsData.keywords.map(k => k.keyword));
+  let added = 0;
+  
+  for (const keyword of result.keywords) {
+    if (keyword && keyword !== "未提及" && !existingKeywords.has(keyword)) {
+      keywordsData.keywords.push({
+        keyword: keyword,
+        source: "video_analysis",
+        discovered_at: result.analyzed_at,
+        status: "pending",
+      });
+      existingKeywords.add(keyword);
+      added++;
+    }
+  }
+  
+  if (added > 0) {
+    keywordsData.updated_at = new Date().toISOString();
+    fs.writeFileSync(keywordsPath, JSON.stringify(keywordsData, null, 2), "utf-8");
+    console.log(`  ✅ 添加 ${added} 个关键词到 discovered-keywords.json`);
+  }
+}
+
+function updateVideosJson(result) {
+  const videosPath = path.join(DATA_DIR, "videos.json");
+  
+  if (!fs.existsSync(videosPath)) {
+    console.log(`  ⚠️ videos.json 不存在，跳过`);
+    return;
+  }
+  
+  const videosData = JSON.parse(fs.readFileSync(videosPath, "utf-8"));
+  const video = videosData.videos?.find(v => v.aweme_id === result.video_id);
+  
+  if (video) {
+    video.status = "processed";
+    video.quality = result.quality;
+    video.stage4_status = "cleaned";
+    video.stage4_processed_at = result.analyzed_at;
+    
+    fs.writeFileSync(videosPath, JSON.stringify(videosData, null, 2), "utf-8");
+    console.log(`  ✅ 更新 videos.json 状态`);
+  }
+}
+
+async function main() {
+  console.log("=== 整理结果分发工具 ===\n");
+  console.log("从 cleaned-results/ 读取 AI 输出，分发到各文件\n");
+  
+  if (!fs.existsSync(CLEANED_DIR)) {
+    console.log("❌ cleaned-results 目录不存在");
+    console.log("请先让 AI 输出分析结果到 data/cleaned-results/{video_id}.json");
+    return;
+  }
+  
+  const files = fs.readdirSync(CLEANED_DIR).filter(f => f.endsWith(".json"));
+  
+  if (files.length === 0) {
+    console.log("❌ 没有待分发的结果文件");
+    return;
+  }
+  
+  console.log(`找到 ${files.length} 个待分发文件\n`);
+  
+  let success = 0;
+  let failed = 0;
+  
+  for (const file of files) {
+    const filePath = path.join(CLEANED_DIR, file);
+    console.log(`\n处理: ${file}`);
+    
+    try {
+      const result = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+      
+      const videoMeta = getVideoMetaFromVideosJson(result.video_id);
+      
+      if (!videoMeta) {
+        console.log(`  ❌ 在 videos.json 中找不到视频: ${result.video_id}`);
+        failed++;
+        continue;
+      }
+      
+      console.log(`  视频: ${videoMeta.video_id}`);
+      console.log(`  博主: ${videoMeta.author}`);
+      console.log(`  主题: ${result.topic?.substring(0, 30)}...`);
+      
+      const bloggerDir = findBloggerDir(videoMeta.author, videoMeta.sec_uid);
+      console.log(`  博主目录: ${bloggerDir}`);
+      
+      createVideoJson(result, bloggerDir, videoMeta);
+      updateMetadata(result, bloggerDir);
+      updateDiscoveredKeywords(result);
+      updateVideosJson(result);
+      
+      fs.unlinkSync(filePath);
+      console.log(`  🗑️ 删除临时文件: ${file}`);
+      
+      success++;
+    } catch (e) {
+      console.log(`  ❌ 处理失败: ${e.message}`);
+      failed++;
+    }
+  }
+  
+  console.log("\n=== 完成 ===");
+  console.log(`成功: ${success}`);
+  console.log(`失败: ${failed}`);
+}
+
+main().catch(console.error);

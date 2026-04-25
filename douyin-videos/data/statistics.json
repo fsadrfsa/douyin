@@ -1,0 +1,140 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-04-25T13:31:16.762Z",
+  "overview": {
+    "total_bloggers": 32,
+    "analyzed_bloggers": 2,
+    "total_videos": 50,
+    "analyzed_videos": 113,
+    "failed_videos": 22
+  },
+  "quality_distribution": {
+    "high": 58,
+    "medium": 5,
+    "low": 26
+  },
+  "keywords": [
+    {
+      "keyword": "创业",
+      "count": 29
+    },
+    {
+      "keyword": "赚钱",
+      "count": 21
+    },
+    {
+      "keyword": "摆摊",
+      "count": 19
+    },
+    {
+      "keyword": "商业思维",
+      "count": 13
+    },
+    {
+      "keyword": "摆摊创业",
+      "count": 13
+    },
+    {
+      "keyword": "自媒体",
+      "count": 9
+    },
+    {
+      "keyword": "徐不投",
+      "count": 8
+    },
+    {
+      "keyword": "商业",
+      "count": 8
+    },
+    {
+      "keyword": "一人公司",
+      "count": 8
+    },
+    {
+      "keyword": "赚钱思维",
+      "count": 7
+    },
+    {
+      "keyword": "电商",
+      "count": 7
+    },
+    {
+      "keyword": "副业",
+      "count": 7
+    },
+    {
+      "keyword": "自媒体创业",
+      "count": 7
+    },
+    {
+      "keyword": "上热门",
+      "count": 6
+    },
+    {
+      "keyword": "创业项目",
+      "count": 6
+    },
+    {
+      "keyword": "干货分享",
+      "count": 6
+    },
+    {
+      "keyword": "认知",
+      "count": 5
+    },
+    {
+      "keyword": "记录真实生活",
+      "count": 5
+    },
+    {
+      "keyword": "个人成长",
+      "count": 5
+    },
+    {
+      "keyword": "小成本创业项目推荐",
+      "count": 5
+    }
+  ],
+  "categories": [
+    {
+      "category": "家居好物推荐",
+      "count": 2
+    },
+    {
+      "category": "自媒体创业",
+      "count": 2
+    },
+    {
+      "category": "餐饮创业",
+      "count": 1
+    },
+    {
+      "category": "创业商业模式",
+      "count": 1
+    },
+    {
+      "category": "创业商机",
+      "count": 1
+    },
+    {
+      "category": "创业分享",
+      "count": 1
+    },
+    {
+      "category": "创业搞钱",
+      "count": 1
+    },
+    {
+      "category": "创业纪实",
+      "count": 1
+    },
+    {
+      "category": "人生感悟",
+      "count": 1
+    },
+    {
+      "category": "创业干货",
+      "count": 1
+    }
+  ]
+}
