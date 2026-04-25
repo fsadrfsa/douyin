@@ -1,0 +1,40 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-04-25T04:08:56.336Z",
+  "summary": {
+    "total_bloggers": 3,
+    "bloggers_with_new_videos": 1,
+    "bloggers_without_new_videos": 2
+  },
+  "filter_totals": {
+    "duplicate": 8,
+    "too_short": 11,
+    "irrelevant": 0,
+    "author_mismatch": 0,
+    "image_post": 0
+  },
+  "bloggers_without_new_videos": [
+    {
+      "blogger": "电商李大仟",
+      "sec_uid": "MS4wLjABAAAAvuS-Wz2XgyDIRYXukPkmdOmwj3ICG2n3fzdwHIWxQKO_1oqusKyBy5q3oN7JIzJG",
+      "filter_reasons": {
+        "duplicate": 0,
+        "too_short": 5,
+        "irrelevant": 0,
+        "author_mismatch": 0,
+        "image_post": 0
+      }
+    },
+    {
+      "blogger": "丞飛",
+      "sec_uid": "MS4wLjABAAAAGhnN4IVhMbKTXAjLPgL5Svm6iLc8N3EZeb3GAozfLy0sJxGGuXg3AfY8ioArHn5F",
+      "filter_reasons": {
+        "duplicate": 0,
+        "too_short": 6,
+        "irrelevant": 0,
+        "author_mismatch": 0,
+        "image_post": 0
+      }
+    }
+  ]
+}

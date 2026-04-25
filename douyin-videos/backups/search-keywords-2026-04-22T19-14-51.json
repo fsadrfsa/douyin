@@ -1,0 +1,569 @@
+{
+  "version": "2.0",
+  "updated_at": "2026-04-22T10:19:41.864Z",
+  "keywords": [
+    {
+      "id": "kw-001",
+      "keyword": "轻资产创业项目",
+      "status": "deleted",
+      "source": "recommended",
+      "source_keyword": "创业",
+      "created_at": "2026-04-13T00:00:00.000Z",
+      "search_count": 1,
+      "last_search_at": "2026-04-13T05:27:28.198Z",
+      "found_bloggers": 6,
+      "last_found_at": null,
+      "quality_score": 0,
+      "quality_level": "poor",
+      "topic_match_rate": 0,
+      "blogger_quality_avg": null,
+      "evaluated_at": "2026-04-22T12:00:00.000Z",
+      "evaluation_count": 3,
+      "optimization_history": [
+        {
+          "action": "evaluated",
+          "reason": "首次质量评估：找到6个博主，符合主题比例50%，质量等级优质",
+          "previous_state": {
+            "status": "pending",
+            "quality_score": null
+          },
+          "new_state": {
+            "status": "optimized",
+            "quality_score": 75,
+            "quality_level": "excellent"
+          },
+          "timestamp": "2026-04-18T00:00:00.000Z"
+        },
+        {
+          "action": "retained",
+          "reason": "2026-04-19优化：保持优质关键词，符合主题比例50%",
+          "previous_state": {
+            "status": "optimized",
+            "quality_score": 75
+          },
+          "new_state": {
+            "status": "optimized",
+            "quality_score": 75
+          },
+          "timestamp": "2026-04-19T10:00:00.000Z"
+        },
+        {
+          "action": "deleted",
+          "reason": "2026-04-22优化：结果中0个博主（全部已归档），关键词过于具体，实际效果差",
+          "previous_state": {
+            "status": "optimized",
+            "quality_score": 75
+          },
+          "new_state": {
+            "status": "deleted",
+            "quality_score": 0
+          },
+          "timestamp": "2026-04-22T12:00:00.000Z"
+        }
+      ],
+      "deleted_reason": "结果中0个博主（全部已归档），关键词过于具体，实际效果差",
+      "deleted_at": "2026-04-22T12:00:00.000Z"
+    },
+    {
+      "id": "kw-003",
+      "keyword": "ai工具赚钱方法",
+      "status": "optimized",
+      "source": "recommended",
+      "source_keyword": "AI工具",
+      "created_at": "2026-04-13T00:00:00.000Z",
+      "search_count": 6,
+      "last_search_at": "2026-04-18T13:51:12.822Z",
+      "found_bloggers": 17,
+      "last_found_at": null,
+      "quality_score": 70,
+      "quality_level": "excellent",
+      "topic_match_rate": 45,
+      "blogger_quality_avg": null,
+      "evaluated_at": "2026-04-19T00:00:00.000Z",
+      "evaluation_count": 1,
+      "optimization_history": [
+        {
+          "action": "evaluated",
+          "reason": "2026-04-19评估：找到17个博主，与AI赚钱主题高度相关，质量等级优质",
+          "previous_state": {
+            "status": "completed",
+            "quality_score": null
+          },
+          "new_state": {
+            "status": "optimized",
+            "quality_score": 70,
+            "quality_level": "excellent"
+          },
+          "timestamp": "2026-04-19T10:00:00.000Z"
+        }
+      ],
+      "deleted_reason": null,
+      "deleted_at": null
+    },
+    {
+      "id": "kw-005",
+      "keyword": "一人创业项目推荐",
+      "status": "optimized",
+      "source": "recommended",
+      "source_keyword": "创业",
+      "created_at": "2026-04-13T12:00:00.000Z",
+      "search_count": 4,
+      "last_search_at": "2026-04-18T13:51:33.320Z",
+      "found_bloggers": 29,
+      "last_found_at": null,
+      "quality_score": 80,
+      "quality_level": "excellent",
+      "topic_match_rate": 55,
+      "blogger_quality_avg": null,
+      "evaluated_at": "2026-04-19T00:00:00.000Z",
+      "evaluation_count": 1,
+      "optimization_history": [
+        {
+          "action": "evaluated",
+          "reason": "2026-04-19评估：找到29个博主，与一人创业主题高度相关，质量等级优质",
+          "previous_state": {
+            "status": "completed",
+            "quality_score": null
+          },
+          "new_state": {
+            "status": "optimized",
+            "quality_score": 80,
+            "quality_level": "excellent"
+          },
+          "timestamp": "2026-04-19T10:00:00.000Z"
+        }
+      ],
+      "deleted_reason": null,
+      "deleted_at": null
+    },
+    {
+      "id": "kw-006",
+      "keyword": "自媒体变现",
+      "status": "optimized",
+      "source": "recommended",
+      "source_keyword": "statistics",
+      "created_at": "2026-04-18T00:00:00.000Z",
+      "search_count": 2,
+      "last_search_at": "2026-04-18T13:51:51.577Z",
+      "found_bloggers": 20,
+      "last_found_at": null,
+      "quality_score": 75,
+      "quality_level": "excellent",
+      "topic_match_rate": 50,
+      "blogger_quality_avg": null,
+      "evaluated_at": "2026-04-19T00:00:00.000Z",
+      "evaluation_count": 1,
+      "optimization_history": [
+        {
+          "action": "added",
+          "reason": "从统计数据中发现高频关键词(8次)，与变现主题高度相关",
+          "previous_state": null,
+          "new_state": {
+            "status": "pending"
+          },
+          "timestamp": "2026-04-18T00:00:00.000Z"
+        },
+        {
+          "action": "evaluated",
+          "reason": "2026-04-19评估：找到20个博主，与自媒体变现主题高度相关，质量等级优质",
+          "previous_state": {
+            "status": "completed",
+            "quality_score": null
+          },
+          "new_state": {
+            "status": "optimized",
+            "quality_score": 75,
+            "quality_level": "excellent"
+          },
+          "timestamp": "2026-04-19T10:00:00.000Z"
+        }
+      ],
+      "deleted_reason": null,
+      "deleted_at": null
+    },
+    {
+      "id": "kw-008",
+      "keyword": "超级个体",
+      "status": "optimized",
+      "source": "recommended",
+      "source_keyword": "video_analysis",
+      "created_at": "2026-04-19T10:00:00.000Z",
+      "search_count": 1,
+      "last_search_at": "2026-04-18T18:58:38.614Z",
+      "found_bloggers": 3,
+      "last_found_at": null,
+      "quality_score": 67,
+      "quality_level": "excellent",
+      "topic_match_rate": 67,
+      "blogger_quality_avg": 52,
+      "evaluated_at": "2026-04-20T12:00:00.000Z",
+      "evaluation_count": 1,
+      "optimization_history": [
+        {
+          "action": "added",
+          "reason": "从视频分析中发现，与一人创业主题高度相关，热度适中",
+          "previous_state": null,
+          "new_state": {
+            "status": "pending"
+          },
+          "timestamp": "2026-04-19T10:00:00.000Z"
+        },
+        {
+          "action": "evaluated",
+          "reason": "2026-04-20评估：找到3个博主，符合主题比例67%，质量等级优质",
+          "previous_state": {
+            "status": "completed",
+            "quality_score": null
+          },
+          "new_state": {
+            "status": "optimized",
+            "quality_score": 67,
+            "quality_level": "excellent"
+          },
+          "timestamp": "2026-04-20T12:00:00.000Z"
+        }
+      ],
+      "deleted_reason": null,
+      "deleted_at": null
+    },
+    {
+      "id": "kw-010",
+      "keyword": "AI赚钱",
+      "status": "optimized",
+      "source": "recommended",
+      "source_keyword": "video_analysis",
+      "created_at": "2026-04-19T10:00:00.000Z",
+      "search_count": 5,
+      "last_search_at": "2026-04-20T01:00:50.781Z",
+      "found_bloggers": 2,
+      "last_found_at": null,
+      "quality_score": 62,
+      "quality_level": "good",
+      "topic_match_rate": 100,
+      "blogger_quality_avg": 62,
+      "evaluated_at": "2026-04-22T12:00:00.000Z",
+      "evaluation_count": 1,
+      "optimization_history": [
+        {
+          "action": "added",
+          "reason": "从视频分析中发现，与AI工具赚钱主题高度相关，热度高",
+          "previous_state": null,
+          "new_state": {
+            "status": "pending"
+          },
+          "timestamp": "2026-04-19T10:00:00.000Z"
+        },
+        {
+          "action": "pending",
+          "reason": "2026-04-20评估：找到2个博主，数据不足（视频数<3），继续收集数据",
+          "previous_state": {
+            "status": "completed",
+            "quality_score": null
+          },
+          "new_state": {
+            "status": "pending",
+            "quality_score": null
+          },
+          "timestamp": "2026-04-20T12:00:00.000Z"
+        },
+        {
+          "action": "evaluated",
+          "reason": "2026-04-22评估：找到2个博主，符合主题比例100%，但博主数不足3个，质量等级一般",
+          "previous_state": {
+            "status": "completed",
+            "quality_score": null
+          },
+          "new_state": {
+            "status": "optimized",
+            "quality_score": 62,
+            "quality_level": "good"
+          },
+          "timestamp": "2026-04-22T12:00:00.000Z"
+        }
+      ],
+      "deleted_reason": null,
+      "deleted_at": null
+    },
+    {
+      "id": "kw-011",
+      "keyword": "副业赚钱",
+      "status": "optimized",
+      "source": "recommended",
+      "source_keyword": "video_analysis",
+      "created_at": "2026-04-20T12:00:00.000Z",
+      "search_count": 4,
+      "last_search_at": "2026-04-20T01:01:08.491Z",
+      "found_bloggers": 10,
+      "last_found_at": null,
+      "quality_score": 70,
+      "quality_level": "excellent",
+      "topic_match_rate": 70,
+      "blogger_quality_avg": 55,
+      "evaluated_at": "2026-04-22T12:00:00.000Z",
+      "evaluation_count": 1,
+      "optimization_history": [
+        {
+          "action": "added",
+          "reason": "2026-04-20优化：从视频分析中发现，与副业主题高度相关，热度适中",
+          "previous_state": null,
+          "new_state": {
+            "status": "pending"
+          },
+          "timestamp": "2026-04-20T12:00:00.000Z"
+        },
+        {
+          "action": "evaluated",
+          "reason": "2026-04-22评估：找到10个博主，符合主题比例70%，质量等级优质",
+          "previous_state": {
+            "status": "completed",
+            "quality_score": null
+          },
+          "new_state": {
+            "status": "optimized",
+            "quality_score": 70,
+            "quality_level": "excellent"
+          },
+          "timestamp": "2026-04-22T12:00:00.000Z"
+        }
+      ],
+      "deleted_reason": null,
+      "deleted_at": null
+    },
+    {
+      "id": "kw-012",
+      "keyword": "一人公司",
+      "status": "deleted",
+      "source": "user",
+      "source_keyword": "user_input",
+      "created_at": "2026-04-20T12:00:00.000Z",
+      "search_count": 4,
+      "last_search_at": "2026-04-20T01:01:25.366Z",
+      "found_bloggers": 1,
+      "last_found_at": null,
+      "quality_score": 0,
+      "quality_level": "poor",
+      "topic_match_rate": 0,
+      "blogger_quality_avg": null,
+      "evaluated_at": "2026-04-22T12:00:00.000Z",
+      "evaluation_count": 1,
+      "optimization_history": [
+        {
+          "action": "added",
+          "reason": "用户手动添加：与一人创业项目推荐语义相似，补充搜索覆盖",
+          "previous_state": null,
+          "new_state": {
+            "status": "pending"
+          },
+          "timestamp": "2026-04-20T12:00:00.000Z"
+        },
+        {
+          "action": "deleted",
+          "reason": "2026-04-22优化：仅1个博主，符合主题比例0%，与kw-005一人创业项目推荐高度重叠",
+          "previous_state": {
+            "status": "completed",
+            "quality_score": null
+          },
+          "new_state": {
+            "status": "deleted",
+            "quality_score": 0
+          },
+          "timestamp": "2026-04-22T12:00:00.000Z"
+        }
+      ],
+      "deleted_reason": "仅1个博主，符合主题比例0%，与kw-005一人创业项目推荐高度重叠",
+      "deleted_at": "2026-04-22T12:00:00.000Z"
+    },
+    {
+      "id": "kw-013",
+      "keyword": "手搓经济",
+      "status": "deleted",
+      "source": "user",
+      "source_keyword": "user_input",
+      "created_at": "2026-04-20T12:30:00.000Z",
+      "search_count": 1,
+      "last_search_at": "2026-04-20T01:00:00.000Z",
+      "found_bloggers": 0,
+      "last_found_at": null,
+      "quality_score": 0,
+      "quality_level": "poor",
+      "topic_match_rate": 0,
+      "blogger_quality_avg": null,
+      "evaluated_at": "2026-04-22T12:00:00.000Z",
+      "evaluation_count": 1,
+      "optimization_history": [
+        {
+          "action": "added",
+          "reason": "用户手动添加：新兴经济模式，与低成本创业主题相关",
+          "previous_state": null,
+          "new_state": {
+            "status": "pending"
+          },
+          "timestamp": "2026-04-20T12:30:00.000Z"
+        },
+        {
+          "action": "searched",
+          "reason": "2026-04-20搜索完成：找到20个视频，但所有候选博主被筛选排除",
+          "previous_state": {
+            "status": "pending"
+          },
+          "new_state": {
+            "status": "completed"
+          },
+          "timestamp": "2026-04-20T01:00:00.000Z"
+        },
+        {
+          "action": "deleted",
+          "reason": "2026-04-22优化：0个博主被发现，关键词过于小众，搜索无效果",
+          "previous_state": {
+            "status": "completed",
+            "quality_score": null
+          },
+          "new_state": {
+            "status": "deleted",
+            "quality_score": 0
+          },
+          "timestamp": "2026-04-22T12:00:00.000Z"
+        }
+      ],
+      "deleted_reason": "0个博主被发现，关键词过于小众，搜索无效果",
+      "deleted_at": "2026-04-22T12:00:00.000Z"
+    },
+    {
+      "id": "kw-014",
+      "keyword": "线上副业",
+      "status": "deleted",
+      "source": "user",
+      "source_keyword": "user_input",
+      "created_at": "2026-04-20T12:30:00.000Z",
+      "search_count": 4,
+      "last_search_at": "2026-04-20T01:02:00.069Z",
+      "found_bloggers": 0,
+      "last_found_at": null,
+      "quality_score": 0,
+      "quality_level": "poor",
+      "topic_match_rate": 0,
+      "blogger_quality_avg": null,
+      "evaluated_at": "2026-04-22T12:00:00.000Z",
+      "evaluation_count": 1,
+      "optimization_history": [
+        {
+          "action": "added",
+          "reason": "用户手动添加：与副业赚钱主题相关，补充线上副业搜索覆盖",
+          "previous_state": null,
+          "new_state": {
+            "status": "pending"
+          },
+          "timestamp": "2026-04-20T12:30:00.000Z"
+        },
+        {
+          "action": "deleted",
+          "reason": "2026-04-22优化：0个博主被发现，关键词过于宽泛，与kw-011副业赚钱高度重叠",
+          "previous_state": {
+            "status": "completed",
+            "quality_score": null
+          },
+          "new_state": {
+            "status": "deleted",
+            "quality_score": 0
+          },
+          "timestamp": "2026-04-22T12:00:00.000Z"
+        }
+      ],
+      "deleted_reason": "0个博主被发现，关键词过于宽泛，与kw-011副业赚钱高度重叠",
+      "deleted_at": "2026-04-22T12:00:00.000Z"
+    },
+    {
+      "id": "kw-015",
+      "keyword": "零成本创业",
+      "status": "completed",
+      "source": "recommended",
+      "source_keyword": "video_analysis",
+      "created_at": "2026-04-22T12:00:00.000Z",
+      "search_count": 1,
+      "last_search_at": "2026-04-22T06:24:13.251Z",
+      "found_bloggers": 12,
+      "last_found_at": null,
+      "quality_score": null,
+      "quality_level": null,
+      "topic_match_rate": null,
+      "blogger_quality_avg": null,
+      "evaluated_at": null,
+      "evaluation_count": 0,
+      "optimization_history": [
+        {
+          "action": "added",
+          "reason": "2026-04-22优化：从视频分析中发现，与轻资产创业语义互补，覆盖草根创业人群",
+          "previous_state": null,
+          "new_state": {
+            "status": "pending"
+          },
+          "timestamp": "2026-04-22T12:00:00.000Z"
+        }
+      ],
+      "deleted_reason": null,
+      "deleted_at": null
+    },
+    {
+      "id": "kw-016",
+      "keyword": "商业思维",
+      "status": "completed",
+      "source": "recommended",
+      "source_keyword": "statistics",
+      "created_at": "2026-04-22T12:00:00.000Z",
+      "search_count": 1,
+      "last_search_at": "2026-04-22T06:24:29.482Z",
+      "found_bloggers": 0,
+      "last_found_at": null,
+      "quality_score": null,
+      "quality_level": null,
+      "topic_match_rate": null,
+      "blogger_quality_avg": null,
+      "evaluated_at": null,
+      "evaluation_count": 0,
+      "optimization_history": [
+        {
+          "action": "added",
+          "reason": "2026-04-22优化：从统计数据中发现高频关键词(13次)，覆盖商业认知类博主",
+          "previous_state": null,
+          "new_state": {
+            "status": "pending"
+          },
+          "timestamp": "2026-04-22T12:00:00.000Z"
+        }
+      ],
+      "deleted_reason": null,
+      "deleted_at": null
+    },
+    {
+      "id": "kw-017",
+      "keyword": "奥悦路亚",
+      "status": "searching",
+      "source": "user",
+      "source_keyword": "user_input",
+      "created_at": "2026-04-22T12:00:00.000Z",
+      "search_count": 0,
+      "last_search_at": null,
+      "found_bloggers": 0,
+      "last_found_at": null,
+      "quality_score": null,
+      "quality_level": null,
+      "topic_match_rate": null,
+      "blogger_quality_avg": null,
+      "evaluated_at": null,
+      "evaluation_count": 0,
+      "optimization_history": [
+        {
+          "action": "added",
+          "reason": "用户手动添加：路亚钓鱼相关关键词",
+          "previous_state": null,
+          "new_state": {
+            "status": "pending"
+          },
+          "timestamp": "2026-04-22T12:00:00.000Z"
+        }
+      ],
+      "deleted_reason": null,
+      "deleted_at": null
+    }
+  ]
+}

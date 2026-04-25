@@ -1,0 +1,137 @@
+{
+  "generated_at": "2026-04-24T04:30:03.112Z",
+  "total_failures": 66,
+  "error_types": {
+    "ENOENT: 文件不存在": 4,
+    "分析结果无效": 27,
+    "SyntaxError: Identifier 'triggerEvents' has already been declared": 3,
+    "SyntaxError: Identifier 'input' has already been declared": 3,
+    "SyntaxError: Illegal return statement": 1,
+    "Detached while handling command.": 3,
+    "JSON解析失败": 8,
+    "Page not found: 页面失效": 17
+  },
+  "stage_stats": {
+    "stage3": 66
+  },
+  "author_stats": {
+    "胡说老王（干货版）": 1,
+    "赵撑伞": 1,
+    "魏成说商业": 7,
+    "赵丽娜商机实探": 1,
+    "大健康＆养老产业高导": 1,
+    "圆脸鹅": 1,
+    "装窗不装X": 1,
+    "车神张全国长途代驾": 8,
+    "智慧少女派": 11,
+    "锐奕文化": 5,
+    "严肃的虾米": 1,
+    "41988291264": 1,
+    "炸串哥聊摆摊": 1,
+    "不屈者老王": 1,
+    "徐不投": 1,
+    "大雷子": 1,
+    "斜杠青年小冯": 2,
+    "破而后立-何天下": 2,
+    "老朝创业圈（朝瑶加盟）": 2,
+    "冷水轻创业": 2,
+    "老郭餐饮创业": 1,
+    "沐风侃大山": 1,
+    "唠叨乔妈.创业": 1,
+    "智慧加油站": 1,
+    "创业老王不乱讲": 1,
+    "陈守拙": 1,
+    "天才豆门": 1,
+    "小胡职鉴": 1,
+    "你好大良同学": 2,
+    "这很容易": 1,
+    "军哥言商": 1,
+    "梁策（一人项目）": 1,
+    "熊迪来了": 1,
+    "钉钉00后": 1
+  },
+  "samples": {
+    "ENOENT: 文件不存在": {
+      "video_id": "7627121122303085876",
+      "url": "https://www.douyin.com/video/7627121122303085876",
+      "author": "胡说老王（干货版）",
+      "error": "ENOENT: no such file or directory, open 'd:\\opencli\\douyin-videos\\results\\胡说老王_干货版\\metadata.json'"
+    },
+    "分析结果无效": {
+      "video_id": "7138261109768719657",
+      "url": "https://www.douyin.com/video/7138261109768719657",
+      "author": "大健康＆养老产业高导",
+      "error": "分析结果无效"
+    },
+    "SyntaxError: Identifier 'triggerEvents' has already been declared": {
+      "video_id": "7289408724316245289",
+      "url": "https://www.douyin.com/video/7289408724316245289",
+      "author": "魏成说商业",
+      "error": "SyntaxError: Identifier 'triggerEvents' has already been declared"
+    },
+    "SyntaxError: Identifier 'input' has already been declared": {
+      "video_id": "7289408724316245289",
+      "url": "https://www.douyin.com/video/7289408724316245289",
+      "author": "魏成说商业",
+      "error": "SyntaxError: Identifier 'input' has already been declared"
+    },
+    "SyntaxError: Illegal return statement": {
+      "video_id": "7332645968543780136",
+      "url": "https://www.douyin.com/video/7332645968543780136",
+      "author": "车神张全国长途代驾",
+      "error": "SyntaxError: Illegal return statement"
+    },
+    "Detached while handling command.": {
+      "video_id": "7627831277605228467",
+      "url": "https://www.douyin.com/video/7627831277605228467",
+      "author": "锐奕文化",
+      "error": "Detached while handling command."
+    },
+    "JSON解析失败": {
+      "video_id": "7628115696026783011",
+      "url": "https://www.douyin.com/video/7628115696026783011",
+      "author": "徐不投",
+      "error": "JSON解析失败"
+    },
+    "Page not found: 页面失效": {
+      "video_id": "7584732312651173160",
+      "url": "https://www.douyin.com/video/7584732312651173160",
+      "author": "大雷子",
+      "error": "Page not found: 270833E4796B423DC24F0B40B2DE12CD — stale page identity"
+    }
+  },
+  "root_causes": [
+    {
+      "id": "RC-LOG-1",
+      "name": "博主目录/文件缺失",
+      "count": 4,
+      "severity": "high",
+      "cause": "Stage 2 采集时博主目录命名与 Stage 3 分析时不一致，或采集未完成就进入分析",
+      "fix": "统一博主目录命名规范，确保采集完成后再分析"
+    },
+    {
+      "id": "RC-LOG-2",
+      "name": "抖音页面失效",
+      "count": 17,
+      "severity": "medium",
+      "cause": "视频已删除/私密/下架，或 OpenCLI 页面会话过期",
+      "fix": "增加页面失效检测，自动跳过或标记为 unavailable"
+    },
+    {
+      "id": "RC-LOG-3",
+      "name": "AI 输出格式错误",
+      "count": 8,
+      "severity": "high",
+      "cause": "AI 返回非 JSON 格式，或 JSON 结构不完整",
+      "fix": "增加 AI 输出格式校验，失败时重试"
+    },
+    {
+      "id": "RC-LOG-4",
+      "name": "分析结果校验失败",
+      "count": 27,
+      "severity": "medium",
+      "cause": "AI 返回的 JSON 缺少必需字段或字段值无效",
+      "fix": "强化校验逻辑，提供更明确的错误提示"
+    }
+  ]
+}

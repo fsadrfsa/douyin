@@ -1,0 +1,606 @@
+{
+  "nodes": [
+    {
+      "type": "text",
+      "id": "title",
+      "x": -800,
+      "y": -1800,
+      "width": 1200,
+      "height": 120,
+      "color": "1",
+      "text": "# 🏗️ Stage4 架构洞察白板\n**下载 + 转录** · 主从进程协作 · 5级降级 · Worker池并发 · 状态机驱动"
+    },
+    {
+      "type": "text",
+      "id": "legend",
+      "x": 500,
+      "y": -1800,
+      "width": 500,
+      "height": 280,
+      "color": "6",
+      "text": "## 📖 图例\n\n| 色 | 含义 |\n|---|---|\n| 🟥 红 | 下载主进程/高风险 |\n| 🟧 橙 | 转录子进程/警告 |\n| 🟨 黄 | 共享模块 |\n| 🟩 绿 | 数据源/输出 |\n| 🟦 蓝 | 外部依赖 |\n| 🟪 紫 | 设计决策/洞察 |\n\n**⬆️ 返回**: [pipeline-architecture](architecture-canvas/pipeline-architecture.canvas)"
+    },
+    {
+      "type": "group",
+      "id": "group-dna",
+      "x": -2200,
+      "y": -1600,
+      "width": 1600,
+      "height": 900,
+      "color": "6",
+      "label": "🧬 架构 DNA — Stage4 设计哲学"
+    },
+    {
+      "type": "text",
+      "id": "dna-core",
+      "x": -2168.3878700224946,
+      "y": -1560.1386188097686,
+      "width": 1520,
+      "height": 380,
+      "color": "6",
+      "text": "## 🎯 核心设计哲学\n\n### 1. 主从进程协作 (Master-Worker)\n**下载主进程** (fallback-process.js) 负责：浏览器交互、API调用、5级降级下载\n**转录子进程** (transcribe-local.js) 负责：GPU资源管理、Whisper调用、并发Worker池\n**交接点**: 主进程每下载5个音频 → spawn子进程 → await完成\n→ **为什么分进程?** 下载需要浏览器Cookie，转录需要独占GPU，资源隔离避免互相干扰\n\n### 2. 渐进降级 (Graceful Degradation)\n**5级下载降级**: 直接音频→备选链接→Cookie下载→浏览器fetch→视频提取音频\n**转录降级**: 分段转录失败→整体转录；whisper_cpp不可用→openai_whisper\n→ **核心信念**: 任何单点失败不应阻断整个流水线\n\n### 3. 防御性验证 (Defensive Validation)\n**每步验证**: 下载后验证音频内容(音量+静音率)，转录后验证文本长度\n**无效即删**: 验证失败的文件立即清理，不留垃圾\n**状态机保护**: isValidTransition() 阻止非法状态跳转"
+    },
+    {
+      "type": "text",
+      "id": "dna-tradeoffs",
+      "x": -2160,
+      "y": -1120,
+      "width": 720,
+      "height": 360,
+      "color": "6",
+      "text": "## ⚖️ 关键权衡\n\n**串行下载 vs 并行下载**\n选择: 串行（逐视频下载）\n原因: 抖音API限流+Cookie共享\n代价: 下载速度受限于网络延迟\n\n**spawn子进程 vs 函数调用**\n选择: spawn独立进程\n原因: GPU资源隔离+崩溃隔离\n代价: 进程间通信靠文件系统(videos.json)\n→ 引发数据竞争(R1已修复)\n\n**Worker池 vs Promise.all**\n选择: Worker池模式\n原因: GPU显存有限，需精确控制并发\n代价: 实现复杂度更高\n\n**归档 vs 删除**\n选择: 归档(移动到archived/)\n原因: 可追溯+可恢复\n代价: 磁盘空间持续增长"
+    },
+    {
+      "type": "text",
+      "id": "dna-antipattern",
+      "x": -1380,
+      "y": -1120,
+      "width": 720,
+      "height": 360,
+      "color": "1",
+      "text": "## ⚠️ 反模式与债务\n\n**🔴 进程间文件锁缺失 (R1 ✅已修复-原子写入)**\n两个进程同时 writeFileSync(videos.json)\n→ read-modify-write 竞争，丢失更新\n修复: 原子写入(先写临时文件再rename)\n已修复文件:\n- videos-manager.js (videos.json)\n- blogger-manager.js (bloggers.json)\n- archive-blogger.js (videos.json)\n- rebuild-videos-json.cjs (videos.json)\n\n**🔴 GPU过载导致系统重启 (R2 ✅已修复-职责分离)**\n原设计：stage4 同时负责下载和转录\n→ 并行转录时多个whisper.cpp占用GPU\n→ 显存耗尽/过热 → 系统重启\n修复: 职责分离\n- stage4: 仅下载音频\n- stage4-transcribe-local.js: 单独执行转录\n- 用户手动控制转录时机\n\n**🟢 并发数硬编码限制 (R3 ✅已修复-动态计算)**\n原代码: `Math.min(..., 2)` 硬编码最大并发为 2\n→ 无论 GPU 显存多少，并发始终为 2\n修复: 根据温度动态设置上限\n- 温度 > 80°C: 最大 1\n- 温度 > 70°C: 最大 2\n- 温度 > 60°C: 最大 3\n- 温度 ≤ 60°C: 最大 4\n实际并发 = min(显存计算值, 温度上限)\n\n**✅ 硬编码路径 (P1 已修复)\n所有脚本统一从 _shared/config.js 导入路径\n修复时间: 2026-04-24\n\n**✅ author_id 过滤链路 (P0 已修复)\nStage1: uid 为空时使用 null\nStage4: 增加 sec_uid 备选匹配\n修复时间: 2026-04-24"
+    },
+    {
+      "type": "group",
+      "id": "group-process",
+      "x": -2200,
+      "y": -600,
+      "width": 3200,
+      "height": 900,
+      "color": "1",
+      "label": "⚙️ 双进程架构 — 下载主进程 + 转录子进程"
+    },
+    {
+      "type": "text",
+      "id": "download-entry",
+      "x": -2160,
+      "y": -540,
+      "width": 700,
+      "height": 340,
+      "color": "1",
+      "text": "## 📥 下载主进程\n`stage4-fallback-process.js`\n\n**注册**: `cli({ site: \"douyin-videos\", name: \"stage4\" })`\n**策略**: `Strategy.COOKIE` (浏览器Cookie认证)\n\n**核心参数**:\n| 参数 | 默认 | 说明 |\n|------|------|------|\n| max_videos | 20 | 最大处理视频数 |\n| keep_media | false | 保留媒体文件 |\n| video_id | null | 指定视频ID |\n| cleanup | false | 执行文件清理 |\n\n**职责**: 仅下载音频，转录由 stage4-transcribe-local.js 单独执行"
+    },
+    {
+      "type": "text",
+      "id": "command-format",
+      "x": -1380,
+      "y": -160,
+      "width": 700,
+      "height": 400,
+      "color": "6",
+      "text": "## 💻 命令格式\n\n### 下载主进程\n```bash\n# 基础运行（仅下载音频）\nopencli douyin-videos stage4\n\n# 指定参数\nopencli douyin-videos stage4 --max_videos 50\n\n# 处理指定视频\nopencli douyin-videos stage4 --video_id 7625983212317150516\n```\n\n### 转录子进程（独立运行）\n```bash\n# 基础转录\nnode d:/opencli/.opencli/clis/douyin-videos/stage4-transcribe-local.js\n\n# 指定参数\nnode d:/opencli/.opencli/clis/douyin-videos/stage4-transcribe-local.js \\\n  --engine whisper_cpp \\\n  --whisper_model base \\\n  --concurrency 4 \\\n  --max_videos 50\n\n# 强制转录短音频\nnode d:/opencli/.opencli/clis/douyin-videos/stage4-transcribe-local.js --force\n\n# 试运行（不实际转录）\nnode d:/opencli/.opencli/clis/douyin-videos/stage4-transcribe-local.js --dry_run\n```"
+    },
+    {
+      "type": "text",
+      "id": "download-flow",
+      "x": -2160,
+      "y": -160,
+      "width": 700,
+      "height": 400,
+      "color": "1",
+      "text": "## 📥 下载流程（逐视频串行）\n\n1. startKeepAlive(page)\n   └── Object.defineProperty 覆盖 visibilityState\n   └── 300ms interval 防页面休眠\n\n2. 加载 bloggers.json\n   └── 构建有效 author_id 集合\n\n3. getPendingVideos(true)\n   └── 获取 pending + 可重试 failed 视频\n   └── 过滤: 缺少 author_id → 跳过 ⚠️\n   └── 过滤: author_id 不在博主列表 → 跳过\n   └── 失败视频重置为 pending\n\n4. 逐视频处理:\n   ├── 音频已存在? → 跳过下载\n   ├── getDouyinVideoPlayUrl() → 播放地址\n   ├── downloadAndExtractAudio() → 5级降级\n   ├── validateAudioContent() → 质量验证\n   └── updateStatus(\"downloaded\")\n\n5. 输出转录命令提示\n   └── 用户手动运行转录脚本"
+    },
+    {
+      "type": "text",
+      "id": "download-strategy",
+      "x": -1380,
+      "y": -540,
+      "width": 700,
+      "height": 400,
+      "color": "1",
+      "text": "## 🔀 5级下载降级策略\n\n┌─ downloadAndExtractAudio() ─────────────┐\n│                                          │\n│  ① 直接下载音频 (preferAudio=true)       │\n│     curl -o audio.mp3 {audio_url}        │\n│     ↓ 失败                               │\n│  ② 备选音频链接 (fallbackUrl)            │\n│     curl -o audio.mp3 {fallback_url}     │\n│     ↓ 失败                               │\n│  ③ Cookie下载                            │\n│     curl -b cookie -o audio.mp3          │\n│     ↓ 失败                               │\n│  ④ 浏览器fetch下载                       │\n│     page.evaluate → fetch → save         │\n│     ↓ 失败                               │\n│  ⑤ 下载视频→ffmpeg提取音频               │\n│     curl video → ffmpeg -vn -acodec      │\n│                                          │\n│  每步: validateAudio() / validateVideo() │\n│  无效文件: 立即删除 cleanupMediaFiles()   │\n└──────────────────────────────────────────┘\n\n**容错率**: 5级降级 ≈ 99%+ 下载成功率"
+    },
+    {
+      "type": "text",
+      "id": "transcribe-entry",
+      "x": -600,
+      "y": -540,
+      "width": 700,
+      "height": 340,
+      "color": "5",
+      "text": "## 🎙️ 转录子进程\n`stage4-transcribe-local.js`\n\n**运行方式**: \n```\nnode d:/opencli/.opencli/clis/douyin-videos/stage4-transcribe-local.js\n```\n可独立运行，无浏览器依赖\n\n**核心参数**:\n| 参数 | 默认 | 说明 |\n|------|------|------|\n| engine | whisper_cpp | 转录引擎 |\n| whisper_model | base | tiny/base/small/medium/large |\n| whisper_cpp_dir | d:\\whisper-... | whisper.cpp 目录 |\n| concurrency | 2 | 并发Worker数（智能判断）|\n| max_videos | 50 | 最大转录数 |\n| force | false | 强制转录短音频 |\n| dry_run | false | 试运行 |\n\n**并发智能判断**:\n- 温度 > 80°C: 最大 1\n- 温度 > 70°C: 最大 2\n- 温度 > 60°C: 最大 3\n- 温度 ≤ 60°C: 最大 4"
+    },
+    {
+      "type": "text",
+      "id": "transcribe-flow",
+      "x": -600,
+      "y": -160,
+      "width": 700,
+      "height": 400,
+      "color": "5",
+      "text": "## 🎙️ 转录流程（Worker池并发）\n\n1. 环境检测\n   ├── whisper-cli.exe 存在?\n   ├── ggml-{model}.bin 存在?\n   └── detectMaxConcurrency()\n       └── GPU显存 → 自动调整并发数\n\n2. 待转录扫描\n   ├── getTranscribableVideos()\n   │   扫描 audio/*.mp3\n   │   排除: 已有 transcripts/{id}.txt\n   │   排除: retry_count ≥ 3\n   │   排除: 非博主列表视频\n   └── autoCleanupOldFiles()\n\n3. runConcurrent(tasks, concurrency)\n   └── Worker池: N个worker轮流取任务\n       ├── validateAudioContent()\n       ├── updateStatus(\"transcribing\")\n       ├── 调用引擎转录\n       ├── 验证文本 ≥ 10字符\n       ├── updateStatus(\"transcribed\")\n       └── archiveProcessedAudio()\n\n4. 后处理\n   └── cleanupOldArchives(audioDir, 30)\n\n**🔧 R6修复: 音频平均分段**\n长音频分段: duration/segmentCount 平均分配\n避免最后一段过短 (如 603s + 19s → 311s + 311s)\n\n**🔧 R7修复: 并发转录优化**\n启动延迟: 3s → 10s (避免GPU资源竞争)\nGPU清理: 活跃进程>1时跳过清理 (避免误杀)"
+    },
+    {
+      "type": "text",
+      "id": "transcribe-engines",
+      "x": 180,
+      "y": -540,
+      "width": 760,
+      "height": 400,
+      "color": "5",
+      "text": "## ⚙️ 双引擎架构\n\n### whisper_cpp 引擎 (默认)\naudio.mp3 → ffmpeg -y -i -ar 16000 -ac 1 → audio.wav (16kHz mono)\n→ spawn whisper-cli.exe -m ggml-{model}.bin -l zh --no-timestamps -otxt\n→ 超时: 300s + 10s缓冲\n→ 从输出文件或stdout/stderr解析 → transcripts/{id}.txt\n\n### openai_whisper 引擎 (备选)\naudio.mp3 → transcribeAudioWithSegments()\n├── 短音频(<30s): 直接转录 (除非--force)\n└── 长音频: 分段→逐段转录→合并去重\n→ deduplicateTranscriptText() → validateTranscript()\n→ GPU: --device cuda (自动检测) → transcripts/{id}.txt\n\n**引擎选择**: whisper_cpp优先(速度快)，openai_whisper备选(精度高)"
+    },
+    {
+      "type": "text",
+      "id": "spawn-mechanism",
+      "x": 180,
+      "y": -100,
+      "width": 760,
+      "height": 340,
+      "color": "2",
+      "text": "## 🔄 主从进程交接机制\n\n下载主进程                          转录子进程\n┌──────────────┐                  ┌──────────────┐\n│ 下载5个音频    │                  │              │\n│      ↓        │   spawn          │ 环境检测      │\n│ await 上一个  │ ──────────────→ │ 扫描待转录    │\n│ 转录进程完成  │   child_process │ Worker池转录  │\n│      ↓        │                  │      ↓       │\n│ runTranscribe │ ←────────────── │ exit code    │\n│ (opts)        │   进程结束       │              │\n│      ↓        │                  └──────────────┘\n│ 继续下载      │\n│      ↓        │   交接: videos.json (文件系统)\n│ 下载完成      │   交接: audio/{id}.mp3 (文件系统)\n│      ↓        │\n│ 最终转录      │\n│ 剩余音频      │\n└──────────────┘\n\n**activeTranscribeProcess**: 追踪当前转录进程\n**限制**: 同时运行转录进程数=1 (R5修复后)\n**风险**: 仍可能多进程争抢GPU (P1)"
+    },
+    {
+      "type": "group",
+      "id": "group-shared",
+      "x": -2200,
+      "y": 400,
+      "width": 2000,
+      "height": 500,
+      "color": "3",
+      "label": "🔧 共享模块生态 — _shared/ 层"
+    },
+    {
+      "type": "text",
+      "id": "shared-types",
+      "x": -2160,
+      "y": 460,
+      "width": 360,
+      "height": 380,
+      "color": "3",
+      "text": "## types.js\n类型定义 + 状态机\n\n**VideoStatus 枚举**:\npending/downloading/downloaded/\ntranscribing/transcribed/\nprocessed/insufficient/\ninaccessible/failed\n\n**VIDEO_STATUS_TRANSITIONS**:\n合法转换表\n\n**关键函数**:\n- `isValidTransition(from,to)`\n- `transitionVideoStatus(video,newStatus)`\n- `createVideo()` / `createBlogger()`\n\n**复杂度**: 🟡 Medium\n**风险**: 状态膨胀"
+    },
+    {
+      "type": "text",
+      "id": "shared-videos-mgr",
+      "x": -1740,
+      "y": 460,
+      "width": 400,
+      "height": 380,
+      "color": "3",
+      "text": "## videos-manager.js\n统一 VideosManager (R2修复后)\n\n**BaseVideosManager** (抽象)\n- load() / save()\n- _readFromFile() + 备份\n- updateStatus() + 校验\n\n**DownloadVideosManager** (下载)\n- getPendingVideos(includeFailed)\n- getFailedVideos()\n- resetFailedVideo()\n\n**TranscribeVideosManager** (转录)\n- getTranscribableVideos()\n- statusUpdates 队列\n\n**复杂度**: 🔴 High — 统一前重复实现"
+    },
+    {
+      "type": "text",
+      "id": "shared-media",
+      "x": -1280,
+      "y": 460,
+      "width": 360,
+      "height": 380,
+      "color": "3",
+      "text": "## media-downloader.js\n多策略下载器\n\n**5级降级主函数**:\n- `downloadAndExtractAudio()`\n\n**基础能力**:\n- `downloadFile()` — curl下载\n- `extractAudioFromVideo()` — ffmpeg\n- `downloadViaBrowser()` — 浏览器fetch\n- `getDouyinVideoPlayUrl()` — API\n\n**复杂度**: 🔴 High\n**亮点**: 容错率99%+"
+    },
+    {
+      "type": "text",
+      "id": "shared-validator",
+      "x": -860,
+      "y": 460,
+      "width": 360,
+      "height": 380,
+      "color": "3",
+      "text": "## audio-validator.js\n音频/视频验证\n\n**验证层级**:\n- `validateAudio()` — 文件存在+大小+ffprobe\n- `validateVideo()` — 视频流+音频流\n- `validateAudioContent()` — 音量+静音率\n- `detectFileType()` — 文件头魔数\n\n**阈值**:\n- mean_volume > -40dB\n- silence < 80%\n\n**复杂度**: 🟡 Medium\n**亮点**: 多维度验证"
+    },
+    {
+      "type": "text",
+      "id": "shared-whisper",
+      "x": -470.9230231244052,
+      "y": 463.71076277492864,
+      "width": 360,
+      "height": 380,
+      "color": "3",
+      "text": "## whisper-transcriber.js\nOpenAI Whisper 引擎\n\n**核心函数**:\n- `transcribeAudio()` — 普通转录\n- `transcribeAudioWithSegments()` — 分段\n- `checkWhisperInstalled()` — 安装检测\n- `readTranscript()` — 读取转录\n- `clearGPUMemory()` — GPU管理\n- `deduplicateTranscriptText()` — 去重\n\n**🔧 R7修复: GPU清理优化**\nclearGPUAndLog() 检测活跃进程数\n>1时跳过清理，避免误杀并发Worker\n\n**复杂度**: 🔴 High\n**亮点**: 去重机制(G4) + 并发安全(R7)"
+    },
+    {
+      "type": "text",
+      "id": "shared-archiver",
+      "x": -20,
+      "y": 460,
+      "width": 360,
+      "height": 380,
+      "color": "3",
+      "text": "## audio-archiver.js\n音频归档管理\n\n**核心函数**:\n- `archiveProcessedAudio()` → archived/{date}/\n- `batchArchiveAudio()` — 批量归档\n- `cleanupOldArchives()` — 清理N天前\n- `getArchiveStats()` — 归档统计\n\n**归档策略**:\nrename → copy+delete 降级\n\n**目录结构**:\naudio/archived/YYYY-MM-DD/{id}.mp3\n\n**🔧 R12修复: 重复归档源文件泄漏**\n目标已存在时，原逻辑仅返回成功不删除源\n→ 源文件永久滞留根目录，管道重跑时重复下载\n→ 修复: 目标已存在时先unlink源文件再返回\n返回reason: already_archived_source_cleaned\n\n**🔧 R13修复: Skipped音频未归档**\n转录脚本仅在成功后调用archiveProcessedAudio\nskipped/failed音频遗留在根目录\n→ 修复: skipped路径也调用归档函数\n\n**复杂度**: 🟢 Low"
+    },
+    {
+      "type": "group",
+      "id": "group-data",
+      "x": -200,
+      "y": 400,
+      "width": 1200,
+      "height": 500,
+      "color": "4",
+      "label": "📄 数据层 — 输入/输出/状态"
+    },
+    {
+      "type": "text",
+      "id": "data-input",
+      "x": -97.94468855080903,
+      "y": 451.34155352516655,
+      "width": 500,
+      "height": 400,
+      "color": "4",
+      "text": "## 📥 输入数据\n\n### videos.json (唯一真相源)\n**读取者**: 下载主进程 + 转录子进程\n**过滤条件**:\n- status = pending (待下载)\n- status = downloaded (待转录)\n- retry_count < 3 (可重试)\n- author_id 在博主列表中\n\n### bloggers.json\n**用途**: 构建有效 author_id 集合\n**风险**: author_id 为空 → 视频被跳过 ⚠️\n\n### pipeline-state.json\n**用途**: 跨阶段状态协调\n**写入**: PipelineStateManager.startStage/endStage\n**问题**: data/ vs state/ 双文件不一致"
+    },
+    {
+      "type": "text",
+      "id": "data-output",
+      "x": 420,
+      "y": 460,
+      "width": 520,
+      "height": 400,
+      "color": "4",
+      "text": "## 📤 输出数据 & 状态变化\n\n| 输出路径 | 阶段 | 说明 |\n|----------|------|------|\n| audio/{id}.mp3 | 下载 | 音频文件 |\n| transcripts/{id}.txt | 转录 | 纯文本转录 |\n| audio/archived/{date}/{id}.mp3 | 归档 | 转录后归档 |\n| videos.json | 全程 | 状态更新 |\n\n**videos.json 状态写入**:\npending → downloading → downloaded\n                         ↓\n                    transcribing → transcribed\n                                      ↓\n                              (→ content-cleaner)\n\n**额外字段更新**:\n- downloaded: 无额外字段\n- transcribed: transcript_path, transcript_length\n- failed: retry_count++, last_error"
+    },
+    {
+      "type": "group",
+      "id": "group-status",
+      "x": -2200,
+      "y": 1000,
+      "width": 1200,
+      "height": 600,
+      "color": "2",
+      "label": "📊 状态机 & 错误处理"
+    },
+    {
+      "type": "text",
+      "id": "status-machine",
+      "x": -2160,
+      "y": 1060,
+      "width": 520,
+      "height": 480,
+      "color": "2",
+      "text": "## 🔄 视频状态机 (FSM)\n\n          Stage2 创建\n              ↓\n         ┌─pending─┐\n         │         │\n    Stage4↓    缺少author_id\n         │         ↓\n    downloading  跳过⚠️\n         │\n    5级降级下载\n         │\n    ┌────┴────┐\n    ↓         ↓\ndownloaded  failed\n    │    (retry<3→pending)\n    ↓    (retry≥3→⛔)\nStage4-transcribe\n    ↓\ntranscribing\n    ↓\n┌───┴───┐\n↓       ↓\ntranscribed  failed\n(→cleaner)   (retry<3→pending)\n\n**isValidTransition()** 强制校验\n**failed→pending** 仅当 retry_count<3\n**inaccessible** 任意状态可转"
+    },
+    {
+      "type": "text",
+      "id": "error-handling",
+      "x": -1580,
+      "y": 1060,
+      "width": 520,
+      "height": 480,
+      "color": "2",
+      "text": "## 🛡️ 错误处理机制\n\n**1. 状态机保护**\n- isValidTransition() 阻止非法跳转\n- 无效转换: console.warn 但不中断\n\n**2. 重试机制**\n- 视频级: retry_count 递增，上限3次\n- API级: getDouyinVideoPlayUrl 可恢复错误重试2次\n  (stale/not found/detached/timeout/network)\n\n**3. 下载降级 (5级)**\n- 直接音频→备选链接→Cookie→浏览器→视频提取\n- 每级验证+无效即删\n\n**4. 转录容错**\n- 音频无效 → 跳过 (status: skipped)\n- 转录超时 → SIGKILL + 标记失败\n- 转录过短 → 仍标记 transcribed\n- 分段失败 → 降级整体转录\n\n**5. 文件安全**\n- 失败: cleanupMediaFiles() 删除无效文件\n- WAV临时: finally块确保清理 (W3修复)\n- 命令注入: spawn+参数数组 (W5修复)"
+    },
+    {
+      "type": "group",
+      "id": "group-review",
+      "x": -900,
+      "y": 1000,
+      "width": 2100,
+      "height": 600,
+      "color": "5",
+      "label": "🔍 Code Review 摘要 — 13项已修复 + 4项值得称赞"
+    },
+    {
+      "type": "text",
+      "id": "review-critical",
+      "x": -840,
+      "y": 1060,
+      "width": 640,
+      "height": 480,
+      "color": "1",
+      "text": "## 🔴 严重问题 (5项 ✅已修复)\n\n**R1: ✅ 跨进程 videos.json 并发写入**\nfallback-process.js ↔ transcribe-local.js\n两个进程同时 writeFileSync → 丢失更新\n→ 修复: 原子写入(先写临时文件再rename)\n\n**R2: VideosManager 类重复实现**\n两个类逻辑高度重复但关键差异:\nObject.assign顺序/过滤逻辑/清理范围\n→ 修复: 抽取 _shared/videos-manager.js\n\n**R3: file-lock.js 导入但从未使用**\n两个文件 import safeReadJSON/safeWriteJSON\n但实际全部使用裸 fs.readFileSync\n→ 修复: 移除无用import\n\n**R4: Worker池内多Worker同时save()**\n多个Worker共享cache对象引用\n修改和save()间可被事件循环打断\n→ 修复: statusUpdates队列\n\n**R5: 并行转录spawn无并发限制**\n每5个音频spawn一个，不等待完成\n50个视频→10个转录进程→GPU爆炸\n→ 修复: activeTranscribeProcess追踪"
+    },
+    {
+      "type": "text",
+      "id": "review-warning",
+      "x": -150,
+      "y": 1060,
+      "width": 640,
+      "height": 480,
+      "color": "2",
+      "text": "## 🟡 建议改进 (14项 ✅已修复)\n\n**W1: 死变量** transcribeProcess=null 未使用\n→ 删除，替换为 activeTranscribeProcess\n\n**W2: Keep-alive注入风险**\nObject.defineProperty覆盖visibilityState\nsetInterval未在异常时清理\n→ 添加try-catch保护\n\n**W3: WAV临时文件清理不在finally**\nPromise reject时WAV文件不会被清理\n→ 移入finally块\n\n**W4: 转录验证阈值不一致**\ntranscribe-local: 10字符\ntranscript-validator: 50字符+中文\n→ constants.js 统一 MIN_LENGTH=50\n\n**W5: 命令注入风险**\nexecSync(`ffmpeg -i \"${audioPath}\"`)\n→ spawn+参数数组替代\n\n**W6: 失败视频重置逻辑分散**\n→ 统一resetFailedVideo()方法\n\n**W7: timeoutSeconds计算过于保守**\n→ 模型大小动态调整上限\n\n**W8: Object.assign顺序差异**\n→ 统一为先assign再赋值status\n\n**R6: ✅ 音频分段不均匀**\n固定600秒分段 → 最后一段过短\n→ 修复: duration/segmentCount 平均分段\n文件: audio-splitter.js\n\n**R7: ✅ 并发转录性能差**\n启动延迟3秒不足 + GPU清理误杀\n→ 修复: 延迟10秒 + 活跃检测跳过清理\n文件: stage4-transcribe-local.js, whisper-transcriber.js\n\n**R8: ✅ Skipped状态重复显示**\n已跳过的音频每次运行仍显示\n→ 修复: getTranscribableVideos 排除 skipped 状态\n文件: videos-manager.js\n\n**R9: ✅ 孤立视频误清理**\n只检查 videos.json，未加载归档文件\n已归档视频被误判为孤立并清理\n→ 修复: 加载 videos-archive-*.json 中的视频 ID\n文件: stage2-video-collect.js\n\n**R10: ✅ 休眠博主采集频率**\n休眠博主每天都被采集，浪费资源\n→ 修复: 休眠博主每月检查一次（距上次采集 ≥30 天）\n文件: stage2-video-collect.js\n\n**R11: ✅ 孤立视频根因修复**\n`--video_url` 参数只更新 metadata.videos\n未同步添加到 videos.json\n→ 修复: updateSingleVideoToMetadata 同步添加到 videos.json\n文件: stage2-video-collect.js\n\n**R12: ✅ 归档函数源文件泄漏**\n目标已存在时仅返回成功，不删除源文件\n→ 源文件永久滞留根目录\n→ 修复: 目标已存在时先unlink源文件\n影响文件: audio-archiver.js, transcript-archiver.js, batch-clean.js\n\n**R13: ✅ Skipped音频未归档**\n转录脚本仅在成功后调用archiveProcessedAudio\nskipped音频遗留在根目录永不清理\n→ 修复: skipped路径也调用归档函数\n文件: stage4-transcribe-local.js"
+    },
+    {
+      "type": "text",
+      "id": "review-good",
+      "x": 540,
+      "y": 1060,
+      "width": 640,
+      "height": 480,
+      "color": "5",
+      "text": "## 🟢 值得称赞 (4项)\n\n### G1: 5级下载降级策略\n`downloadAndExtractAudio` 完整降级链\n直接音频→备选链接→Cookie→浏览器→视频提取\n每步验证+清理，容错性极强\n\n### G2: 状态机约束严谨\n`VIDEO_STATUS_TRANSITIONS` + `isValidTransition()`\n为视频生命周期提供强约束\n防止非法状态跳转\n\n### G3: 音频内容验证多维度\n`validateAudioContent` 不仅检查格式\n还分析音量(mean_volume)、静音比例\n能有效过滤空音频/静音视频\n\n### G4: 转录去重机制\n`deduplicateTranscriptText`\n检测并去除Whisper常见的重复输出\n容易被忽视但很实用\n\n---\n\n**修复率**: 19/19 = 100% ✅\n**代码质量**: 从 Critical → Good\n**最新修复**: R10休眠博主 + R11孤立视频根因 (2026-04-24)"
+    },
+    {
+      "type": "group",
+      "id": "group-handoff",
+      "x": -2200,
+      "y": 1700,
+      "width": 2200,
+      "height": 600,
+      "color": "5",
+      "label": "🤝 下游交接 — content-cleaner Skill"
+    },
+    {
+      "type": "text",
+      "id": "handoff-flow",
+      "x": -2160,
+      "y": 1760,
+      "width": 1000,
+      "height": 480,
+      "color": "5",
+      "text": "## 🤝 Stage4 → content-cleaner 交接\n\nStage4 转录完成\n  ↓\nvideos.json: status=transcribed\n  ↓\ntranscripts/{id}.txt 已写入\n  ↓\n┌──────────────────────────────────┐\n│  content-cleaner (AI Skill)      │\n│  1. 环境扫描 → videos.json      │\n│     (status=transcribed 的视频)  │\n│  2. 深度读取 → transcripts/     │\n│  3. 内在思考 → 质量判断         │\n│     accessible / insufficient    │\n│  4. 单文件写入 → cleaned-results/│\n│  5. 强制验证 → validate-cleaned  │\n│  6. 状态回执 → distribute/review │\n└──────────────────────────────────┘\n  ↓\nvalidate-cleaned.js (路由器)\n  ├── accessible → distribute-cleaned.js\n  │     → results/{博主}/videos/{id}.json\n  │     → status: processed\n  └── insufficient → review-handler.js\n        → transcripts/review/{类别}/\n        → quality: insufficient\n\n**交接字段**: stage4_status\n- transcribed = 待整理\n- cleaned = 已整理"
+    },
+    {
+      "type": "text",
+      "id": "handoff-data",
+      "x": -1100,
+      "y": 1760,
+      "width": 1060,
+      "height": 480,
+      "color": "4",
+      "text": "## 📊 交接数据映射\n\n| Stage4 输出 | content-cleaner 读取 | 用途 |\n|-------------|---------------------|------|\n| transcripts/{id}.txt | 转录原文 | AI整理的输入 |\n| videos.json (status=transcribed) | 待处理列表 | 判断哪些视频需要整理 |\n| videos.json (author, author_id) | 博主信息 | 输出JSON的元数据 |\n| videos.json (title, url) | 视频信息 | 输出JSON的元数据 |\n| bloggers.json (sec_uid) | 博主标识 | 匹配博主目录 |\n\n**content-cleaner 输出** → cleaned-results/{id}.json:\n\n| 场景 | 字段 |\n|------|------|\n| accessible (5字段) | video_id, quality, main_content, keywords, analyzed_at |\n| insufficient (4字段) | video_id, quality, reason, analyzed_at |\n\n**关键约束**:\n- main_content ≥ 300字符 (accessible)\n- reason 必填 (insufficient)\n- 去重压缩比 ≥ 0.3\n- 原始压缩比 ≤ 1.5\n- 三不原则: 不虚构/不损毁/不脱脸"
+    },
+    {
+      "type": "group",
+      "id": "group-risks",
+      "x": -2200,
+      "y": 2400,
+      "width": 2200,
+      "height": 500,
+      "color": "1",
+      "label": "🔴 遗留风险 & 改进方向"
+    },
+    {
+      "type": "text",
+      "id": "risks-remaining",
+      "x": -2160,
+      "y": 2460,
+      "width": 700,
+      "height": 380,
+      "color": "1",
+      "text": "## ✅ 已修复风险\n\n**✅ P0: author_id 过滤链路断裂**\n- Stage1: uid 为空时使用 null\n- Stage4: 增加 sec_uid 备选匹配\n- 修复时间: 2026-04-24\n\n**✅ P0: validate-cleaned.js 未实现**\n- 已实现完整路由器\n- accessible → distribute-cleaned.js\n- insufficient → review-handler.js\n- 修复时间: 2026-04-24\n\n**✅ P1: 硬编码路径**\n- 所有脚本统一从 config.js 导入\n- 修复时间: 2026-04-24\n\n**🟡 P1: 转录进程竞争**\n- activeTranscribeProcess 只跟踪最后一个\n- 多个Whisper进程争抢GPU\n- 建议: 队列模式"
+    },
+    {
+      "type": "text",
+      "id": "risks-improvement",
+      "x": -1380,
+      "y": 2460,
+      "width": 700,
+      "height": 380,
+      "color": "6",
+      "text": "## 🚀 改进方向\n\n**短期 (V2.1) - ✅ 已完成**:\n1. ✅ 实现 validate-cleaned.js 路由器\n2. ✅ 修复 author_id 链路\n3. ✅ 统一路径配置\n4. 🟡 队列式转录管理\n\n**中期 (V2.5)**:\n5. 事件驱动替代轮询\n   - 文件系统watch → 实时触发\n6. ✅ videos.json 拆分\n   - 状态机 + 索引 + 归档 三文件\n7. 转录进度持久化\n   - 断点续传，不重复转录\n\n**远期 (V3)**:\n8. 统一Stage3/4内容分析管道\n9. 可观测性: 实时指标+告警\n10. 分布式转录: 多GPU节点"
+    },
+    {
+      "type": "text",
+      "id": "risks-acceptance",
+      "x": -600,
+      "y": 2460,
+      "width": 560,
+      "height": 380,
+      "color": "1",
+      "text": "## ✅ 验收清单\n\n**下载流程**:\n- [ ] 待处理视频全部尝试(含重试)\n- [ ] 博主列表过滤生效\n- [ ] 音频已存在时跳过\n- [ ] 5级降级完整执行\n- [ ] 音频内容验证生效\n- [ ] retry_count正确递增\n- [ ] 超限视频(≥3)不再重试\n\n**转录流程**:\n- [ ] whisper环境校验\n- [ ] GPU显存自动调整并发\n- [ ] 已转录音频跳过\n- [ ] Worker池正常工作\n- [ ] 转录文本≥10字符标记成功\n- [ ] 转录后音频归档\n- [ ] 30天前归档自动清理\n\n**数据完整性**:\n- [ ] 状态转换符合状态机\n- [ ] transcript_path指向实际文件\n- [ ] transcript_length与内容一致\n- [ ] 并发写入无数据丢失"
+    },
+    {
+      "type": "text",
+      "id": "blogger-dir-naming-fix",
+      "x": 100,
+      "y": 2460,
+      "width": 600,
+      "height": 450,
+      "color": "4",
+      "text": "## ✅ 博主目录命名规则修复\n**修复时间**: 2026-04-25\n\n### 📊 问题根源\n- **原命名规则**: `{博主名}_{sec_uid前10位}`\n- **问题**: 所有博主 sec_uid 前10位都是 `MS4wLjABAA`\n- **影响**: 无法通过后缀区分不同博主\n\n### 🔧 修复方案\n**新命名规则**: `{博主名}_{author_id}`\n\n**优势**:\n1. ✅ 无前缀冲突\n2. ✅ author_id 完全唯一\n3. ✅ 长度更短（数字）\n\n### 📝 修改文件\n| 文件 | 修改内容 |\n|------|---------|\n| `_shared/config.js` | getBloggerDirName 优先使用 author_id |\n| `distribute-cleaned.js` | getBloggerDirName + findBloggerDir 支持 author_id |\n| `check-cleaned-standalone.js` | findBloggerDir 支持 author_id |\n| `_shared/blogger-manager.js` | 调用传递 author_id 参数 |\n| `check-cleaned-content.js` | findBloggerDir 支持 author_id |\n\n### 🔄 批量重命名\n- ✅ 重命名 33 个博主目录\n- ✅ 从 `MS4wLjABAA` 后缀改为 `author_id` 后缀\n- ✅ 100% 成功"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-videos-to-download",
+      "fromNode": "data-input",
+      "fromSide": "top",
+      "toNode": "download-flow",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "4",
+      "label": "读取视频列表"
+    },
+    {
+      "id": "e-bloggers-to-download",
+      "fromNode": "data-input",
+      "fromSide": "top",
+      "toNode": "download-entry",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "4",
+      "label": "author_id过滤 ⚠️"
+    },
+    {
+      "id": "e-download-to-strategy",
+      "fromNode": "download-flow",
+      "fromSide": "right",
+      "toNode": "download-strategy",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "1",
+      "label": "调用5级降级"
+    },
+    {
+      "id": "e-command-to-download",
+      "fromNode": "command-format",
+      "fromSide": "top",
+      "toNode": "download-entry",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "6",
+      "label": "命令调用"
+    },
+    {
+      "id": "e-download-to-transcribe",
+      "fromNode": "download-flow",
+      "fromSide": "right",
+      "toNode": "spawn-mechanism",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "1",
+      "label": "每5个spawn"
+    },
+    {
+      "id": "e-spawn-to-transcribe-flow",
+      "fromNode": "spawn-mechanism",
+      "fromSide": "bottom",
+      "toNode": "transcribe-flow",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "color": "5",
+      "label": "子进程执行"
+    },
+    {
+      "id": "e-transcribe-to-engines",
+      "fromNode": "transcribe-flow",
+      "fromSide": "right",
+      "toNode": "transcribe-engines",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "5",
+      "label": "调用引擎"
+    },
+    {
+      "id": "e-download-to-output",
+      "fromNode": "download-strategy",
+      "fromSide": "bottom",
+      "toNode": "data-output",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "4",
+      "label": "audio/{id}.mp3"
+    },
+    {
+      "id": "e-transcribe-to-output",
+      "fromNode": "transcribe-engines",
+      "fromSide": "bottom",
+      "toNode": "data-output",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "4",
+      "label": "transcripts/{id}.txt"
+    },
+    {
+      "id": "e-shared-types-dl",
+      "fromNode": "shared-types",
+      "fromSide": "top",
+      "toNode": "download-flow",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "状态校验"
+    },
+    {
+      "id": "e-shared-media-dl",
+      "fromNode": "shared-media",
+      "fromSide": "top",
+      "toNode": "download-strategy",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "下载+提取"
+    },
+    {
+      "id": "e-shared-validator-dl",
+      "fromNode": "shared-validator",
+      "fromSide": "top",
+      "toNode": "download-strategy",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "内容验证"
+    },
+    {
+      "id": "e-shared-validator-tr",
+      "fromNode": "shared-validator",
+      "fromSide": "top",
+      "toNode": "transcribe-flow",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "音频验证"
+    },
+    {
+      "id": "e-shared-whisper-tr",
+      "fromNode": "shared-whisper",
+      "fromSide": "top",
+      "toNode": "transcribe-engines",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "openai_whisper引擎"
+    },
+    {
+      "id": "e-shared-archiver-tr",
+      "fromNode": "shared-archiver",
+      "fromSide": "top",
+      "toNode": "transcribe-flow",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "音频归档"
+    },
+    {
+      "id": "e-shared-vmgr-dl",
+      "fromNode": "shared-videos-mgr",
+      "fromSide": "top",
+      "toNode": "download-entry",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "DownloadVideosManager"
+    },
+    {
+      "id": "e-shared-vmgr-tr",
+      "fromNode": "shared-videos-mgr",
+      "fromSide": "top",
+      "toNode": "transcribe-entry",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "3",
+      "label": "TranscribeVideosManager"
+    },
+    {
+      "id": "e-output-to-handoff",
+      "fromNode": "data-output",
+      "fromSide": "bottom",
+      "toNode": "handoff-flow",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "5",
+      "label": "status=transcribed"
+    },
+    {
+      "id": "e-status-to-download",
+      "fromNode": "status-machine",
+      "fromSide": "top",
+      "toNode": "download-flow",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "2",
+      "label": "状态约束"
+    },
+    {
+      "id": "e-error-to-status",
+      "fromNode": "error-handling",
+      "fromSide": "top",
+      "toNode": "status-machine",
+      "toSide": "bottom",
+      "toEnd": "arrow",
+      "color": "2",
+      "label": "异常状态转换"
+    }
+  ]
+}

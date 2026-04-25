@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "startTime": "2026-04-23T00:00:00.000Z",
+  "status": "completed",
+  "currentStage": "stage4",
+  "stages": {
+    "stage1": {
+      "status": "completed",
+      "startTime": "2026-04-22T19:19:16.195Z",
+      "endTime": "2026-04-22T19:20:43.684Z",
+      "stats": {
+        "keywordsProcessed": 5,
+        "videosFound": 150,
+        "candidatesFiltered": 40,
+        "titleFiltered": 30,
+        "bloggersAdded": 9,
+        "bloggersSkipped": 0
+      }
+    },
+    "stage2": {
+      "status": "completed",
+      "startTime": "2026-04-25T04:07:55.345Z",
+      "endTime": "2026-04-25T04:08:56.364Z",
+      "stats": {
+        "bloggersProcessed": 3,
+        "videosFound": 20,
+        "videosNew": 1,
+        "videosSkipped": 8
+      }
+    },
+    "stage3": {
+      "status": "completed",
+      "note": "功能已由 content-cleaner Skill 承担"
+    },
+    "stage4": {
+      "status": "completed",
+      "startTime": "2026-04-25T04:09:25.192Z",
+      "endTime": "2026-04-25T04:09:36.489Z",
+      "stats": {
+        "videosProcessed": 1,
+        "audioDownloaded": 1,
+        "videoDownloaded": 0,
+        "audioExtracted": 0,
+        "failed": 0,
+        "filesCleaned": 0
+      }
+    }
+  },
+  "errors": [],
+  "endTime": "2026-04-25T04:09:36.489Z"
+}

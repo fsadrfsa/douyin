@@ -1,0 +1,6942 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-04-25T12:37:08.983Z",
+  "keywords": [
+    {
+      "keyword": "AI工作流",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI能力",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI工具",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "工作流思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI信息源",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI视频生成",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "爆款视频",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "电商带货",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "视频营销",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai赚钱软件推荐",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-18T02:42:38.554Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI工具赚钱教程",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-18T02:42:38.554Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai赚钱100种方法",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-18T02:42:38.554Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "即梦ai赚钱任务入口",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-18T02:42:38.554Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "普通人怎么用ai赚钱",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-18T02:42:38.554Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai搞副业赚钱的方法",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-18T02:42:38.554Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI工具赚钱模式",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-18T02:42:38.554Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai工具赚钱图片",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-18T02:42:38.554Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "适合男士一人开店的项目",
+      "source_keyword": "一人创业项目推荐",
+      "discovered_at": "2026-04-18T02:43:02.078Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai一人公司创业项目",
+      "source_keyword": "一人创业项目推荐",
+      "discovered_at": "2026-04-18T02:43:02.078Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "适合一个人干的小生意",
+      "source_keyword": "一人创业项目推荐",
+      "discovered_at": "2026-04-18T02:43:02.078Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "适合一人的创业项目",
+      "source_keyword": "一人创业项目推荐",
+      "discovered_at": "2026-04-18T02:43:02.078Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "适合一人公司具体项目",
+      "source_keyword": "一人创业项目推荐",
+      "discovered_at": "2026-04-18T02:43:02.078Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一个人干的项目",
+      "source_keyword": "一人创业项目推荐",
+      "discovered_at": "2026-04-18T02:43:02.078Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一人创业暴利行业",
+      "source_keyword": "一人创业项目推荐",
+      "discovered_at": "2026-04-18T02:43:02.078Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一人创业低成本项目",
+      "source_keyword": "一人创业项目推荐",
+      "discovered_at": "2026-04-18T02:43:02.078Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一人公司创业项目",
+      "source_keyword": "一人创业项目推荐",
+      "discovered_at": "2026-04-18T02:43:02.078Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "适合男士的一人创业",
+      "source_keyword": "一人创业项目推荐",
+      "discovered_at": "2026-04-18T02:43:02.078Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "短视频变现方法",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-18T02:43:21.620Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体变现途径有哪些",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-18T02:43:21.620Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai自媒体变现",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-18T02:43:21.620Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "2026年自媒体赛道推荐",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-18T02:43:21.620Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体口播如何变现",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-18T02:43:21.620Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体平台收益对比",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-18T02:43:21.620Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "教做自媒体的博主",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-18T02:43:21.620Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创作者伙伴计划",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-18T02:43:21.620Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体怎么变现方式",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-18T02:43:21.620Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体一天能赚多少",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-18T02:43:21.620Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "爱好变现文案",
+      "source_keyword": "爱好变现",
+      "discovered_at": "2026-04-18T02:43:40.602Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "爱好变现赚钱方法",
+      "source_keyword": "爱好变现",
+      "discovered_at": "2026-04-18T02:43:40.602Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "爱好变现成功案例",
+      "source_keyword": "爱好变现",
+      "discovered_at": "2026-04-18T02:43:40.602Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "爱好变现的好处",
+      "source_keyword": "爱好变现",
+      "discovered_at": "2026-04-18T02:43:40.602Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "爱好变现创业书籍",
+      "source_keyword": "爱好变现",
+      "discovered_at": "2026-04-18T02:43:40.602Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "如何把爱好变现",
+      "source_keyword": "爱好变现",
+      "discovered_at": "2026-04-18T02:43:40.602Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "爱好变现的方法",
+      "source_keyword": "爱好变现",
+      "discovered_at": "2026-04-18T02:43:40.602Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "爱好变现搞笑",
+      "source_keyword": "爱好变现",
+      "discovered_at": "2026-04-18T02:43:40.602Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "货源",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:15:42.209Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "翻身",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:15:42.209Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "搞钱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:15:42.209Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "零售创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:16:01.965Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "供应链",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:16:01.965Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "逆袭",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:16:18.001Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "普通人",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:16:18.001Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:16:18.001Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "零成本创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:16:36.430Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "服装创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:16:36.430Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "单款股东",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:16:36.430Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "预售裂变",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:16:36.430Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "草根创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:16:36.430Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "摆摊",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:17:35.734Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "情绪价值",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:17:35.734Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "生意设计",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:18:13.399Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "产品包装",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:18:13.399Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "销售说服",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:18:13.399Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量运营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:18:13.399Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "年入百万",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:18:13.399Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI工具",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:22:08.762Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "组货玩法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:22:08.762Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "电商运营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:22:08.762Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "轻资产创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:28:36.101Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "上门服务",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:28:36.101Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "副业赚钱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:28:36.101Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业商机",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:28:36.101Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "智力变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:30:00.276Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "摆摊选址",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:30:42.202Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "摆摊创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:30:42.202Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "地摊经济",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:30:42.202Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "选址口诀",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:30:42.202Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "小本创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:30:42.202Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一人生意",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:31:02.462Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "超级个体",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:31:02.462Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一人公司",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:31:02.462Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "低成本创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:31:02.462Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "副业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:31:19.742Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "互联网副业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:31:19.742Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:31:19.742Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "有积累副业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:31:19.742Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "抖音涨粉",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:31:54.082Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量精准",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:31:54.082Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "人工智能",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:32:08.620Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "个人品牌",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:32:08.621Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "短视频引流",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:32:08.621Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:32:08.621Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "账号运营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:32:08.621Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "短视频起号",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:34:52.533Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体创作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:35:12.703Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量提升",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:35:12.703Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业经历",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:35:40.249Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "借势借力",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:35:40.249Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "原始积累",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:35:40.249Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "跨境电商",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:36:01.291Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "新手入门",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:36:01.291Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "全职自媒体",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:36:42.544Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "副业变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:36:42.544Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体焦虑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:36:42.544Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "普通人创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:36:42.544Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体流量",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:37:00.060Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体运营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:40:49.205Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-18T04:40:49.205Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai视频怎么赚钱",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-18T05:43:48.884Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "即梦ai赚钱入口",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-18T05:43:48.884Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "利用ai赚钱项目",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-18T05:51:03.587Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI工具怎么赚钱",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-18T05:51:03.587Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一人公司ai智能体",
+      "source_keyword": "一人创业项目推荐",
+      "discovered_at": "2026-04-18T13:51:33.286Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体变现方式有哪些",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-18T13:51:51.537Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体赛道变现排行",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-18T13:51:51.537Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体该怎么起号",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-18T13:51:51.537Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "兼职自媒体教程",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-18T13:51:51.537Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体变现赛道",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-18T13:51:51.537Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "变现能力强的兴趣爱好",
+      "source_keyword": "爱好变现",
+      "discovered_at": "2026-04-18T13:52:09.939Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "爱好变现的案例分享",
+      "source_keyword": "爱好变现",
+      "discovered_at": "2026-04-18T13:52:09.939Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI自学",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T09:12:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "提示词工程",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T09:12:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "工作流",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T09:12:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "降本增效",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T09:12:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "赚钱思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T09:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "老板思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T09:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业学习",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T09:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "借力思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T09:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "成功心态",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T09:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "兴趣变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T09:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业模式",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T09:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "对标账号",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T09:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI员工团队",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI工具选型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "信息源",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI时代财富分配",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "跨界联想",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI能力分层",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "思考层收入",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "资金能力",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "信息差生意",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "试错迭代",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "六个月翻身",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "个人IP",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "最小可行产品",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "正反馈",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "抖音起号",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业粉",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "账号变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "抖音运营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "数据思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "蹭热点",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "完播率",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "副业思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "持续输出",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体真相",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "销售思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "赚钱本质",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "价值交换",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "发现需求",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体销售",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "抖音玩法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "视频赚钱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创作者中心",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "日本超级个体案例",
+      "source_keyword": "超级个体",
+      "discovered_at": "2026-04-18T18:58:38.589Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "超级个体骗局揭秘",
+      "source_keyword": "超级个体",
+      "discovered_at": "2026-04-18T18:58:38.589Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "超级个体养成计划",
+      "source_keyword": "超级个体",
+      "discovered_at": "2026-04-18T18:58:38.589Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "超级个体项目推荐",
+      "source_keyword": "超级个体",
+      "discovered_at": "2026-04-18T18:58:38.589Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "助贷超级个体怎么做",
+      "source_keyword": "超级个体",
+      "discovered_at": "2026-04-18T18:58:38.589Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "2026年超级个体机遇",
+      "source_keyword": "超级个体",
+      "discovered_at": "2026-04-18T18:58:38.589Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "超级个体ai",
+      "source_keyword": "超级个体",
+      "discovered_at": "2026-04-18T18:58:38.589Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "超级个体都有哪些职业",
+      "source_keyword": "超级个体",
+      "discovered_at": "2026-04-18T18:58:38.589Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "超级个体创业项目",
+      "source_keyword": "超级个体",
+      "discovered_at": "2026-04-18T18:58:38.589Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "日本超级个体的案例",
+      "source_keyword": "超级个体",
+      "discovered_at": "2026-04-18T18:58:38.589Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai副业项目推荐",
+      "source_keyword": "AI赚钱",
+      "discovered_at": "2026-04-18T18:58:57.168Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai赚钱书籍2026正版",
+      "source_keyword": "AI赚钱",
+      "discovered_at": "2026-04-18T18:58:57.168Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai制作视频赚钱方法",
+      "source_keyword": "AI赚钱",
+      "discovered_at": "2026-04-18T18:58:57.168Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai赚钱变现方式",
+      "source_keyword": "AI赚钱",
+      "discovered_at": "2026-04-18T18:58:57.168Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai赚钱书正版",
+      "source_keyword": "AI赚钱",
+      "discovered_at": "2026-04-18T18:58:57.168Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "2026年ai赚钱",
+      "source_keyword": "AI赚钱",
+      "discovered_at": "2026-04-18T18:58:57.168Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai副业赚钱项目推荐",
+      "source_keyword": "AI赚钱",
+      "discovered_at": "2026-04-18T18:58:57.168Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai变现最赚钱的方法",
+      "source_keyword": "AI赚钱",
+      "discovered_at": "2026-04-18T18:58:57.168Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "学习赚钱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "业务流程",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业准备",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "成功思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业者心态",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-19T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "DTC模式",
+      "source": "video_analysis",
+      "discovered_at": "2025-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "合伙人",
+      "source": "video_analysis",
+      "discovered_at": "2025-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "新手入行",
+      "source": "video_analysis",
+      "discovered_at": "2025-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "知识付费",
+      "source": "video_analysis",
+      "discovered_at": "2025-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "执行力",
+      "source": "video_analysis",
+      "discovered_at": "2025-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "真诚营销",
+      "source": "video_analysis",
+      "discovered_at": "2025-04-19T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体工具",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体策略",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "垂直内容",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI杠杆",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "内容产能",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI副业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI代运营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI教学",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "技能结合",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "副业规划",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI赚钱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "垂直赛道",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI短视频",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI自媒体",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "内容创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "垂直细分",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "选题能力",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "闲鱼无货源",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI电商",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量密码",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI创作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T03:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "赚钱逻辑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业认知",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "赚钱风口",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业项目",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "轻资产",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "短视频带货",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一人项目",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量重启",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自然流量",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "小生意",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "赚钱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一个人创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai工具免费赚钱",
+      "source_keyword": "AI赚钱",
+      "discovered_at": "2026-04-20T00:55:30.740Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "即梦ai赚钱方法",
+      "source_keyword": "AI赚钱",
+      "discovered_at": "2026-04-20T00:55:30.740Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai技术变现途径",
+      "source_keyword": "AI赚钱",
+      "discovered_at": "2026-04-20T00:57:47.787Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "怎么用ai赚钱变现",
+      "source_keyword": "AI赚钱",
+      "discovered_at": "2026-04-20T00:57:47.787Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "手机搬砖赚钱方法",
+      "source_keyword": "副业赚钱",
+      "discovered_at": "2026-04-20T01:01:08.477Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "2026副业赚钱",
+      "source_keyword": "副业赚钱",
+      "discovered_at": "2026-04-20T01:01:08.478Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "看广告赚钱app",
+      "source_keyword": "副业赚钱",
+      "discovered_at": "2026-04-20T01:01:08.478Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "副业赚钱项目推荐",
+      "source_keyword": "副业赚钱",
+      "discovered_at": "2026-04-20T01:01:08.478Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "副业赚钱vlog",
+      "source_keyword": "副业赚钱",
+      "discovered_at": "2026-04-20T01:01:08.478Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "副业兼职怎么找",
+      "source_keyword": "副业赚钱",
+      "discovered_at": "2026-04-20T01:01:08.478Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "线上日结副业",
+      "source_keyword": "副业赚钱",
+      "discovered_at": "2026-04-20T01:01:08.478Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "网上赚钱每天赚100元",
+      "source_keyword": "副业赚钱",
+      "discovered_at": "2026-04-20T01:01:08.478Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "手机副业赚钱项目",
+      "source_keyword": "副业赚钱",
+      "discovered_at": "2026-04-20T01:01:08.478Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "赚钱励志图片",
+      "source_keyword": "副业赚钱",
+      "discovered_at": "2026-04-20T01:01:08.478Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一人公司书籍",
+      "source_keyword": "一人公司",
+      "discovered_at": "2026-04-20T01:01:25.364Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一人公司怎么注册",
+      "source_keyword": "一人公司",
+      "discovered_at": "2026-04-20T01:01:25.364Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一人公司项目推荐",
+      "source_keyword": "一人公司",
+      "discovered_at": "2026-04-20T01:01:25.364Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一人公司能做什么",
+      "source_keyword": "一人公司",
+      "discovered_at": "2026-04-20T01:01:25.364Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一人公司盈利模式",
+      "source_keyword": "一人公司",
+      "discovered_at": "2026-04-20T01:01:25.364Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "北京一人公司政策",
+      "source_keyword": "一人公司",
+      "discovered_at": "2026-04-20T01:01:25.364Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai一人创业项目推荐",
+      "source_keyword": "一人公司",
+      "discovered_at": "2026-04-20T01:01:25.364Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "手搓经济怎么赚钱",
+      "source_keyword": "手搓经济",
+      "discovered_at": "2026-04-20T01:01:42.230Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "线上日结副业推荐",
+      "source_keyword": "线上副业",
+      "discovered_at": "2026-04-20T01:02:00.060Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "线上副业正规平台",
+      "source_keyword": "线上副业",
+      "discovered_at": "2026-04-20T01:02:00.060Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "线上赚点小钱副业",
+      "source_keyword": "线上副业",
+      "discovered_at": "2026-04-20T01:02:00.060Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "线上赚钱app一单一结",
+      "source_keyword": "线上副业",
+      "discovered_at": "2026-04-20T01:02:00.060Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "线上低成本创业",
+      "source_keyword": "线上副业",
+      "discovered_at": "2026-04-20T01:02:00.060Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "线上副业正规app",
+      "source_keyword": "线上副业",
+      "discovered_at": "2026-04-20T01:02:00.060Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "不影响上班的副业",
+      "source_keyword": "线上副业",
+      "discovered_at": "2026-04-20T01:02:00.060Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "线上副业项目推荐",
+      "source_keyword": "线上副业",
+      "discovered_at": "2026-04-20T01:02:00.060Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "照号运营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T02:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "快速起号",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T02:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "直播连麦",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T02:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "短视频运营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T02:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "信息差",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T02:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI视频制作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T02:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "心理学短视频",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T02:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "赚钱方法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T06:13:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业医疗险",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T06:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "短视频制作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T06:19:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T07:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业访谈",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T08:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "原创项目",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T08:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "底层逆袭",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T09:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量闭环",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T09:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体获客",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T09:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体系统",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "不上班赚钱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "个体创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体SOP",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "工作流程",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体结局",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "系统化运营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "独立站创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量博弈",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "外贸创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "潮汕创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业经验",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "餐饮创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业日记",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "搞钱思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:40:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "年轻创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业成长",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "品牌逆袭",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "供应链优势",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T10:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T11:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业体系",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T11:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一人公司SOP",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T11:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业判断",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T11:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "高管创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T11:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业咨询",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T11:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业误区",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业维度",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T12:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业关口",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T12:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "辞职创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T12:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业风险",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T12:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业趋势",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T12:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "内容变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T12:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T12:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "精准流量",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T12:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "短视频文案",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T12:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业机会",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T12:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "垂直领域",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-20T12:40:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业金融",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI工具箱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "变现渠道",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "副业避坑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "副业收入",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "技能变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "女性创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业孤独",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业认知",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "副业发展",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一个人生意",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "团购带货",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "旅游赚钱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创作者服务",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创作者标签",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "抖音赚钱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "唱歌赚钱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI数字产品",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "被动收入",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "私域卖货",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "5天出产品",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "痛包创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "箱包产业带",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "二次元经济",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "淘宝出海",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "工厂转型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI工具矩阵",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "自动化变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "16种赚钱方法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "差价逻辑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "认知差变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "细分领域",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "折叠屏评测",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "OPPO Find N6",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "移动生产力",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "折痕问题",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI画图表",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "追觅太空算力",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "算力卫星",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "7nm芯片",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "快舟11号",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "中国速度",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "2026趋势",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI Agent",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量红利赛道",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "万字文档",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "黄金投资",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "第一性原理",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "实际利率",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "金首饰vs金条",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "资产配置",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "学会问",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "学会抄",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "二手奢侈品",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业方法论",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "优绩主义",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "学历标签",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "社会评价体系",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "高考公平性",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "职业选择",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "说话逻辑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "维特根斯坦",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "表达框架",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "诡辩思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "逻辑闭环",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "风口陷阱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "赚钱方法论",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "副业逻辑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "执念vs信念",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "摸索而非搜索",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "毛选解读",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "干中学",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "辩证唯物论",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "矛盾论",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "具体问题具体分析",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "年终述职",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "人才盘点",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "倒三角表达",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "SCQA模型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "KISS模型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "过度思考",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "试错成本",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "建设思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "习惯养成",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "就业焦虑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "多人博弈",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "工作意义",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "职业规划",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "生存圈",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "职场筛选工作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "重点工作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "苦劳表现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "向上汇报",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "随机分配原则",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "政经史陷阱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "思维因果",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "平移知识",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "金融经济商业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "顺应规则",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "抄书骗局",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "配音剪辑陷阱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "无货源电商",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "割韭菜",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "财富迁移",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "新旧引擎换挡",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "房地产熄火",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI替代",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "消费力筹码",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "Claude Code",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "无人化开发",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI贷款模式",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "99美元创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "极简开发",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业坚持",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "游戏心态",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "中途放弃",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "解决问题",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "长期主义",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业不适合",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "试错",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "粗糙开始",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "边干边学",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "财富自由",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "100万存款",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "赚钱系统",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "年化收益",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "正向循环",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量层级",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "视频制作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "文案话题",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "高清发布",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量激励",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "作品分析",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "赢流量激励",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "抖音运营技巧",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "普鲁士教育",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI时代",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "打工思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "独立决策",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "上门助浴",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "失能老人",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI洗澡机",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "养老赛道",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22",
+      "status": "pending"
+    },
+    {
+      "keyword": "零成本创业入门指南",
+      "source_keyword": "零成本创业",
+      "discovered_at": "2026-04-22T06:24:13.202Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "零成本线上创业",
+      "source_keyword": "零成本创业",
+      "discovered_at": "2026-04-22T06:24:13.202Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "小成本创业项目推荐",
+      "source_keyword": "零成本创业",
+      "discovered_at": "2026-04-22T06:24:13.202Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "免费加盟0元创业",
+      "source_keyword": "零成本创业",
+      "discovered_at": "2026-04-22T06:24:13.202Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "零成本创业怎么起步",
+      "source_keyword": "零成本创业",
+      "discovered_at": "2026-04-22T06:24:13.202Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "2026轻资产创业项目",
+      "source_keyword": "零成本创业",
+      "discovered_at": "2026-04-22T06:24:13.202Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "2000元创业项目",
+      "source_keyword": "零成本创业",
+      "discovered_at": "2026-04-22T06:24:13.202Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "零成本的话文案",
+      "source_keyword": "零成本创业",
+      "discovered_at": "2026-04-22T06:24:13.202Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "线上零成本创业",
+      "source_keyword": "零成本创业",
+      "discovered_at": "2026-04-22T06:24:13.202Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "零成本线上挣钱",
+      "source_keyword": "零成本创业",
+      "discovered_at": "2026-04-22T06:24:13.202Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI短剧创作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "剧本重要性",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "题材选择",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "即梦AI",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "二八法则",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "喂与挖",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI使用方法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "多轮对话",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "让AI反问",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "超级外脑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "奶茶设备",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自助奶茶机",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "便利店奶茶",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "奶茶加盟",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "手写文字赛道",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "情感治愈",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "伙伴计划",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "短视频变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "执行方法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "微信隐藏功能",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "视频通话美颜",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "图生视频",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "消息提醒",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自定义图标",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "品牌色",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "视觉系统",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "色彩定位",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "差异化",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业者学习",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "增长大会",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "线下学习",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI落地",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "得到",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "排列组合",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "单干创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "排除法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "恰恰瓜子",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "企业转型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自动化生产",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "1688电商",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "年货节",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "情绪稳定",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "无悔无惧",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "人生哲学",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "情绪管理",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "心态调整",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "老乡鸡",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "标准化运营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "品牌定位",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "全时段餐厅",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "餐饮转型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "成年人翻盘",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "系统学习",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业投资",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "再生父母",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "读书方法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "深度思考",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "人生决策系统",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "蔡文胜",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "认知框架",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "战略规划",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "会员制模式",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "成本价销售",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "客流获取",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "赠品策略",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "资源整合",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "库存尾货",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "合伙人模式",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "高阶心法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量逻辑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "内容策略",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "系统思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "手机壳创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "品牌思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "小成本创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "品质优先",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业故事",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "文科生AI",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "养AI方法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "JVS Cloud",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "语言编程",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-22T00:00:00Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "奥悦路亚工厂的直播间",
+      "source_keyword": "奥悦路亚",
+      "discovered_at": "2026-04-22T10:20:14.871Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "奥悦路亚工厂",
+      "source_keyword": "奥悦路亚",
+      "discovered_at": "2026-04-22T10:20:14.871Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "奥悦路亚工厂的钓竿",
+      "source_keyword": "奥悦路亚",
+      "discovered_at": "2026-04-22T10:20:14.871Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "鼓轮路亚",
+      "source_keyword": "奥悦路亚",
+      "discovered_at": "2026-04-22T10:20:14.871Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "适合宝妈用的ai工具",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-22T19:19:34.015Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "即梦ai怎么赚钱",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-22T19:19:34.015Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai一人公司盈利模式",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-22T19:19:34.015Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI工具赚钱方法手册",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-22T19:19:34.015Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai工具分钱",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-22T19:19:34.015Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai行业怎么入行赚钱",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-22T19:19:34.015Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI工具赚钱方法推荐",
+      "source_keyword": "ai工具赚钱方法",
+      "discovered_at": "2026-04-22T19:19:34.015Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "小本加盟项目推荐",
+      "source_keyword": "一人创业项目推荐",
+      "discovered_at": "2026-04-22T19:19:54.373Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "小投资2-3万加盟店",
+      "source_keyword": "一人创业项目推荐",
+      "discovered_at": "2026-04-22T19:19:54.373Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "抖音自媒体变现途径",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-22T19:20:08.787Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体变现是什么意思",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-22T19:20:08.787Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体变现赛道排名",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-22T19:20:08.787Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体接广告变现",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-22T19:20:08.787Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体类目怎么选",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-22T19:20:08.787Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体口播变现",
+      "source_keyword": "自媒体变现",
+      "discovered_at": "2026-04-22T19:20:08.787Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai超级个体",
+      "source_keyword": "超级个体",
+      "discovered_at": "2026-04-22T19:20:22.997Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "超级个体养成日记",
+      "source_keyword": "超级个体",
+      "discovered_at": "2026-04-22T19:20:22.997Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "2026年超级个体职业",
+      "source_keyword": "超级个体",
+      "discovered_at": "2026-04-22T19:20:22.997Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai超级个体是什么",
+      "source_keyword": "超级个体",
+      "discovered_at": "2026-04-22T19:20:22.997Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ai时代超级个体",
+      "source_keyword": "超级个体",
+      "discovered_at": "2026-04-22T19:20:22.997Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "Token预算",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流程编排能力",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI产品经理招聘",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "新流AI",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "保持好奇心",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "价值发现四维度",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "价值实现三路径",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "张学赛车案例",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI辅助决策",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "投行方法论",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业闭环五步走",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "垂直精准流量",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "搜索流量布局",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "私域转化效率",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "内容资产思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "销售渠道变化",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "卖信息而非卖货",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "道法术器方法论",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "第三产业分类",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "小圈子直播",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "女权发展四阶段",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "U形曲线理论",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "小红书变现效率",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一二线年轻女性",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "戈尔丁诺贝尔奖",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流程编排",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI产品经理",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "职场竞争力",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "价值发现四维模型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "价值锚点",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "认知垄断",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "个人品牌化",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业闭环五步法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "垂直精准内容",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "私域转化",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "低粉高变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "女权四阶段",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "U形曲线",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "性别对立",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "关系型领导",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "专业型员工",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "个人地位",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "职场生存策略",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "员工排序逻辑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "抖音小店代发",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "斗大侠",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一键下单",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "收货地址关联",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "代发流程",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "奥利奥商业逻辑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "本地化策略",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "仪式感营销",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "超级碗营销",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "品牌百年",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "不上班选择",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业选择权",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "乔布斯启发",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "生命主体",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "伪概念",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "房价供需逻辑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:40:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "城镇化率",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:40:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "租售比",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:40:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "二手房隐藏成交价",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:40:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "废品回收",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "打包站问价",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "铁箱回收",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "废铁分类",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "收废品",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "库存尾货批发",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "广州庆丰市场",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "混批不挑款",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "次品率",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "直播带货尾货",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T12:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "短视频8大反常识",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "不要垂直",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "向下兼容",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "完播率多维分析",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "DOU+投放逻辑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "门头引流",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "产品自带流量",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "拒绝加盟",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创意自由",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "冷敷贴",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "带货直播",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "复购率",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "防伪标识",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "万万特产",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业复盘",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "虚拟货币第一桶金",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "陪玩店模式",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "信任裂变",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "共识性价值",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "视频打光技巧",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "NAS素材管理",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "绿联DH4300",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "房间改造拍摄",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体效率提升",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量生意体系",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "短视频加直播模式",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "赛道选择三条件",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "兴趣电商",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "变现模式对比",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI中转站",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "API倒卖模式",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "套壳差价",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "SaaS2API部署",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "灰色玩法揭秘",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "正大集团负氢水",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "饮用水代理",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "无人售货机",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "供应链合作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "渠道铺货",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "无损拍照",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:42:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI判题",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:42:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "单删检测",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:42:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "考编文化批判",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:48:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "懂事是驯化",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:48:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "稳定不等于幸福",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:48:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "代际接力棒",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:48:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自我认知",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:48:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "低数据期坚持",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:52:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "内容做钩子",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T13:52:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体零成本创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "百万爆款拆解",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "深度长视频",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "对话感社交感",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "爆款模板结构",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "单粉变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "性别对立分析",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI童装电商",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "年省250万",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "ComfyUI工作流",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "开发周期减半",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI选款趋势分析",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "数字产品变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI制作电子书",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "五天出产品",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自动发货",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "职场转型三大幻觉",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "工具型关系",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "归因偏差",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "经验产品化",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "核心资产",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI十年演进",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "普通人8条AI赚钱路径",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "智能体时代",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "职业AI化",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI服务商",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "拆二代创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "薛辉创业故事",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "员工评价老板",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "爆款背后",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业读书体系",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "100本创业书单",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业认知即识字率",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "读书改变收入",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "系统搭建商业知识",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "寺院经济",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "慈善募捐灰色模式",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "闷声发财",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "放生产业链",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "二手玫瑰循环",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "用别人的钱创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "镀金策略",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "管理分红",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "灰色思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T14:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "空手套白狼",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "尾货批发信息差",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "短视频获客",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "广州石井尾货",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "娱乐化传播知识",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "泛粉丝是金矿",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "信息密度",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "竖屏交互",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "战略vs战术",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "百万年薪高管",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "内推求职策略",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "跳槽反噬",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI时代生存",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "价值观颠覆",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "直播切片二创",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "女主播推荐账号",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "十万粉对接主播",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "矩阵账号",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "视频收费定价",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "反安稳论",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "数字资产论",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "1000客户模型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "痛苦成长",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "两种人分类",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "边上班边做自媒体",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "稳定输出vs追求完美",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体转型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "万赞笔记",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "不是厉害了才能开始",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体三阶段",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:40:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "穿越黑暗期",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:40:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "数量目标入局",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:40:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量审视期",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:40:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "人格魅力IP",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:40:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI自媒体闭环",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "52次极限调优",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "爆款基因库",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI复盘流量漏点",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "效率放大器",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T15:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "女权U形曲线",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "经济基础决定上层建筑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "私信获客低成本",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "电子手册自动发货",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI五天做教程",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自媒体变现正解",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "私域卖电子书",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "人脉幻觉工具型关系",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "能力幻觉归因偏差",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "经验幻觉原材料vs产品",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "高管转型创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "核心资产化",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI十年四阶段",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "普通人8条AI变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI智能体时代",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "业务操盘者",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "认知比学历重要",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "抖音创业成长",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "正反馈管理",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "爆款背后辛苦",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T16:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "女性成长变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "细分赛道选择",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "育儿赛道",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "情感赛道",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "职场赚钱赛道",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "中美贸易战",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:46:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "产业升级",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:46:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自由贸易体系",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:46:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "高端制造",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:46:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI硬件竞争",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:46:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "比特币投资风险",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:47:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "数字黄金破灭",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:47:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "华尔街基差交易",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:47:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "矿工撤离",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:47:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "加密货币危机",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:47:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "知识库产品",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:48:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI改写文案",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:49:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "爆款拆解",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:49:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "跨行业借鉴",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:49:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "智能体应用",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:49:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "文案原创化",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:49:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "职场人际关系",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "关系型员工",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "人脉经营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "职场生存法则",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "抖音达人分销",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:51:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "精选联盟",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:51:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "佣金设置",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:51:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "选品广场",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:51:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "达人合作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:51:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "恰恰瓜子案例",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:52:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "单品市场份额",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:52:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "品牌创新",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:52:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "渠道创新",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:52:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "产业链管理",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:52:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "入对行判断",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:53:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业方向选择",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:53:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "成功人士评价",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:53:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "轻松工作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:53:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "企业家自传",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:53:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "上流社会",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:57:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "装逼能力",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:57:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "时间管理",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:57:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "核心竞争力",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:57:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "社会信用标签",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:57:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "连锁超市扭亏",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:58:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "股权激励",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:58:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "会员冲卡",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:58:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "供应商谈判",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:58:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "引流策略",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:58:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "短视频流量",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:59:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "养号误区",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:59:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI数字人",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:59:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "内容为王",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T17:59:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "TikTok跨境电商",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "MCN公司",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "选品方法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "达人资源",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自制短视频",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "便利店运营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:01:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "线上外卖",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:01:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "前置仓模式",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:01:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "点位选择",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:01:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "本地生活",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:01:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "单位运营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:02:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "客资转化",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:02:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "接待客户视频",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:02:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "视频定位",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:02:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "前端变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:02:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "易经命运",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:03:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "两仪四象",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:03:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "六十四卦",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:03:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "定爻方法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:03:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自由意志",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:03:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "博主商业价值",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:04:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "视频质感",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:04:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "开头冲击力",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:04:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "拍摄节奏",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:04:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "DJI OM7",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:04:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "镜头表达",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "开头引流",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "漏斗模型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "Token原理",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:06:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI底层技术",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:06:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "词元概念",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:06:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "切词算法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:06:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "提示词优化",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:06:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI跨境电商",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "阿里巴巴国际站",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI客服",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "企业AI转型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-24T18:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI时代能动性",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "习得性控制",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "Dan Koe五步法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "通才vs专才",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI放大器",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "直接去做",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "带着问题学习",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "正反馈循环",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "行动优先",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI药师助手",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "智慧药房",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "医疗AI应用",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "药师转型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "人机协作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI副业避坑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "垂直细分赛道",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "卖解决方案",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "五步商业闭环",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "需求优先",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "现金流策略",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "债务显化",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "输入性通胀",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "资产价格底",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "保本生存",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "扎心文案",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "情感共鸣",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量池建模",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "变现功能",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一人公司方法论",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "N+1+4人机结合",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "数字分身",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "摸鱼技巧",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "第二增长曲线",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:45:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "中式披萨创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "借鸡生蛋模式",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "电中电模式",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "餐饮合作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "送礼社交",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "共情社交",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "功利社交",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "社交货币",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "徕芬礼盒",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "对口型技巧",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "抖音合拍",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自动字幕",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "视频裁剪",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "抖音教程",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:50:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "职场转型创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "平台依赖",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "真实能力评估",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "复利型副业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "数字产品",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "时间杠杆",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "选择权",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "小生意直播",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "水晶手串",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "手工制作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "穿戴甲",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "博弈思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业逻辑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "职场博弈",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "品牌转型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "波司登",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "羽绒服",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "品牌升级",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业案例",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:15:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "认知差",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "内容创作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "用户认知",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "个人成长",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "品牌运营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "销售技巧",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "普通人逆袭",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "变现技巧",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "电商标题",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:38:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "搜索流量",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:38:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "关键词优化",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:38:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商品卡",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:38:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "信任经济",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:40:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业闭环",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T02:35:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "家教中介",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "确定性需求",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "客户裂变",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "婚介服务",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "烤肉店运营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "烟火气拍摄",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "接地气营销",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "算账式卖惨",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业心态",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自我负责",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "行动力",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "靠自己",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "寻找热爱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "低欲望感",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "摄影",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "人生意义",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "梦想与恐惧",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "赛道选择",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "变现模式",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "心法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI焦虑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "极大丰裕时代",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "信任价值",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "人类优势",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "未来工作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "资产评估",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "无形资产",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "天赋识别",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "个人投资",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "财务模型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "智能茶饮",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "设备铺设",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量突破",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "话题讨论",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "零花钱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "播放量收益",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "热门话题",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI学习陷阱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "变现逻辑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "假努力",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "输出展示",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商业模式设计",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "产品分层策略",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "机缘与尝试",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "CRS全球税务交换",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "海外收入报税",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "税务合规架构",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "阿联酋税务规划",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "加密货币监管",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI眼镜创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "盲人辅助技术",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "纯视觉避障导航",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "康复辅具产品",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "社会意义创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "个人创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "经验变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "判断力训练",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "约束价值",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "决策能力",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "电商运营全攻略",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一件代发技巧",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "外包客服优势",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "毛利率计算",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "厂家分销模式",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "赚钱信息差本质",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "红利差vs渠道差",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "供需关系选赛道",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "试错资本",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "资源差识别",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "美宜佳商业案例",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "便利店加盟模式",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "下沉市场策略",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "POS系统改革",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "农村包围城市",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "个人成长经历",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "闭关读书五年",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "自学能力培养",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业成功故事",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "先死后生",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "特朗普关税战",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "章家敦中国崩溃论",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "美债抛售危机",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "中美贸易博弈",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "美元霸权动摇",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "网络小说创作",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "家族叙事",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "视角转换技巧",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "道教世界观",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "作家成长经历",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:55:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "书法直播",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "变现困境",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "直播技巧学习",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "粉丝增长",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "创业历程",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "虚拟货币投资",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "陪玩店经营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "抖音转型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "香水业务",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:10:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "成长感悟",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "接受普通",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "艺术梦想",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "摄影师经历",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "哆啦A梦",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:20:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "变现思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "人设打造",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:25:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一人团队模式",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "角色转换",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "内容测试金字塔",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "内容飞轮",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "杠杆思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:30:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "快速成长",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T11:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "N+1+4人机结合法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI下属",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "工作提效",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "平台光环",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T08:58:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "高管离职困境",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T08:58:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "副业型副业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T09:01:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "时间变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T09:01:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "收入系统",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T09:01:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "抖音起号教程",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T09:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "情感类视频",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T09:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "视频制作方法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T09:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量池运营",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T09:05:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "送礼技巧",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T09:08:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "社交关系",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T09:08:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "礼物选择",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T09:08:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI时代能力",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T09:12:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "能动性",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T09:12:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "大脑出厂设置",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T09:12:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "摄影热爱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T09:32:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "药学服务",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T09:40:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "产品经理思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T09:40:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "飙升榜音乐",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "多平台分发",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "今日头条收益",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI变现",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "假努力陷阱",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "月入过万",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "一个人做生意",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "AI眼镜",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "盲人导航",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "助盲科技",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "社会价值",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "投行方法",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "资产盘点",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "短视频技巧",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "信任与犯错",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "未来展望",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "CRS全球税务",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "海外收入税",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "税务透明",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "阿联酋税务",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "避税合规",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T10:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "对口型视频",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "合拍功能",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "抖音技巧",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "裁剪比例",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "垂直场景",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "用户画像",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "解决方案",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "认知差模型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "流量本质",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "认知盲区",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "认知误区",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "开放思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "不确定性",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "价格策略",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "产品标题",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "热词优化",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "商机中心",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T12:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "波司登转型",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "品牌老化",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "羽绒服市场",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "场景化产品",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "老品牌焕新",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "信任时代",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "直播小生意",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "手工直播",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "新手直播",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "恋爱脑",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "NPD人格",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "代购创业",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "人生逆袭",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "百万收入",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "产品矩阵",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "判断力",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "约束思维",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "keyword": "长期价值",
+      "source": "video_analysis",
+      "discovered_at": "2026-04-25T14:00:00.000Z",
+      "status": "pending"
+    }
+  ]
+}

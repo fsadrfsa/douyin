@@ -1,0 +1,144 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-04-20T00:00:00.000Z",
+  "issues": [
+    {
+      "type": "data_error",
+      "video_id": "7013306887516998923",
+      "message": "转录文件为空（0行），无法整理",
+      "occurred_at": "2026-04-17T00:00:00.000Z"
+    },
+    {
+      "type": "path_error",
+      "video_id": "6957238047645633824",
+      "message": "转录文件对应的视频已归档（科趣创想家，在黑名单中），跳过处理",
+      "occurred_at": "2026-04-17T00:00:00.000Z"
+    },
+    {
+      "type": "path_error",
+      "video_id": "7149820493749587232",
+      "message": "转录文件对应的视频已归档（科趣创想家，在黑名单中），跳过处理",
+      "occurred_at": "2026-04-17T00:00:00.000Z"
+    },
+    {
+      "type": "path_error",
+      "video_id": "7238502380956863781",
+      "message": "转录文件对应的视频已归档（科趣创想家，在黑名单中），跳过处理",
+      "occurred_at": "2026-04-17T00:00:00.000Z"
+    },
+    {
+      "type": "data_error",
+      "video_id": "7001090318292634883",
+      "message": "转录文件存在但视频不在videos.json中，无法整理",
+      "occurred_at": "2026-04-17T00:00:00.000Z"
+    },
+    {
+      "type": "data_error",
+      "video_id": "7627454031195016502",
+      "message": "stage4_status为transcribed但转录文件不存在，无法整理（需重新转录）",
+      "occurred_at": "2026-04-17T00:00:00.000Z"
+    },
+    {
+      "type": "data_error",
+      "video_id": "7627116227273461043",
+      "message": "stage4_status为transcribed但转录文件不存在，无法整理（需重新转录）",
+      "occurred_at": "2026-04-17T00:00:00.000Z"
+    },
+    {
+      "type": "data_error",
+      "video_id": "7627077336805952831",
+      "message": "stage4_status为transcribed但转录文件不存在，无法整理（需重新转录）",
+      "occurred_at": "2026-04-17T00:00:00.000Z"
+    },
+    {
+      "type": "data_error",
+      "video_id": "7626729507977776424",
+      "message": "stage4_status为transcribed但转录文件不存在，无法整理（需重新转录）",
+      "occurred_at": "2026-04-17T00:00:00.000Z"
+    },
+    {
+      "type": "data_error",
+      "video_id": "7224059494433688892",
+      "message": "stage4_status为transcribed但转录文件不存在，无法整理（需重新转录）",
+      "occurred_at": "2026-04-17T00:00:00.000Z"
+    },
+    {
+      "type": "data_error",
+      "video_id": "7217078953192869175",
+      "message": "stage4_status为transcribed但转录文件不存在，无法整理（需重新转录）",
+      "occurred_at": "2026-04-17T00:00:00.000Z"
+    },
+    {
+      "type": "data_error",
+      "video_id": "7542914041838193980",
+      "message": "转录主文件不存在，但_segments目录下有分段文件，已手动合并创建完整转录文件后成功处理",
+      "occurred_at": "2026-04-17T00:00:00.000Z"
+    },
+    {
+      "type": "over_compressed",
+      "video_id": "7626341444885712154",
+      "message": "内容过度压缩（ratio=0.02，内容仅40字符），博主：克理斯汀，需重处理",
+      "occurred_at": "2026-04-20T00:00:00.000Z"
+    },
+    {
+      "type": "over_compressed",
+      "video_id": "7564348993203948810",
+      "message": "内容过度压缩（ratio=0.05，内容仅220字符），博主：洪树，需重处理",
+      "occurred_at": "2026-04-20T00:00:00.000Z"
+    },
+    {
+      "type": "over_compressed",
+      "video_id": "7614427070650682675",
+      "message": "内容过度压缩（ratio=0.06，内容仅304字符），博主：大巾探，需重处理",
+      "occurred_at": "2026-04-20T00:00:00.000Z"
+    },
+    {
+      "type": "over_compressed",
+      "video_id": "7629570479803600166",
+      "message": "内容过度压缩（ratio=0.07，内容仅213字符），博主：洪树，需重处理",
+      "occurred_at": "2026-04-20T00:00:00.000Z"
+    },
+    {
+      "type": "over_compressed",
+      "video_id": "7593172512575073445",
+      "message": "内容过度压缩（ratio=0.08，内容仅54字符），博主：@十三，需重处理",
+      "occurred_at": "2026-04-20T00:00:00.000Z"
+    },
+    {
+      "type": "over_compressed",
+      "video_id": "7625297188536454434",
+      "message": "内容过度压缩（ratio=0.09，内容仅685字符），博主：这很容易，需重处理",
+      "occurred_at": "2026-04-20T00:00:00.000Z"
+    },
+    {
+      "type": "over_compressed",
+      "video_id": "7629307213085035810",
+      "message": "内容过度压缩（ratio=0.11，内容仅337字符），博主：这很容易，需重处理",
+      "occurred_at": "2026-04-20T00:00:00.000Z"
+    },
+    {
+      "type": "over_compressed",
+      "video_id": "7574700768452726068",
+      "message": "内容过度压缩（ratio=0.12，内容仅297字符），博主：洪树，需重处理",
+      "occurred_at": "2026-04-20T00:00:00.000Z"
+    },
+    {
+      "type": "over_compressed",
+      "video_id": "7613613266997266405",
+      "message": "内容过度压缩（ratio=0.15，内容仅295字符），博主：胡说老王聊商策，需重处理",
+      "occurred_at": "2026-04-20T00:00:00.000Z"
+    },
+    {
+      "type": "over_compressed",
+      "video_id": "7630038876647592689",
+      "message": "内容过度压缩（ratio=0.22，内容仅590字符），博主：主持人三木，需重处理",
+      "occurred_at": "2026-04-20T00:00:00.000Z"
+    },
+    {
+      "type": "over_compressed",
+      "video_id": "7625238703115373887",
+      "message": "内容过度压缩（ratio=0.24，内容仅975字符），博主：克理斯汀，需重处理",
+      "occurred_at": "2026-04-20T00:00:00.000Z"
+    }
+  ]
+}
